@@ -1,0 +1,17 @@
+<soapenv:Envelope
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:urn="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <urn:QueryOptions>
+            <urn:batchSize>%s(batchSize)</urn:batchSize>
+        </urn:QueryOptions>
+        <urn:SessionHeader>
+            <urn:sessionId>%s(session)</urn:sessionId>
+        </urn:SessionHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <urn:query>
+            <urn:queryString>%s(queryString)</urn:queryString>
+        </urn:query>
+    </soapenv:Body>
+</soapenv:Envelope>

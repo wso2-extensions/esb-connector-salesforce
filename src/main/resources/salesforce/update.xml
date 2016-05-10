@@ -17,13 +17,14 @@
  ~  under the License.
 -->
 <template name="update" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="allOrNone"/>
-    <parameter name="allowFieldTruncate"/>
-    <parameter name="sobjects"/>
+    <parameter name="allOrNone" description="Whether to rollback changes if an object fails(Default value is 0)."/>
+    <parameter name="allowFieldTruncate" description="Whether to truncates strings that exceed the field length(Default value is 0)."/>
+    <parameter name="sobjects" description="The type of sobject"/>
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupCRUDParams"/>
         <property
-                expression="get-property('operation','salesforce.serviceUrl')" name="uri.var.salesforce.url"/>
+                expression="get-property('operation','salesforce.serviceUrl')"
+                name="uri.var.salesforce.url"/>
         <payloadFactory>
             <format>
                 <soapenv:Envelope
@@ -76,7 +77,6 @@
         <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
         <property name="HTTP_METHOD" scope="axis2" value="POST"/>
         <header name="To" expression="$ctx:uri.var.salesforce.url"/>
-
         <filter source="$ctx:SALESFORCE_BLOCKING" regex="true">
             <then>
                 <call blocking="true">
@@ -113,6 +113,5 @@
                 </call>
             </else>
         </filter>
-
     </sequence>
 </template>

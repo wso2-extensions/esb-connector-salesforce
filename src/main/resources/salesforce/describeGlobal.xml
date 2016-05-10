@@ -19,7 +19,8 @@
 <template name="describeGlobal" xmlns="http://ws.apache.org/ns/synapse">
     <sequence>
         <property
-                expression="get-property('operation','salesforce.serviceUrl')" name="uri.var.salesforce.url"/>
+                expression="get-property('operation','salesforce.serviceUrl')"
+                name="uri.var.salesforce.url"/>
         <payloadFactory>
             <format>
                 <soapenv:Envelope
@@ -39,12 +40,8 @@
                 <arg expression="get-property('operation','salesforce.sessionId')"/>
             </args>
         </payloadFactory>
-
-
         <property name="messageType" scope="axis2" value="text/xml"/>
         <header name="Action" value="urn:partner.soap.sforce.com/Soap/describeGlobalRequest"/>
-
-
         <!-- ><call>
             <endpoint>
                 <http method="POST" uri-template="{uri.var.salesforce.url}">
@@ -62,8 +59,8 @@
         </call>  -->
         <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
         <property name="HTTP_METHOD" scope="axis2" value="POST"/>
+        <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
         <header name="To" expression="$ctx:uri.var.salesforce.url"/>
-
         <filter source="$ctx:SALESFORCE_BLOCKING" regex="true">
             <then>
                 <call blocking="true">
@@ -100,6 +97,5 @@
                 </call>
             </else>
         </filter>
-
     </sequence>
 </template>

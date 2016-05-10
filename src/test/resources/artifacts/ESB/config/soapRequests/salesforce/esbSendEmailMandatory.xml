@@ -1,0 +1,20 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>%s(loginUrl)</urn:loginUrl>
+        <urn:username>%s(username)</urn:username>
+        <urn:password>%s(password)</urn:password>
+        <urn:blocking>%s(blocking)</urn:blocking>
+        <urn:method>sendEmail</urn:method>
+        <urn:bccSender>%s(bccSender)</urn:bccSender>
+        <urn:emailPriority>%s(emailPriority)</urn:emailPriority>
+        <urn:replyTo>%s(replyTo)</urn:replyTo>
+        <urn:saveAsActivity>%s(saveAsActivity)</urn:saveAsActivity>
+        <urn:senderDisplayName>%s(senderDisplayName)</urn:senderDisplayName>
+        <urn:subject>%s(subject)</urn:subject>
+        <urn:useSignature>%s(useSignature)</urn:useSignature>
+        <urn:targetObjectId>%s(targetObjectId)</urn:targetObjectId>
+        <urn:plainTextBody>%s(plainTextBody)</urn:plainTextBody>
+    </soapenv:Body>
+</soapenv:Envelope>
