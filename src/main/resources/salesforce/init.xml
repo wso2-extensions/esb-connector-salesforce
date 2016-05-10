@@ -38,7 +38,7 @@
                 </enrich>
                 <property expression="$func:loginUrl" name="uri.var.salesforce.url"/>
                 <header name="Action" value="urn:partner.soap.sforce.com/Soap/loginRequest"/>
-                <payloadFactory media-type="xml">
+                <payloadFactory>
                     <format>
                         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                                           xmlns:urn="urn:partner.soap.sforce.com">
@@ -65,7 +65,7 @@
                     </timeout> <suspendOnFailure> <initialDuration>2000</initialDuration> <progressionFactor>1.0</progressionFactor>
                     <maximumDuration>3000</maximumDuration> </suspendOnFailure> </http> </endpoint>
                     </call> -->
-                <!--<property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>-->
+                <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
                 <property name="HTTP_METHOD" scope="axis2" value="POST"/>
                 <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
                 <property name="Accept-Encoding" scope="transport" action="remove"/>

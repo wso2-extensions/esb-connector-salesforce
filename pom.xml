@@ -29,7 +29,7 @@
     <properties>
         <connector.name>salesforce</connector.name>
         <test.framework.version>4.2.0</test.framework.version>
-        <esb.version>5.0.0-SNAPSHOT</esb.version>
+        <esb.version>4.9.0</esb.version>
         <carbon.kernel.version>4.4.1</carbon.kernel.version>
         <emma.version>2.1.5320</emma.version>
         <synapse.version>2.1.7-wso2v3-ALPHA</synapse.version>
