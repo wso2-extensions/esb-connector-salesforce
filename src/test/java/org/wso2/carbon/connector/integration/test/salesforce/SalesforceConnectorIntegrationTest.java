@@ -94,7 +94,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      * d
      * Positive test case for describeSObject method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {describeSObject} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeSObject} integration test with mandatory parameters.")
     public void testDescribeSObjectWithMandatoryParameters() throws Exception {
 
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDescribeSObjectMandatory.xml", null, "mediate",
@@ -103,19 +103,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         String xPathExp = "string(//ns:childRelationships)";
         String esbChildRelationship = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
-        SOAPEnvelope apiSoapResponse = sendSOAPRequest(apiEndPoint, "apiLogin.xml", null, "login",
+        SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiDescribeSObjectMandatory.xml", null, "describeSObject",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
-        xPathExp = "string(//ns:sessionId)";
-        String session = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("session", session);
-        xPathExp = "string(//ns:serverUrl)";
-        String serverUrl = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("serverUrl", serverUrl);
-
-        apiSoapResponse = sendSOAPRequest(serverUrl, "apiDescribeSObjectMandatory.xml", null, "describeSObject",
-                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
-        apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
         xPathExp = "string(//ns:childRelationships)";
         String apiChildRelationship = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
@@ -126,7 +116,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      * d
      * Positive test case for describeGlobal method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {describeGlobal} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeGlobal} integration test with mandatory parameters.")
     public void testDescribeGlobalWithMandatoryParameters() throws Exception {
 
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDescribeGlobalMandatory.xml", null, "mediate",
@@ -134,20 +124,10 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
         String xPathExp = "string(//ns:sobjects)";
         String esbSObjects = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
-
-        SOAPEnvelope apiSoapResponse = sendSOAPRequest(apiEndPoint, "apiLogin.xml", null, "login",
+        
+        SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiDescribeGlobalMandatory.xml", null, "describeGlobal",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
-        xPathExp = "string(//ns:sessionId)";
-        String session = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("session", session);
-        xPathExp = "string(//ns:serverUrl)";
-        String serverUrl = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("serverUrl", serverUrl);
-
-        apiSoapResponse = sendSOAPRequest(serverUrl, "apiDescribeGlobalMandatory.xml", null, "describeGlobal",
-                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
-        apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
         xPathExp = "string(//ns:sobjects)";
         String apiSObjects = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
@@ -159,7 +139,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      * d
      * Positive test case for describeSObjects method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {describeSObjects} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeSObjects} integration test with mandatory parameters.")
     public void testDescribeSObjectsWithMandatoryParameters() throws Exception {
 
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDescribeSObjectsMandatory.xml", null, "mediate",
@@ -168,19 +148,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         String xPathExp = "string(//ns:sobjects)";
         String esbSObjects = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
-        SOAPEnvelope apiSoapResponse = sendSOAPRequest(apiEndPoint, "apiLogin.xml", null, "login",
+        SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiDescribeSObjectsMandatory.xml", null, "describeSObjects",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
-        xPathExp = "string(//ns:sessionId)";
-        String session = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("session", session);
-        xPathExp = "string(//ns:serverUrl)";
-        String serverUrl = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("serverUrl", serverUrl);
-
-        apiSoapResponse = sendSOAPRequest(serverUrl, "apiDescribeSObjectsMandatory.xml", null, "describeSObjects",
-                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
-        apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
         xPathExp = "string(//ns:sobjects)";
         String apiSObjects = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
@@ -192,7 +162,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      * d
      * Positive test case for query method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {query} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {query} integration test with mandatory parameters.")
     public void testQueryWithMandatoryParameters() throws Exception {
 
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbQueryMandatory.xml", null, "mediate",
@@ -201,19 +171,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         String xPathExp = "string(//ns:result)";
         String esbRes = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
-        SOAPEnvelope apiSoapResponse = sendSOAPRequest(apiEndPoint, "apiLogin.xml", null, "login",
+        SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiQueryMandatory.xml", null, "query",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
-        xPathExp = "string(//ns:sessionId)";
-        String session = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("session", session);
-        xPathExp = "string(//ns:serverUrl)";
-        String serverUrl = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("serverUrl", serverUrl);
-
-        apiSoapResponse = sendSOAPRequest(serverUrl, "apiQueryMandatory.xml", null, "query",
-                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
-        apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
         xPathExp = "string(//ns:result)";
         String apiRes = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
@@ -224,7 +184,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      * d
      * Positive test case for search method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {search} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {search} integration test with mandatory parameters.")
     public void testSearchWithMandatoryParameters() throws Exception {
 
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbSearchMandatory.xml", null, "mediate",
@@ -233,19 +193,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         String xPathExp = "string(//ns:searchRecords)";
         String esbRes = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
-        SOAPEnvelope apiSoapResponse = sendSOAPRequest(apiEndPoint, "apiLogin.xml", null, "login",
+        SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiSearchMandatory.xml", null, "search",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
-        xPathExp = "string(//ns:sessionId)";
-        String session = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("session", session);
-        xPathExp = "string(//ns:serverUrl)";
-        String serverUrl = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
-        connectorProperties.put("serverUrl", serverUrl);
-
-        apiSoapResponse = sendSOAPRequest(serverUrl, "apiSearchMandatory.xml", null, "search",
-                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
-        apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
         xPathExp = "string(//ns:searchRecords)";
         String apiRes = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
