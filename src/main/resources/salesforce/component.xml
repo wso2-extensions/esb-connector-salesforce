@@ -66,11 +66,11 @@
             <file>undelete.xml</file>
             <description>Restore sObject(s) synapse library</description>
         </component>
-        <component name="describeSobject">
+        <component name="describeSObject">
             <file>describeSObject.xml</file>
             <description>Describe SObject synapse library</description>
         </component>
-        <component name="describeSobjects">
+        <component name="describeSObjects">
             <file>describeSObjects.xml</file>
             <description>Describe SObjects synapse library</description>
         </component>
@@ -98,8 +98,8 @@
             <file>resetPassword.xml</file>
             <description>Reset Password synapse library</description>
         </component>
-        <component name="getUserInformation">
-            <file>getUserInformation.xml</file>
+        <component name="getUserInfo">
+            <file>getUserInfo.xml</file>
             <description>Get User Information synapse library</description>
         </component>
     </subComponents>

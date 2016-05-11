@@ -17,8 +17,8 @@
  ~  under the License.
 -->
 <template name="delete" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="allOrNone"/>
-    <parameter name="sobjects"/>
+    <parameter name="allOrNone" description="Whether to rollback changes if an object fails(Default value is 0)"/>
+    <parameter name="sobjects" description="The sobject type"/>
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupCRUDParams"/>
         <property expression="get-property('operation','salesforce.serviceUrl')"
@@ -53,8 +53,6 @@
 
         <property name="messageType" scope="axis2" value="text/xml"/>
         <header name="Action" value="urn:partner.soap.sforce.com/Soap/deleteRequest"/>
-
-
         <!-- <call> <endpoint> <http method="POST" uri-template="{uri.var.salesforce.url}">
             <timeout> <duration>60000</duration> <responseAction>fault</responseAction>
             </timeout> <suspendOnFailure> <initialDuration>2000</initialDuration> <progressionFactor>1.0</progressionFactor>
@@ -100,6 +98,5 @@
                 </call>
             </else>
         </filter>
-
     </sequence>
 </template>

@@ -18,11 +18,13 @@
 -->
 <template name="init" onError="fault"
           xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="username"/>
-    <parameter name="password"/>
-    <parameter name="loginUrl"/>
-    <parameter name="forceLogin"/>
-    <parameter name="blocking"/>
+    <parameter name="username" description="The username for the salesforce account"/>
+    <parameter name="password"
+               description="The password is the combinations of the user password and the security token for salesforce"/>
+    <parameter name="loginUrl" description="The login URL to get the user access"/>
+    <parameter name="forceLogin" description="The forceLogin parameter"/>
+    <parameter name="blocking"
+               description="The blocking parameter is helping connector performs the blocking invocations to Salesforce"/>
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
         <filter xpath="get-property('operation','salesforce.login.done') = 'true'">
@@ -65,8 +67,10 @@
                     </call> -->
                 <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
                 <property name="HTTP_METHOD" scope="axis2" value="POST"/>
+                <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
                 <property name="Accept-Encoding" scope="transport" action="remove"/>
                 <header name="To" expression="$ctx:uri.var.salesforce.url"/>
+                <header name="Content-Encoding" action="remove" scope="transport"/>
                 <call>
                     <endpoint>
                         <default format="soap11">
@@ -82,7 +86,6 @@
                         </default>
                     </endpoint>
                 </call>
-
                 <property name="FORCE_ERROR_ON_SOAP_FAULT" value="false"/>
                 <property name="SALESFORCE_BLOCKING" expression="$func:blocking"/>
                 <property expression="//ns:loginResponse/ns:result/ns:sessionId/text()"

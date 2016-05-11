@@ -17,13 +17,14 @@
  ~  under the License.
 -->
 <template name="create" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="allOrNone"/>
-    <parameter name="allowFieldTruncate"/>
-    <parameter name="sobjects"/>
+    <parameter name="allOrNone" description="Whether to rollback changes if an object fails(Default value is 0)."/>
+    <parameter name="allowFieldTruncate" description="Whether to truncates strings that exceed the field length(Default value is 0)."/>
+    <parameter name="sobjects" description="The sobject type"/>
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupCRUDParams"/>
         <property
-                expression="get-property('operation','salesforce.serviceUrl')" name="uri.var.salesforce.url"/>
+                expression="get-property('operation','salesforce.serviceUrl')"
+                name="uri.var.salesforce.url"/>
         <payloadFactory>
             <format>
                 <soapenv:Envelope
@@ -59,8 +60,6 @@
 
         <property name="messageType" scope="axis2" value="text/xml"/>
         <header name="Action" value="urn:partner.soap.sforce.com/Soap/createRequest"/>
-
-
         <!-- ><call>
             <endpoint>
                 <http method="POST" uri-template="{uri.var.salesforce.url}">
@@ -116,6 +115,5 @@
                 </call>
             </else>
         </filter>
-
     </sequence>
 </template>

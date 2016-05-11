@@ -21,7 +21,6 @@
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
-       
         <fileSet>
             <directory>target/connector/dependencies</directory>
             <outputDirectory>lib</outputDirectory>
@@ -34,9 +33,5 @@
                 <exclude>**/META-INF/*</exclude>
             </excludes>
         </fileSet>
-        
-	
     </fileSets>
-    
-    
 </assembly>
