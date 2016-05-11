@@ -32,11 +32,8 @@ import java.util.Map;
 public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTestBase {
 
     private final String SOAP_HEADER_XPATH_EXP = "/soapenv:Envelope/soapenv:Header/*";
-
     private final String SOAP_BODY_XPATH_EXP = "/soapenv:Envelope/soapenv:Body/*";
-
     Map<String, String> nameSpaceMap = new HashMap<String, String>();
-
     private String apiEndPoint;
 
     /**
@@ -44,11 +41,8 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
-
         init("salesforce-connector-1.0.1-SNAPSHOT");
-
         apiEndPoint = connectorProperties.getProperty("loginUrl");
-
         nameSpaceMap.put("ns", "urn:partner.soap.sforce.com");
         nameSpaceMap.put("ns1", "urn:sobject.partner.soap.sforce.com");
     }
@@ -59,7 +53,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {getUserInfo} integration test with mandatory parameters.")
     public void testGetUserInfoWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbGetUserInfoMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -96,7 +89,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeSObject} integration test with mandatory parameters.")
     public void testDescribeSObjectWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDescribeSObjectMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -118,13 +110,12 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeGlobal} integration test with mandatory parameters.")
     public void testDescribeGlobalWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDescribeGlobalMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
         String xPathExp = "string(//ns:sobjects)";
         String esbSObjects = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
-        
+
         SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiDescribeGlobalMandatory.xml", null, "describeGlobal",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
@@ -132,7 +123,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         String apiSObjects = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
         Assert.assertEquals(esbSObjects, apiSObjects);
-
     }
 
     /**
@@ -141,7 +131,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeSObjects} integration test with mandatory parameters.")
     public void testDescribeSObjectsWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDescribeSObjectsMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -155,7 +144,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         String apiSObjects = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
         Assert.assertEquals(esbSObjects, apiSObjects);
-
     }
 
     /**
@@ -164,7 +152,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {query} integration test with mandatory parameters.")
     public void testQueryWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbQueryMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -186,7 +173,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {search} integration test with mandatory parameters.")
     public void testSearchWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbSearchMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -208,7 +194,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testUnDeleteWithMandatoryParameters"}, description = "Salesforce {retrieve} integration test with mandatory parameters.")
     public void testRetrieveWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbRetrieveMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -225,14 +210,12 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {create} integration test with mandatory parameters.")
     public void testCreateWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbCreateMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
         String xPathExp = "string(//ns:id)";
         String id = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
         connectorProperties.put("id", id);
-
         xPathExp = "string(//ns:success)";
         String status = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
@@ -246,11 +229,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testCreateWithMandatoryParameters"}, description = "Salesforce {update} integration test with mandatory parameters.")
     public void testUpdateWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbUpdateMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
-
         String xPathExp = "string(//ns:success)";
         String status = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
@@ -264,11 +245,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testUpdateWithMandatoryParameters"}, description = "Salesforce {delete} integration test with mandatory parameters.")
     public void testDeleteWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbDeleteMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
-
         String xPathExp = "string(//ns:success)";
         String status = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
@@ -282,11 +261,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testDeleteWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")
     public void testUnDeleteWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbUnDeleteMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
-
         String xPathExp = "string(//ns:success)";
         String status = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
@@ -300,7 +277,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {sendEmail} integration test with mandatory parameters.")
     public void testSendEMailWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbSendEmailMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
@@ -317,7 +293,6 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {logout} integration test with mandatory parameters.")
     public void testLogoutWithMandatoryParameters() throws Exception {
-
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbLogoutMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
