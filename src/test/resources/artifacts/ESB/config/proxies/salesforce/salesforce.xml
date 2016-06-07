@@ -28,6 +28,9 @@
                       name="loginUrl"
                       expression="//ns:loginUrl/text()"/>
             <property xmlns:ns="wso2.connector.salesforce"
+                      name="timeout"
+                      expression="//ns:timeout/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
                       name="username"
                       expression="//ns:username/text()"/>
             <property xmlns:ns="wso2.connector.salesforce"

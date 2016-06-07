@@ -8,5 +8,6 @@
         <urn:blocking>%s(blocking)</urn:blocking>
         <urn:method>describeSObject</urn:method>
         <urn:sobject>%s(sobject)</urn:sobject>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>
