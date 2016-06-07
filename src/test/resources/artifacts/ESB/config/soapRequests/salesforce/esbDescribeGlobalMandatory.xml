@@ -7,5 +7,6 @@
         <urn:password>%s(password)</urn:password>
         <urn:blocking>%s(blocking)</urn:blocking>
         <urn:method>describeGlobal</urn:method>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>

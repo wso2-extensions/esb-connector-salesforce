@@ -16,5 +16,6 @@
         <urn:useSignature>%s(useSignature)</urn:useSignature>
         <urn:targetObjectId>%s(targetObjectId)</urn:targetObjectId>
         <urn:plainTextBody>%s(plainTextBody)</urn:plainTextBody>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>

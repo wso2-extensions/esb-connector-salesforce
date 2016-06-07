@@ -9,5 +9,6 @@
         <urn:method>query</urn:method>
         <urn:batchSize>%s(batchSize)</urn:batchSize>
         <urn:queryString>%s(queryString)</urn:queryString>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>
