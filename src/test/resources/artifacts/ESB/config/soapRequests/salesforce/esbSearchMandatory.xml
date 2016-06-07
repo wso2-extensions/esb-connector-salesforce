@@ -8,5 +8,6 @@
         <urn:blocking>%s(blocking)</urn:blocking>
         <urn:method>search</urn:method>
         <urn:searchString>%s(searchString)</urn:searchString>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>
