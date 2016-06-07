@@ -26,7 +26,6 @@
     <parameter name="blocking"
                description="The blocking parameter is helping connector performs the blocking invocations to Salesforce."/>
     <parameter name="timeout" description="Timeout duration of the API request."/>
-
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
         <filter xpath="get-property('operation','salesforce.login.done') = 'true'">
@@ -68,18 +67,12 @@
                 <property name="Accept-Encoding" scope="transport" action="remove"/>
                 <header name="To" expression="$ctx:uri.var.salesforce.url"/>
                 <header name="Content-Encoding" action="remove" scope="transport"/>
-
                 <property name="salesforce.timeout" expression="$func:timeout"/>
-
                 <call>
                     <endpoint name="EP" template="org.wso2.carbon.connector.salesforce.salesforceEndPoint">
                         <parameter name="timeout" value="ctx:salesforce.timeout" />
                     </endpoint>
                 </call>
-                <log level="custom">
-                    <property name="MESSAGE$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-                              expression="get-property('salesforce.timeout')"/>
-                </log>
                 <property name="FORCE_ERROR_ON_SOAP_FAULT" value="false"/>
                 <property name="SALESFORCE_BLOCKING" expression="$func:blocking"/>
                 <property expression="//ns:loginResponse/ns:result/ns:sessionId/text()"
