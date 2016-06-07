@@ -9,5 +9,6 @@
         <urn:method>update</urn:method>
         <urn:Id>%s(id)</urn:Id>
         <urn:Name>%s(newName)</urn:Name>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>

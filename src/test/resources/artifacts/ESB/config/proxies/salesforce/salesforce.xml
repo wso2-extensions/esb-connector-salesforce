@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-~  Copyright (c) 2016, WSO2 Inc. (http://wso2.com) All Rights Reserved.
-~
-~  WSO2 Inc. licenses this file to you under the Apache License,
-~  Version 2.0 (the "License"); you may not use this file except
-~  in compliance with the License.
-~  You may obtain a copy of the License at
-~
-~   http://www.apache.org/licenses/LICENSE-2.0
-~
-~  Unless required by applicable law or agreed to in writing,
-~  software distributed under the License is distributed on an
-~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-~  KIND, either express or implied.  See the License for the
-~  specific language governing permissions and limitations
-~  under the License.
--->
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="salesforce"
-       transports="https http"
-       startOnLoad="true"
-       trace="disable">
-    <description/>
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
     <target>
         <inSequence>
             <property xmlns:ns="wso2.connector.salesforce"
                       name="loginUrl"
                       expression="//ns:loginUrl/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="timeout"
+                      expression="//ns:timeout/text()"/>
             <property xmlns:ns="wso2.connector.salesforce"
                       name="username"
                       expression="//ns:username/text()"/>
@@ -116,6 +102,7 @@
                 <username>{$ctx:username}</username>
                 <password>{$ctx:password}</password>
                 <blocking>{$ctx:blocking}</blocking>
+                <timeout>{$ctx:timeout}</timeout>
             </salesforce.init>
             <switch source="get-property('method')">
                 <case regex="getUserInfo">
@@ -144,7 +131,7 @@
                             </sfdc:sObjects>
                         </format>
                         <args>
-                            <arg expression="get-property('name')"/>
+                            <arg evaluator="xml" expression="get-property('name')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.create>
@@ -154,14 +141,14 @@
                     </salesforce.create>
                 </case>
                 <case regex="delete">
-                    <payloadFactory>
+                    <payloadFactory media-type="xml">
                         <format>
                             <sfdc:sObjects xmlns:sfdc="sfdc">
                                 <sfdc:Id>$1</sfdc:Id>
                             </sfdc:sObjects>
                         </format>
                         <args>
-                            <arg expression="get-property('id')"/>
+                            <arg evaluator="xml" expression="get-property('id')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.delete>
@@ -170,7 +157,7 @@
                     </salesforce.delete>
                 </case>
                 <case regex="update">
-                    <payloadFactory>
+                    <payloadFactory media-type="xml">
                         <format>
                             <sfdc:sObjects xmlns:sfdc="sfdc" type="Account">
                                 <sfdc:sObject>
@@ -180,8 +167,8 @@
                             </sfdc:sObjects>
                         </format>
                         <args>
-                            <arg expression="get-property('id')"/>
-                            <arg expression="get-property('newName')"/>
+                            <arg evaluator="xml" expression="get-property('id')"/>
+                            <arg evaluator="xml" expression="get-property('newName')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.update>
@@ -191,14 +178,14 @@
                     </salesforce.update>
                 </case>
                 <case regex="undelete">
-                    <payloadFactory>
+                    <payloadFactory media-type="xml">
                         <format>
                             <sfdc:sObjects xmlns:sfdc="sfdc">
                                 <sfdc:Id>$1</sfdc:Id>
                             </sfdc:sObjects>
                         </format>
                         <args>
-                            <arg expression="get-property('id')"/>
+                            <arg evaluator="xml" expression="get-property('id')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.undelete>
@@ -207,7 +194,7 @@
                     </salesforce.undelete>
                 </case>
                 <case regex="describeSobjects">
-                    <payloadFactory>
+                    <payloadFactory media-type="xml">
                         <format>
                             <sfdc:sObjects xmlns:sfdc="sfdc">
                                 <sfdc:sObjectType>$1</sfdc:sObjectType>
@@ -215,8 +202,8 @@
                             </sfdc:sObjects>
                         </format>
                         <args>
-                            <arg expression="get-property('type1')"/>
-                            <arg expression="get-property('type2')"/>
+                            <arg evaluator="xml" expression="get-property('type1')"/>
+                            <arg evaluator="xml" expression="get-property('type2')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.describeSobjects>
@@ -230,14 +217,14 @@
                     </salesforce.query>
                 </case>
                 <case regex="retrieve">
-                    <payloadFactory>
+                    <payloadFactory media-type="xml">
                         <format>
                             <sfdc:sObjects xmlns:sfdc="sfdc">
                                 <sfdc:Id>$1</sfdc:Id>
                             </sfdc:sObjects>
                         </format>
                         <args>
-                            <arg expression="get-property('id')"/>
+                            <arg evaluator="xml" expression="get-property('id')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.retrieve>
@@ -247,7 +234,7 @@
                     </salesforce.retrieve>
                 </case>
                 <case regex="sendEmail">
-                    <payloadFactory>
+                    <payloadFactory media-type="xml">
                         <format>
                             <sfdc:emailWrapper xmlns:sfdc="sfdc">
                                 <sfdc:messages type="urn:SingleEmailMessage">
@@ -264,15 +251,15 @@
                             </sfdc:emailWrapper>
                         </format>
                         <args>
-                            <arg expression="get-property('bccSender')"/>
-                            <arg expression="get-property('emailPriority')"/>
-                            <arg expression="get-property('replyTo')"/>
-                            <arg expression="get-property('saveAsActivity')"/>
-                            <arg expression="get-property('senderDisplayName')"/>
-                            <arg expression="get-property('subject')"/>
-                            <arg expression="get-property('useSignature')"/>
-                            <arg expression="get-property('targetObjectId')"/>
-                            <arg expression="get-property('plainTextBody')"/>
+                            <arg evaluator="xml" expression="get-property('bccSender')"/>
+                            <arg evaluator="xml" expression="get-property('emailPriority')"/>
+                            <arg evaluator="xml" expression="get-property('replyTo')"/>
+                            <arg evaluator="xml" expression="get-property('saveAsActivity')"/>
+                            <arg evaluator="xml" expression="get-property('senderDisplayName')"/>
+                            <arg evaluator="xml" expression="get-property('subject')"/>
+                            <arg evaluator="xml" expression="get-property('useSignature')"/>
+                            <arg evaluator="xml" expression="get-property('targetObjectId')"/>
+                            <arg evaluator="xml" expression="get-property('plainTextBody')"/>
                         </args>
                     </payloadFactory>
                     <salesforce.sendEmail>
@@ -289,4 +276,5 @@
             <send/>
         </outSequence>
     </target>
+    <description/>
 </proxy>

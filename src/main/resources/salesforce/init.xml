@@ -18,13 +18,15 @@
 -->
 <template name="init" onError="fault"
           xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="username" description="The username for the salesforce account"/>
+    <parameter name="username" description="The username for the salesforce account."/>
     <parameter name="password"
-               description="The password is the combinations of the user password and the security token for salesforce"/>
-    <parameter name="loginUrl" description="The login URL to get the user access"/>
-    <parameter name="forceLogin" description="The forceLogin parameter"/>
+               description="The password is the combinations of the user password and the security token for salesforce."/>
+    <parameter name="loginUrl" description="The login URL to get the user access."/>
+    <parameter name="forceLogin" description="The forceLogin parameter."/>
     <parameter name="blocking"
-               description="The blocking parameter is helping connector performs the blocking invocations to Salesforce"/>
+               description="The blocking parameter is helping connector performs the blocking invocations to Salesforce."/>
+    <parameter name="timeout" description="Timeout duration of the API request."/>
+
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
         <filter xpath="get-property('operation','salesforce.login.done') = 'true'">
@@ -60,32 +62,24 @@
                 </log>
                 <property name="FORCE_ERROR_ON_SOAP_FAULT" value="true"/>
                 <property name="messageType" scope="axis2" value="text/xml"/>
-                <!-- <call> <endpoint> <http method="POST" uri-template="{uri.var.salesforce.url}">
-                    <timeout> <duration>60000</duration> <responseAction>fault</responseAction>
-                    </timeout> <suspendOnFailure> <initialDuration>2000</initialDuration> <progressionFactor>1.0</progressionFactor>
-                    <maximumDuration>3000</maximumDuration> </suspendOnFailure> </http> </endpoint>
-                    </call> -->
                 <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
                 <property name="HTTP_METHOD" scope="axis2" value="POST"/>
                 <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
                 <property name="Accept-Encoding" scope="transport" action="remove"/>
                 <header name="To" expression="$ctx:uri.var.salesforce.url"/>
                 <header name="Content-Encoding" action="remove" scope="transport"/>
+
+                <property name="salesforce.timeout" expression="$func:timeout"/>
+
                 <call>
-                    <endpoint>
-                        <default format="soap11">
-                            <timeout>
-                                <duration>60000</duration>
-                                <responseAction>fault</responseAction>
-                            </timeout>
-                            <suspendOnFailure>
-                                <initialDuration>2000</initialDuration>
-                                <progressionFactor>1.0</progressionFactor>
-                                <maximumDuration>3000</maximumDuration>
-                            </suspendOnFailure>
-                        </default>
+                    <endpoint name="EP" template="org.wso2.carbon.connector.salesforce.salesforceEndPoint">
+                        <parameter name="timeout" value="ctx:salesforce.timeout" />
                     </endpoint>
                 </call>
+                <log level="custom">
+                    <property name="MESSAGE$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+                              expression="get-property('salesforce.timeout')"/>
+                </log>
                 <property name="FORCE_ERROR_ON_SOAP_FAULT" value="false"/>
                 <property name="SALESFORCE_BLOCKING" expression="$func:blocking"/>
                 <property expression="//ns:loginResponse/ns:result/ns:sessionId/text()"

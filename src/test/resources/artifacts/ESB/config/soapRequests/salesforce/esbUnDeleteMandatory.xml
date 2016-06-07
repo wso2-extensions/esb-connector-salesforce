@@ -8,5 +8,6 @@
         <urn:blocking>%s(blocking)</urn:blocking>
         <urn:method>undelete</urn:method>
         <urn:Id>%s(id)</urn:Id>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>

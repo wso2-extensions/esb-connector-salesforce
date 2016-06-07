@@ -10,5 +10,6 @@
         <urn:fieldList>%s(fieldList)</urn:fieldList>
         <urn:objectType>%s(objectType)</urn:objectType>
         <urn:Id>%s(id)</urn:Id>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>

@@ -9,5 +9,6 @@
         <urn:method>describeSobjects</urn:method>
         <urn:sObjectType>%s(type1)</urn:sObjectType>
         <urn:sObjectType1>%s(type2)</urn:sObjectType1>
+        <urn:timeout>%s(timeout)</urn:timeout>
     </soapenv:Body>
 </soapenv:Envelope>
