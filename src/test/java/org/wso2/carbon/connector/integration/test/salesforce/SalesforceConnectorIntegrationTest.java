@@ -41,7 +41,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
-        init("salesforce-connector-1.0.1");
+        init("salesforce-connector-1.0.2-SNAPSHOT");
         apiEndPoint = connectorProperties.getProperty("loginUrl");
         nameSpaceMap.put("ns", "urn:partner.soap.sforce.com");
         nameSpaceMap.put("ns1", "urn:sobject.partner.soap.sforce.com");
