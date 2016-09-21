@@ -15,7 +15,7 @@ Steps to follow in setting integration test.
 
  1. Download ESB WSO2 ESB 5.0.0-ALPHA from official website.
 
- 2. Create a Slaesforce account.
+ 2. Create a Salesforce account.
 
  3. Update the Salesforce properties file at location "{Connector_Home}/src/test/resources/artifacts/ESB/connector/config" as below.
 	
