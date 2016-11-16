@@ -1,0 +1,124 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "getUserInfoResponse",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "result": {
+      "id": "http:\/\/wso2jsonschema.org\/result",
+      "type": "object",
+      "properties": {
+        "accessibilityMode": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/accessibilityMode",
+          "type": "boolean"
+        },
+        "currencySymbol": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/currencySymbol",
+          "type": "string"
+        },
+        "orgAttachmentFileSizeLimit": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/orgAttachmentFileSizeLimit",
+          "type": "number"
+        },
+        "orgDefaultCurrencyIsoCode": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/orgDefaultCurrencyIsoCode",
+          "type": "string"
+        },
+        "orgDisallowHtmlAttachments": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/orgDisallowHtmlAttachments",
+          "type": "boolean"
+        },
+        "orgHasPersonAccounts": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/orgHasPersonAccounts",
+          "type": "boolean"
+        },
+        "organizationId": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/organizationId",
+          "type": "string"
+        },
+        "organizationMultiCurrency": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/organizationMultiCurrency",
+          "type": "boolean"
+        },
+        "organizationName": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/organizationName",
+          "type": "string"
+        },
+        "profileId": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/profileId",
+          "type": "string"
+        },
+        "roleId": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/roleId",
+          "type": "object",
+          "nullable": "true",
+          "properties": {},
+          "attributes": {
+            "xsi:nil": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/roleId\/xsi:nil",
+              "type": "boolean"
+            }
+          }
+        },
+        "sessionSecondsValid": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/sessionSecondsValid",
+          "type": "number"
+        },
+        "userDefaultCurrencyIsoCode": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userDefaultCurrencyIsoCode",
+          "type": "object",
+          "nullable": "true",
+          "properties": {},
+          "attributes": {
+            "xsi:nil": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/userDefaultCurrencyIsoCode\/xsi:nil",
+              "type": "boolean"
+            }
+          }
+        },
+        "userEmail": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userEmail",
+          "type": "string"
+        },
+        "userFullName": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userFullName",
+          "type": "string"
+        },
+        "userId": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userId",
+          "type": "string"
+        },
+        "userLanguage": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userLanguage",
+          "type": "string"
+        },
+        "userLocale": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userLocale",
+          "type": "string"
+        },
+        "userName": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userName",
+          "type": "string"
+        },
+        "userTimeZone": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userTimeZone",
+          "type": "string"
+        },
+        "userType": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userType",
+          "type": "string"
+        },
+        "userUiSkin": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/userUiSkin",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "namespaces": [
+    {
+      "prefix": "xsi",
+      "url": "http:\/\/www.w3.org\/2001\/XMLSchema-instance"
+    }
+  ]
+}

@@ -29,10 +29,14 @@
         <component name="query">
             <file>query.xml</file>
             <description>Query (SQL) synapse library</description>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorInput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateInputSchemaForQueryOperation</connectorSchemaGeneratorInput>
         </component>
         <component name="queryAll">
             <file>queryAll.xml</file>
             <description>Query all (SQL) synapse library</description>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorInput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateInputSchemaForQueryAllOperation</connectorSchemaGeneratorInput>
         </component>
         <component name="queryMore">
             <file>queryMore.xml</file>
@@ -40,15 +44,21 @@
         </component>
         <component name="create">
             <file>create.xml</file>
-            <description>Insert sObject(s) synapse library</description>
+            <description>Insert sObject(s) synapse library</description>>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorOutput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateOutputSchemaForCreateOperation</connectorSchemaGeneratorOutput>
         </component>
         <component name="update">
             <file>update.xml</file>
             <description>Update or update sObject(s) synapse library</description>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorOutput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateOutputSchemaForUpdateOperation</connectorSchemaGeneratorOutput>
         </component>
         <component name="upsert">
             <file>upsert.xml</file>
             <description>Insert or update sObject(s) synapse library</description>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorOutput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateOutputSchemaForUpsertOperation</connectorSchemaGeneratorOutput>
         </component>
         <component name="delete">
             <file>delete.xml</file>
@@ -57,6 +67,8 @@
         <component name="search">
             <file>search.xml</file>
             <description>Search using SOSL synapse library</description>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorInput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateInputSchemaForSearchOperation</connectorSchemaGeneratorInput>
         </component>
         <component name="emptyRecycleBin">
             <file>emptyRecycleBin.xml</file>
@@ -93,6 +105,8 @@
         <component name="retrieve">
             <file>retrieve.xml</file>
             <description>Retrieve synapse library</description>
+            <isDynamic>true</isDynamic>
+            <connectorSchemaGeneratorInput>org.wso2.tooling.connector.dynamic.schema.salesforcesoap.GenerateInputSchemaForRetrieveOperation</connectorSchemaGeneratorInput>
         </component>
         <component name="resetPassword">
             <file>resetPassword.xml</file>

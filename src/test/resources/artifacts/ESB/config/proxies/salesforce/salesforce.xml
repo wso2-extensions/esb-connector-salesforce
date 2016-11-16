@@ -206,7 +206,7 @@
                         <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
                     </salesforce.undelete>
                 </case>
-                <case regex="describeSobjects">
+                <case regex="describeSObjects">
                     <payloadFactory>
                         <format>
                             <sfdc:sObjects xmlns:sfdc="sfdc">
@@ -219,9 +219,9 @@
                             <arg expression="get-property('type2')"/>
                         </args>
                     </payloadFactory>
-                    <salesforce.describeSobjects>
+                    <salesforce.describeSObjects>
                         <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
-                    </salesforce.describeSobjects>
+                    </salesforce.describeSObjects>
                 </case>
                 <case regex="query">
                     <salesforce.query>

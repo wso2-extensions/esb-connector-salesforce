@@ -1,0 +1,68 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "sfdc:emailWrapper": {
+      "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper",
+      "type": "object",
+      "properties": {
+        "sfdc:messages": {
+          "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages",
+          "type": "object",
+          "properties": {
+            "sfdc:bccSender": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:bccSender",
+              "type": "boolean"
+            },
+            "sfdc:emailPriority": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:emailPriority",
+              "type": "string"
+            },
+            "sfdc:replyTo": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:replyTo",
+              "type": "string"
+            },
+            "sfdc:saveAsActivity": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:saveAsActivity",
+              "type": "boolean"
+            },
+            "sfdc:senderDisplayName": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:senderDisplayName",
+              "type": "string"
+            },
+            "sfdc:subject": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:subject",
+              "type": "string"
+            },
+            "sfdc:useSignature": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:useSignature",
+              "type": "boolean"
+            },
+            "sfdc:targetObjectId": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:targetObjectId",
+              "type": "string"
+            },
+            "sfdc:plainTextBody": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/sfdc:plainTextBody",
+              "type": "string"
+            }
+          },
+          "attributes": {
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emailWrapper\/sfdc:messages\/type",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "namespaces": [
+    {
+      "prefix": "sfdc",
+      "url": "sfdc"
+    }
+  ]
+}

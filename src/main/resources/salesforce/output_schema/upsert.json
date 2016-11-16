@@ -1,0 +1,32 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "upsertResponse",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "result": {
+      "id": "http:\/\/wso2jsonschema.org\/result",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/result\/0",
+          "type": "object",
+          "properties": {
+            "created": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/created",
+              "type": "boolean"
+            },
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/id",
+              "type": "string"
+            },
+            "success": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/success",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

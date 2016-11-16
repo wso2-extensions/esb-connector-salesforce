@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="describeSobjects" xmlns="http://ws.apache.org/ns/synapse">
+<template name="describeSObjects" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="sobjects" description="The type of sobject"/>
     <sequence>
         <property

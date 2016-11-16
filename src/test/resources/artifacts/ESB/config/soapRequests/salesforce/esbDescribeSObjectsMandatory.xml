@@ -6,7 +6,7 @@
         <urn:username>%s(username)</urn:username>
         <urn:password>%s(password)</urn:password>
         <urn:blocking>%s(blocking)</urn:blocking>
-        <urn:method>describeSobjects</urn:method>
+        <urn:method>describeSObjects</urn:method>
         <urn:sObjectType>%s(type1)</urn:sObjectType>
         <urn:sObjectType1>%s(type2)</urn:sObjectType1>
     </soapenv:Body>
