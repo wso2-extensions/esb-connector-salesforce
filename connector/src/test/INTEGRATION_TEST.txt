@@ -50,6 +50,3 @@ Steps to follow in setting integration test.
 
  4. Navigate to "{ESB_Connector_Home}/" and run the following command.
 	  $ mvn clean install
-
-
-		

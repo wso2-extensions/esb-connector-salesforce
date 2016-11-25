@@ -48,7 +48,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for getUserInfo method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {getUserInfo} integration test with mandatory parameters.")
@@ -84,7 +84,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for describeSObject method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeSObject} integration test with mandatory parameters.")
@@ -105,7 +105,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for describeGlobal method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeGlobal} integration test with mandatory parameters.")
@@ -126,7 +126,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for describeSObjects method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {describeSObjects} integration test with mandatory parameters.")
@@ -147,7 +147,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for query method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {query} integration test with mandatory parameters.")
@@ -168,7 +168,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for search method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {search} integration test with mandatory parameters.")
@@ -189,7 +189,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for retrieve method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testUnDeleteWithMandatoryParameters"}, description = "Salesforce {retrieve} integration test with mandatory parameters.")
@@ -205,7 +205,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for create method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {create} integration test with mandatory parameters.")
@@ -224,7 +224,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for update method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testCreateWithMandatoryParameters"}, description = "Salesforce {update} integration test with mandatory parameters.")
@@ -240,7 +240,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for delete method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testUpdateWithMandatoryParameters"}, description = "Salesforce {delete} integration test with mandatory parameters.")
@@ -256,7 +256,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for UnDelete method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testDeleteWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")
@@ -272,7 +272,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for sendEmail method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {sendEmail} integration test with mandatory parameters.")
@@ -288,7 +288,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     }
 
     /**
-     * d
+     *
      * Positive test case for logout method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {logout} integration test with mandatory parameters.")
@@ -300,4 +300,3 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         Assert.assertTrue(esbResponseElement.toString().contains("logoutResponse"));
     }
 }
-
