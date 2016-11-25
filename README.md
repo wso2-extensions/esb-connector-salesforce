@@ -24,7 +24,7 @@ Go to "{Connector_Home}/dynamicschemapart"
 
 mvn clean install
 
-After that go to Location "{Connector_Home}/dynamicschemapart/repository/main/target" then you can find the p2 repo as wso2-tooling-connector-p2-1.0.0-SNAPSHOT.zip
+After that go to Location "{Connector_Home}/dynamic-schema-generation-part/repository/main/target" then you can find the p2 repo as wso2esb-tooling-connector-salesforce-dynamicschema-generation-p2-1.0.0-SNAPSHOT.zip
 
 Install the p2 repository in WSO2 dev-tooling support in eclipse by following the below url.
 
