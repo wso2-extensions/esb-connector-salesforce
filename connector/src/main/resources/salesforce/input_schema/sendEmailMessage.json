@@ -1,0 +1,30 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "sfdc:emails": {
+      "id": "http:\/\/wso2jsonschema.org\/sfdc:emails",
+      "type": "object",
+      "properties": {
+        "sfdc:Ids": {
+          "id": "http:\/\/wso2jsonschema.org\/sfdc:emails\/sfdc:Ids",
+          "type": "array",
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:emails\/sfdc:Ids\/0",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "namespaces": [
+    {
+      "prefix": "sfdc",
+      "url": "sfdc"
+    }
+  ]
+}

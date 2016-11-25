@@ -1,0 +1,34 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "allOrNone": {
+      "id": "http:\/\/wso2jsonschema.org\/allOrNone",
+      "type": "number"
+    },
+    "sfdc:sObjects": {
+      "id": "http:\/\/wso2jsonschema.org\/sfdc:sObjects",
+      "type": "object",
+      "properties": {
+        "sfdc:Ids": {
+          "id": "http:\/\/wso2jsonschema.org\/sfdc:sObjects\/sfdc:Ids",
+          "type": "array",
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/sfdc:sObjects\/sfdc:Ids\/0",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "namespaces": [
+    {
+      "prefix": "sfdc",
+      "url": "sfdc"
+    }
+  ]
+}

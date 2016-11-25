@@ -1,0 +1,372 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "describeSObjectsResponse",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "result": {
+      "id": "http:\/\/wso2jsonschema.org\/result",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/result\/0",
+          "type": "object",
+          "properties": {
+            "activateable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/activateable",
+              "type": "boolean"
+            },
+            "childRelationships": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/childRelationships",
+              "type": "object",
+              "properties": {
+                "cascadeDelete": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/childRelationships\/cascadeDelete",
+                  "type": "boolean"
+                },
+                "childSObject": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/childRelationships\/childSObject",
+                  "type": "string"
+                },
+                "deprecatedAndHidden": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/childRelationships\/deprecatedAndHidden",
+                  "type": "boolean"
+                },
+                "field": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/childRelationships\/field",
+                  "type": "string"
+                },
+                "restrictedDelete": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/childRelationships\/restrictedDelete",
+                  "type": "boolean"
+                }
+              }
+            },
+            "compactLayoutable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/compactLayoutable",
+              "type": "boolean"
+            },
+            "createable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/createable",
+              "type": "boolean"
+            },
+            "custom": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/custom",
+              "type": "boolean"
+            },
+            "customSetting": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/customSetting",
+              "type": "boolean"
+            },
+            "deletable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/deletable",
+              "type": "boolean"
+            },
+            "deprecatedAndHidden": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/deprecatedAndHidden",
+              "type": "boolean"
+            },
+            "feedEnabled": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/feedEnabled",
+              "type": "boolean"
+            },
+            "fields": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields",
+              "type": "object",
+              "properties": {
+                "aggregatable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/aggregatable",
+                  "type": "boolean"
+                },
+                "autoNumber": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/autoNumber",
+                  "type": "boolean"
+                },
+                "byteLength": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/byteLength",
+                  "type": "number"
+                },
+                "calculated": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/calculated",
+                  "type": "boolean"
+                },
+                "caseSensitive": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/caseSensitive",
+                  "type": "boolean"
+                },
+                "createable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/createable",
+                  "type": "boolean"
+                },
+                "custom": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/custom",
+                  "type": "boolean"
+                },
+                "defaultedOnCreate": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/defaultedOnCreate",
+                  "type": "boolean"
+                },
+                "deprecatedAndHidden": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/deprecatedAndHidden",
+                  "type": "boolean"
+                },
+                "digits": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/digits",
+                  "type": "number"
+                },
+                "extraTypeInfo": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/extraTypeInfo",
+                  "type": "string"
+                },
+                "filterable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/filterable",
+                  "type": "boolean"
+                },
+                "groupable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/groupable",
+                  "type": "boolean"
+                },
+                "idLookup": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/idLookup",
+                  "type": "boolean"
+                },
+                "label": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/label",
+                  "type": "string"
+                },
+                "length": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/length",
+                  "type": "number"
+                },
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/name",
+                  "type": "string"
+                },
+                "nameField": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/nameField",
+                  "type": "boolean"
+                },
+                "namePointing": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/namePointing",
+                  "type": "boolean"
+                },
+                "nillable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/nillable",
+                  "type": "boolean"
+                },
+                "permissionable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/permissionable",
+                  "type": "boolean"
+                },
+                "picklistValues": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/picklistValues",
+                  "type": "array",
+                  "items": [
+                    {
+                      "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/picklistValues\/0",
+                      "type": "object",
+                      "properties": {
+                        "active": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/picklistValues\/0\/active",
+                          "type": "boolean"
+                        },
+                        "defaultValue": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/picklistValues\/0\/defaultValue",
+                          "type": "boolean"
+                        },
+                        "label": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/picklistValues\/0\/label",
+                          "type": "string"
+                        },
+                        "value": {
+                          "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/picklistValues\/0\/value",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "precision": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/precision",
+                  "type": "number"
+                },
+                "queryByDistance": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/queryByDistance",
+                  "type": "boolean"
+                },
+                "restrictedPicklist": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/restrictedPicklist",
+                  "type": "boolean"
+                },
+                "scale": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/scale",
+                  "type": "number"
+                },
+                "soapType": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/soapType",
+                  "type": "string"
+                },
+                "sortable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/sortable",
+                  "type": "boolean"
+                },
+                "type": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/type",
+                  "type": "string"
+                },
+                "unique": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/unique",
+                  "type": "boolean"
+                },
+                "updateable": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/fields\/updateable",
+                  "type": "boolean"
+                }
+              }
+            },
+            "idEnabled": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/idEnabled",
+              "type": "boolean"
+            },
+            "keyPrefix": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/keyPrefix",
+              "type": "string"
+            },
+            "label": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/label",
+              "type": "string"
+            },
+            "labelPlural": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/labelPlural",
+              "type": "string"
+            },
+            "layoutable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/layoutable",
+              "type": "boolean"
+            },
+            "mergeable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/mergeable",
+              "type": "boolean"
+            },
+            "mruEnabled": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/mruEnabled",
+              "type": "boolean"
+            },
+            "name": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/name",
+              "type": "string"
+            },
+            "networkScopeFieldName": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/networkScopeFieldName",
+              "type": "object",
+              "nullable": "true",
+              "properties": {},
+              "attributes": {
+                "xsi:nil": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/networkScopeFieldName\/xsi:nil",
+                  "type": "boolean"
+                }
+              }
+            },
+            "queryable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/queryable",
+              "type": "boolean"
+            },
+            "recordTypeInfos": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/recordTypeInfos",
+              "type": "object",
+              "properties": {
+                "available": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/recordTypeInfos\/available",
+                  "type": "boolean"
+                },
+                "defaultRecordTypeMapping": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/recordTypeInfos\/defaultRecordTypeMapping",
+                  "type": "boolean"
+                },
+                "master": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/recordTypeInfos\/master",
+                  "type": "boolean"
+                },
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/recordTypeInfos\/name",
+                  "type": "string"
+                },
+                "recordTypeId": {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/recordTypeInfos\/recordTypeId",
+                  "type": "string"
+                }
+              }
+            },
+            "replicateable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/replicateable",
+              "type": "boolean"
+            },
+            "retrieveable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/retrieveable",
+              "type": "boolean"
+            },
+            "searchLayoutable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/searchLayoutable",
+              "type": "boolean"
+            },
+            "searchable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/searchable",
+              "type": "boolean"
+            },
+            "supportedScopes": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/supportedScopes",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/result\/0\/supportedScopes\/0",
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "id": "http:\/\/wso2jsonschema.org\/result\/0\/supportedScopes\/0\/label",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/result\/0\/supportedScopes\/0\/name",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "triggerable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/triggerable",
+              "type": "boolean"
+            },
+            "undeletable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/undeletable",
+              "type": "boolean"
+            },
+            "updateable": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/updateable",
+              "type": "boolean"
+            },
+            "urlDetail": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/urlDetail",
+              "type": "string"
+            },
+            "urlEdit": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/urlEdit",
+              "type": "string"
+            },
+            "urlNew": {
+              "id": "http:\/\/wso2jsonschema.org\/result\/0\/urlNew",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "namespaces": [
+    {
+      "prefix": "xsi",
+      "url": "http:\/\/www.w3.org\/2001\/XMLSchema-instance"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "batchSize": {
+      "id": "http:\/\/wso2jsonschema.org\/batchSize",
+      "type": "number"
+    },
+    "queryString": {
+      "id": "http:\/\/wso2jsonschema.org\/queryString",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "sendEmailResponse",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "result": {
+      "id": "http:\/\/wso2jsonschema.org\/result",
+      "type": "object",
+      "properties": {
+        "success": {
+          "id": "http:\/\/wso2jsonschema.org\/result\/success",
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "type": "object"
+}
