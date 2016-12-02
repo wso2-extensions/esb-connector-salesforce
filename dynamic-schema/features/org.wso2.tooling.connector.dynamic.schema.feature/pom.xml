@@ -23,7 +23,7 @@
     <parent>
         <artifactId>wso2-developerstudio-esb-connector-feature</artifactId>
         <groupId>org.wso2.developerstudio</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>org.wso2.tooling.connector.dynamic.schema.feature</artifactId>
