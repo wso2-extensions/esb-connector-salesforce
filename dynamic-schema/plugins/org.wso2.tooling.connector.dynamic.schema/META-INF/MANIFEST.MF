@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Schema
 Bundle-SymbolicName: org.wso2.tooling.connector.dynamic.schema;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.1.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.osgi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

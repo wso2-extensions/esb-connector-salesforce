@@ -24,7 +24,7 @@
         <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-developerstudio-esb-connector-salesforce-dynamic-schema-generation-toolkit
         </artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>wso2esb-tooling-connector-salesforce-dynamicschema-p2</artifactId>
