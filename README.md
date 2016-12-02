@@ -28,4 +28,4 @@ After that go to Location "{Connector_Home}/dynamic-schema/repository/main/targe
 
 Install the p2 repository in WSO2 dev-tooling support eclipse by following the below url.
 
-https://docs.wso2.com/display/ESBCONNECTORS/Install+dynamic+schema+generation+feature+of+connector+to+ESB+Developer+Studio+Tooling
+https://docs.wso2.com/display/ESBCONNECTORS/Generating+Dynamic+Schemas+for+Connectors
