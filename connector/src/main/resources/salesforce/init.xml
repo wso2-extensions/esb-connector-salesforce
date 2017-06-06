@@ -68,7 +68,6 @@
                 <property name="SALESFORCE_BLOCKING" expression="$func:blocking"/>
                 <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
                 <property name="HTTP_METHOD" scope="axis2" value="POST"/>
-                <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
                 <property name="Accept-Encoding" scope="transport" action="remove"/>
                 <header name="To" expression="$ctx:uri.var.salesforce.url"/>
                 <header name="Content-Encoding" action="remove" scope="transport"/>
