@@ -59,7 +59,6 @@
         </call>  -->
         <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
         <property name="HTTP_METHOD" scope="axis2" value="POST"/>
-        <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
         <header name="To" expression="$ctx:uri.var.salesforce.url"/>
         <filter source="$ctx:SALESFORCE_BLOCKING" regex="true">
             <then>
