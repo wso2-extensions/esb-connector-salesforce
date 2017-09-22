@@ -8,16 +8,48 @@ Pre-requisites:
    https://github.com/wso2-extensions/esb-connector-integrationbase
 
 Tested Platform:
- - UBUNTU 14.04
- - WSO2 ESB 5.0.0-ALPHA
+ - UBUNTU 16.04
+ - WSO2 EI 6.1.1
 
 Steps to follow in setting integration test.
 
- 1. Download ESB WSO2 ESB 5.0.0-ALPHA from official website.
+ 1. Download WSO2 EI 6.1.1 from official website.
 
  2. Create a Salesforce account.
 
- 3. Update the Salesforce properties file at location "{Connector_Home}/src/test/resources/artifacts/ESB/connector/config" as below.
+ 3.Extract the certificate from browser(Mozilla Firefox) by navigating to Salesforce instance url(Eg:- https://ap4.salesforce.com)
+        Add the certificate obtained to "<EI_HOME>/repository/resources/security" folder and "{SALESFORCE_HOME}/src/test/resources/keystores/products".
+
+               "<SALESFORCE_HOME>/src/test/resources/keystores/products"
+
+           		Navigate to the above location from command prompt and execute 'keytool -importcert -file CERT_FILE_NAME -keystore wso2carbon.jks -alias "salesforce"' in command line to import salesforce certificate in to keystore. Give "wso2carbon" as password.
+                    NOTE : CERT_FILE_NAME is the file name which was extracted from salesforce with  the extension, change it accordingly. Remove the copied certificate.
+
+           	   "WSO2-EI-6.1.1/repository/resources/security"
+
+           		Navigate to the above location from command prompt and execute 'keytool -importcert -file CERT_FILE_NAME -keystore client-truststore.jks -alias "salesforce"' in command line to import salesforce certificate in to keystore. Give "wso2carbon" as password.
+                    NOTE : CERT_FILE_NAME is the file name which was extracted from salesforce with the extension, change it accordingly. Remove the copied certificate.
+                           CERT_NAME is arbitrary name for the certificate.
+ 4.To access Salesforce, replace your current password with a combination of your password and a security token.
+
+   Steps
+
+       Log into Salesforce via the browser to request your security token.
+
+       Do one of the following:
+
+           If you have a regular Salesforce account, go to Setup > My Personal Information > Reset Security Token.
+
+           If you have a Salesforce developer account, from the home page, go to Manage Users > Users > click your name > Change password > Reset Security Token.
+
+       This triggers an email which contains your security token.
+
+       Select and copy the token from the email.
+
+       Replace your Salesforce password with combination of the password and the security token. For example, if your password is "MyPassword" and your security token is "XXXXXX", you would enter "MyPasswordXXXXXX" in the Password field.
+
+
+ 5. Update the Salesforce properties file at location "{Connector_Home}/src/test/resources/artifacts/ESB/connector/config" as below.
 	
 	i)      loginUrl           -   The API URL .
 	ii) 	username           -   The username of the Salesforce account.
@@ -48,5 +80,5 @@ Steps to follow in setting integration test.
 	xxiv)   targetObjectId     -   The ID of the template to be merged to create this email.
 	xxv)    plainTextBody      -   Text Body of the Mail.
 
- 4. Navigate to "{ESB_Connector_Home}/" and run the following command.
+ 4. Navigate to "{EI_Connector_Home}/" and run the following command.
 	  $ mvn clean install

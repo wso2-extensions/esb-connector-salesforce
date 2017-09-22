@@ -1,7 +1,7 @@
 package org.wso2.carbon.connector.integration.test.salesforce;
 
 /*
- *  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *  Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  *  WSO2 Inc. licenses this file to you under the Apache License,
  *  Version 2.0 (the "License"); you may not use this file except
@@ -41,7 +41,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
-        init("salesforce-connector-2.0.2-SNAPSHOT");
+        String connectorName = System.getProperty("connector_name") + "-connector-" +
+                System.getProperty("connector_version") + ".zip";
+        init(connectorName);
         apiEndPoint = connectorProperties.getProperty("loginUrl");
         nameSpaceMap.put("ns", "urn:partner.soap.sforce.com");
         nameSpaceMap.put("ns1", "urn:sobject.partner.soap.sforce.com");
