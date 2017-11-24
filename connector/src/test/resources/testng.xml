@@ -1,5 +1,5 @@
 <!--
-~  Copyright (c) 2016, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+~  Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 ~
 ~  WSO2 Inc. licenses this file to you under the Apache License,
 ~  Version 2.0 (the "License"); you may not use this file except
@@ -19,16 +19,16 @@
 
 <suite name="ESBTestSuite" parallel="false">
     <listeners>
-        <listener class-name="org.wso2.carbon.automation.core.PlatformExecutionManager"/>
-        <listener class-name="org.wso2.carbon.automation.core.PlatformSuiteManager"/>
-        <listener class-name="org.wso2.carbon.automation.core.PlatformAnnotationTransferManager"/>
-        <listener class-name="org.wso2.carbon.automation.core.PlatformTestManager"/>
-        <listener class-name="org.wso2.carbon.automation.core.PlatformReportManager"/>
+        <listener class-name="org.wso2.carbon.automation.engine.testlisteners.TestExecutionListener"/>
+        <listener class-name="org.wso2.carbon.automation.engine.testlisteners.TestSuiteListener"/>
+        <listener class-name="org.wso2.carbon.automation.engine.testlisteners.TestTransformerListener"/>
+        <listener class-name="org.wso2.carbon.automation.engine.testlisteners.TestManagerListener"/>
+        <listener class-name="org.wso2.carbon.automation.engine.testlisteners.TestReportListener"/>
     </listeners>
     <test name="salesforce-Connector-Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.connector.integration.test.salesforce"/>
-        </packages>
+        <classes>
+            <class name="org.wso2.carbon.connector.integration.test.salesforce.SalesforceConnectorIntegrationTest"/>
+        </classes>
     </test>
 </suite>
 
