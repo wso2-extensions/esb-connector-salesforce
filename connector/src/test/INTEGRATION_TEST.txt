@@ -9,11 +9,11 @@ Pre-requisites:
 
 Tested Platform:
  - UBUNTU 16.04
- - WSO2 EI 6.1.1
+ - WSO2 EI 6.2.0
 
 Steps to follow in setting integration test.
 
- 1. Download WSO2 EI 6.1.1 from official website.
+ 1. Download WSO2 EI 6.2.0 from official website.
 
  2. Create a Salesforce account.
 
@@ -25,7 +25,7 @@ Steps to follow in setting integration test.
            		Navigate to the above location from command prompt and execute 'keytool -importcert -file CERT_FILE_NAME -keystore wso2carbon.jks -alias "salesforce"' in command line to import salesforce certificate in to keystore. Give "wso2carbon" as password.
                     NOTE : CERT_FILE_NAME is the file name which was extracted from salesforce with  the extension, change it accordingly. Remove the copied certificate.
 
-           	   "WSO2-EI-6.1.1/repository/resources/security"
+           	   "WSO2-EI-6.2.0/repository/resources/security"
 
            		Navigate to the above location from command prompt and execute 'keytool -importcert -file CERT_FILE_NAME -keystore client-truststore.jks -alias "salesforce"' in command line to import salesforce certificate in to keystore. Give "wso2carbon" as password.
                     NOTE : CERT_FILE_NAME is the file name which was extracted from salesforce with the extension, change it accordingly. Remove the copied certificate.
@@ -81,4 +81,4 @@ Steps to follow in setting integration test.
 	xxv)    plainTextBody      -   Text Body of the Mail.
 
  4. Navigate to "{EI_Connector_Home}/" and run the following command.
-	  $ mvn clean install
+	  $ mvn clean install -Dskip-tests=false
