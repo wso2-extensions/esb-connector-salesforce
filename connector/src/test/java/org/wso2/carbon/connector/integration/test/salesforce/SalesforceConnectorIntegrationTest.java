@@ -157,13 +157,13 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbQueryMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
-        String xPathExp = "string(//ns:result)";
+        String xPathExp = "string(//ns:records)";
         String esbRes = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
 
         SOAPEnvelope apiSoapResponse = sendSOAPRequest(connectorProperties.getProperty("serverUrl"), "apiQueryMandatory.xml", null, "query",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement apiResponseElement = AXIOMUtil.stringToOM(apiSoapResponse.getBody().toString());
-        xPathExp = "string(//ns:result)";
+        xPathExp = "string(//ns:records)";
         String apiRes = (String) xPathEvaluate(apiResponseElement, xPathExp, nameSpaceMap);
 
         Assert.assertEquals(esbRes, apiRes);

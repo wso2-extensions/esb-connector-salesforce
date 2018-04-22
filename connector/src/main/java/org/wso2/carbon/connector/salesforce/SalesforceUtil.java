@@ -66,9 +66,7 @@ public final class SalesforceUtil {
                     value.addChild(fac.createOMText(strExternalId));
                     bodyElement.addChild(value);
                 }
-                String strSobject =
-                        (String) ConnectorUtils.lookupTemplateParamater(synCtx,
-                                strParamName);
+                String strSobject = ConnectorUtils.lookupTemplateParamater(synCtx, strParamName).toString();
                 OMElement sObjects = AXIOMUtil.stringToOM(strSobject);
                 Iterator<OMElement> sObject = sObjects.getChildElements();
                 String strType =
@@ -131,9 +129,7 @@ public final class SalesforceUtil {
                 if (cElements != null && cElements.hasNext()) {
                     cElements.next();
                 }
-                String strSobject =
-                        (String) ConnectorUtils.lookupTemplateParamater(synCtx,
-                                strParamName);
+                String strSobject = ConnectorUtils.lookupTemplateParamater(synCtx, strParamName).toString();
                 OMElement sObjects = AXIOMUtil.stringToOM(strSobject);
                 Iterator<OMElement> sObject = sObjects.getChildElements();
                 OMNamespace omNsurn = fac.createOMNamespace("urn:partner.soap.sforce.com", "urn");
