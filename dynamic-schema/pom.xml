@@ -30,7 +30,7 @@
     <groupId>org.wso2.developerstudio</groupId>
     <artifactId>wso2-developerstudio-esb-connector-salesforce-dynamic-schema-generation-toolkit
     </artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WSO2 Developer Studio ESB Connector Dynamic Schema Generation Parent</name>
     <modules>
