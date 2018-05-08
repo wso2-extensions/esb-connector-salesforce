@@ -58,8 +58,8 @@ public class SetupSendEmail extends AbstractConnector {
         if (bodyChildElements.hasNext()) {
             try {
                 OMElement bodyElement = bodyChildElements.next();
-                String strSobject = (String) ConnectorUtils.lookupTemplateParamater(synCtx,
-                        SalesforceUtil.SALESFORCE_EMAIL_SENDEMAIL);
+                String strSobject = ConnectorUtils.lookupTemplateParamater(synCtx, SalesforceUtil.
+                        SALESFORCE_EMAIL_SENDEMAIL).toString();
                 OMElement sObjects = AXIOMUtil.stringToOM(strSobject);
                 Iterator<OMElement> sObject = sObjects.getChildElements();
                 OMNamespace omNsurn = fac.createOMNamespace("urn:partner.soap.sforce.com", "urn");

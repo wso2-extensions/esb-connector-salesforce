@@ -77,7 +77,7 @@ Steps to follow in setting integration test.
 	xxi)    senderDisplayName  -   The name that appears on the From line of the email.
 	xxii)   subject            -   The email subject line.
 	xxiii)  useSignature       -   Indicates whether the email includes an email signature if the user has one configured.
-	xxiv)   targetObjectId     -   The ID of the template to be merged to create this email.
+	xxiv)   targetObjectId     -   The ID of the template to be merged to create this email.(The object ID of the contact, lead, or user the email will be sent to.)
 	xxv)    plainTextBody      -   Text Body of the Mail.
 
  4. Navigate to "{EI_Connector_Home}/" and run the following command.
