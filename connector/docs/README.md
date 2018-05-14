@@ -6,7 +6,7 @@ The Salesforce [Connector](https://docs.wso2.com/display/EI620/Working+with+Conn
 To get started with the connector, go to [Configuring Salesforce Operations](config.md). Once you have completed your configurations, you can perform various operations with the connector.
 
 ## Additional information
-For general information on using connectors and their operations in your ESB configurations, see [working with Connectors](https://docs.wso2.com/display/EI611/Working+with+Connectors). To download the connector, go to [https://store.wso2.com/store/assets/esbconnector/details/salesforce](https://store.wso2.com/store/assets/esbconnector/details/fbb433b5-4d74-4064-84c2-e4b23c531aa2), then click **Download Connector**. Then you can [add and enable the connector](https://docs.wso2.com/display/EI620/Working+with+Connectors+via+the+Management+Console) in the ESB Profile of WSO2 EI.
+For general information on using connectors and their operations in your ESB configurations, see [working with Connectors](https://docs.wso2.com/display/EI611/Working+with+Connectors). To download the connector, go to [https://store.wso2.com/store/assets/esbconnector/details/salesforce](https://store.wso2.com/store/assets/esbconnector/details/fbb433b5-4d74-4064-84c2-e4b23c531aa2), then click **Download Connector**. Then, you can [add and enable the connector](https://docs.wso2.com/display/EI620/Working+with+Connectors+via+the+Management+Console) in the ESB Profile of WSO2 EI.
 
 | | Connector Version | Tested SOAP API Versions | Tested EI Versions |
 | ------------- | ------------- | ------------- | ------------- |
