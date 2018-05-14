@@ -4,15 +4,15 @@
 
 ## Importing the Salesforce Certificate
 
-To use the Salesforce connector, add the  <salesforce.init>  element in your configuration before carrying out any other Salesforce operations.
+To use the Salesforce connector, add the <salesforce.init>  element to your configuration before carrying out any other Salesforce operations.
 
-Before you start configuring the Salesforce connector, make sure to import the Salesforce certificate to your ESB client keystore.
+Before you start configuring the connector, import the Salesforce certificate to your ESB client keystore.
 
 * Follow the steps below to import the Salesforce certificate into the ESB client keystore:
 
-    1. Log in to your Salesforce account in your browser (e.g., https://login.salesforce.com), and click the lock on the address bar to view the certificate.
+    1. To view the certificate, log in to your Salesforce account in your browser (e.g., https://login.salesforce.com), and click the lock on the address bar.
     2. Export the certificate to the file system.
-    3. Import the certificate into the ESB client keystore using the Management Console or by using the following command:
+    3. Import the certificate to the ESB client keystore using either the following command or the ESB Management Console:
     ```
     keytool -importcert -file <certificate file> -keystore <ESB>/repository/resources/security/client-truststore.jks -alias "Salesforce"
     ```
@@ -28,15 +28,15 @@ Before you start configuring the Salesforce connector, make sure to import the S
 </salesforce.init>
 ```
 **Properties** 
-* username:  The user name to access the Salesforce account.
+* username:  The username to access the Salesforce account.
 * password:  The password provided here is a concatenation of the user password and the security token provided by Salesforce.
 * loginUrl:  The login URL to access the Salesforce account.
-* blocking:  Indicated whether the connector needs to perform blocking invocations to Salesforce. (Supported in ESB 4.9.0 and later) 
+* blocking:  Indicates whether the connector needs to perform blocking invocations to Salesforce. (Supported in WSO2 ESB 4.9.0 and later.) 
 
 ```text
-*  Users can obtain the security token by changing the password or resetting the security token using the Salesforce user interface. The new security token will be sent to the email address recorded in the user's Salesforce record.
+*  Users can obtain a security token by changing the password or resetting the security token using the Salesforce user interface. The new security token is sent to the email address recorded in the user's Salesforce record.
 *  The response of this operation is attached to the message body and is used for subsequent Salesforce operations.
-*  The session ID is saved into the property salesforce.sessionId, and the server URL is saved into salesforce.serviceUrl. If the given login details are invalid, the specified fault sequence will be triggered.
+*  The session ID is saved in the property salesforce.sessionId and the server URL is saved in salesforce.serviceUrl. If the given login details are invalid, the specified fault sequence is triggered.
 ```
 ---
 **Note :**
@@ -58,8 +58,8 @@ Listed below are parameters that are common when [working with records](records.
 
 | Name | Description | Default value |
 | ------------- | ------------- | ------------- |
-| allowFieldTruncate | Set to 1, to truncate string values if they exceed the defined field length. | 0 |
-| allOrNone | Set to 1, to roll back changes if any object fails when multiple objects are sent.If set to 0 (false), some records can be processed successfully while others are marked as failed in the call results. | 0 |
+| allowFieldTruncate | Set to 1 to truncate string values if they exceed the defined field length. | 0 |
+| allOrNone | Set to 1 to roll back changes if any object fails when multiple objects are sent. If set to 0 (false), some records can be processed successfully while others are marked as failed in the call results. | 0 |
 
 ## Salesforce Operations
 
