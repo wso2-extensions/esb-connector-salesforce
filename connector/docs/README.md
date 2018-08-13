@@ -10,4 +10,4 @@ For general information on using connectors and their operations in your ESB con
 
 | | Connector Version | Tested SOAP API Versions | Tested EI Versions |
 | ------------- | ------------- | ------------- | ------------- |
-| Salesforce connector | 2.0.2 | 42.0 | 6.2.0 |
+| Salesforce connector | 2.0.2 | 42.0 | 6.3.0 |
