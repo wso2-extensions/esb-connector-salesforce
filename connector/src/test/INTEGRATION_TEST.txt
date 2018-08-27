@@ -9,11 +9,11 @@ Pre-requisites:
 
 Tested Platform:
  - UBUNTU 16.04
- - WSO2 EI 6.2.0
+ - WSO2 EI 6.3.0
 
 Steps to follow in setting integration test.
 
- 1. Download WSO2 EI 6.2.0 from official website.
+ 1. Download WSO2 EI 6.3.0 from official website.
 
  2. Create a Salesforce account.
 
@@ -77,8 +77,8 @@ Steps to follow in setting integration test.
 	xxi)    senderDisplayName  -   The name that appears on the From line of the email.
 	xxii)   subject            -   The email subject line.
 	xxiii)  useSignature       -   Indicates whether the email includes an email signature if the user has one configured.
-	xxiv)   targetObjectId     -   The ID of the template to be merged to create this email.(The object ID of the contact, lead, or user the email will be sent to.)
-	xxv)    plainTextBody      -   Text Body of the Mail.
+	xxiv)   plainTextBody      -   Text Body of the Mail.
+	xxv)    email              -   A valid email address.
 
  4. Navigate to "{EI_Connector_Home}/" and run the following command.
 	  $ mvn clean install -Dskip-tests=false
