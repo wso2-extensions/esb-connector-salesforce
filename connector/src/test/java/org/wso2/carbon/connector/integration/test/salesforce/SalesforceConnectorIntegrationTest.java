@@ -279,11 +279,22 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      */
     @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {sendEmail} integration test with mandatory parameters.")
     public void testSendEMailWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbContactSoapResponse = sendSOAPRequest(proxyUrl, "esbCreateContact.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbCreateContactResponseElement = AXIOMUtil.stringToOM(esbContactSoapResponse.getBody().toString());
+        String xPathExpContact = "string(//ns:id)";
+        String id = (String) xPathEvaluate(esbCreateContactResponseElement, xPathExpContact, nameSpaceMap);
+        connectorProperties.put("targetObjectId", id);
+
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbSendEmailMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
         String xPathExp = "string(//ns:success)";
         String status = (String) xPathEvaluate(esbResponseElement, xPathExp, nameSpaceMap);
+
+        connectorProperties.put("id", id);
+        SOAPEnvelope esbDeleteContactSoapResponse = sendSOAPRequest(proxyUrl, "esbDeleteMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
 
         Assert.assertTrue(esbResponseElement.toString().contains("sendEmailResponse"));
         Assert.assertEquals(status, "true");
