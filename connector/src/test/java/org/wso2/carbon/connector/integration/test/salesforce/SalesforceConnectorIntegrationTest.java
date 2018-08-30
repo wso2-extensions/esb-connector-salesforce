@@ -54,6 +54,7 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
                 "wso2carbon", System.getProperty("connector_name"),true);
         addCertificate("wso2carbon.jks", connectorProperties.getProperty("certName"),
                 "wso2carbon", System.getProperty("connector_name"),true);
+	 restart();
         apiEndPoint = connectorProperties.getProperty("loginUrl");
         nameSpaceMap.put("ns", "urn:partner.soap.sforce.com");
         nameSpaceMap.put("ns1", "urn:sobject.partner.soap.sforce.com");
