@@ -43,18 +43,9 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
     public void setEnvironment() throws Exception {
         String connectorName = System.getProperty("connector_name") + "-connector-" +
                 System.getProperty("connector_version") + ".zip";
-        addCertificateToTest("client-truststore.jks","DigiCertSHA2SecureServerCA.crt","wso2carbon",
-                System.getProperty("connector_name"));
-        addCertificateToTest("wso2carbon.jks","DigiCertSHA2SecureServerCA.crt","wso2carbon",
-                System.getProperty("connector_name"));
-
+        addCertificatesToEIKeyStore("client-truststore.jks", "wso2carbon");
         init(connectorName);
         getApiConfigProperties();
-        addCertificate("client-truststore.jks", connectorProperties.getProperty("certName"),
-                "wso2carbon", System.getProperty("connector_name"),true);
-        addCertificate("wso2carbon.jks", connectorProperties.getProperty("certName"),
-                "wso2carbon", System.getProperty("connector_name"),true);
-	 restart();
         apiEndPoint = connectorProperties.getProperty("loginUrl");
         nameSpaceMap.put("ns", "urn:partner.soap.sforce.com");
         nameSpaceMap.put("ns1", "urn:sobject.partner.soap.sforce.com");
