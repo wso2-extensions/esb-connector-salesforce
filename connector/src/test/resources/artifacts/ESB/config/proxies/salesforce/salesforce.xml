@@ -64,6 +64,9 @@
                       name="name"
                       expression="//sfdc:Name/text()"/>
             <property xmlns:sfdc="wso2.connector.salesforce"
+                      name="email"
+                      expression="//sfdc:Email/text()"/>
+            <property xmlns:sfdc="wso2.connector.salesforce"
                       name="id"
                       expression="//sfdc:Id/text()"/>
             <property xmlns:sfdc="wso2.connector.salesforce"
@@ -278,6 +281,27 @@
                     <salesforce.sendEmail>
                         <sendEmail xmlns:sfdc="sfdc">{//sfdc:emailWrapper}</sendEmail>
                     </salesforce.sendEmail>
+                </case>
+                <case regex="createContact">
+                    <payloadFactory media-type="xml">
+                        <format>
+                            <sfdc:sObjects xmlns:sfdc="sfdc" type="Contact">
+                                <sfdc:sObject>
+                                    <sfdc:LastName>$1</sfdc:LastName>
+                                    <sfdc:Email>$2</sfdc:Email>
+                                </sfdc:sObject>
+                            </sfdc:sObjects>
+                        </format>
+                        <args>
+                            <arg expression="get-property('name')"/>
+                            <arg expression="get-property('email')"/>
+                        </args>
+                    </payloadFactory>
+                    <salesforce.create>
+                        <allOrNone>{$ctx:allOrNone}</allOrNone>
+                        <allowFieldTruncate>{$ctx:allowFieldTruncate}</allowFieldTruncate>
+                        <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
+                    </salesforce.create>
                 </case>
                 <case regex="logout">
                     <salesforce.logout/>
