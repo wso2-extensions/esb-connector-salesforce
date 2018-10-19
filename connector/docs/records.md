@@ -65,6 +65,33 @@ Given below is a sample request that can be handled by the create operation.
 </salesforce.create>
 ```
 
+**Sample response**
+
+Given below is a sample response for the create operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>9</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <createResponse>
+            <result>
+                <id>0036F00002mdwl2QAA</id>
+                <success>true</success>
+            </result>
+        </createResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+
 **Related Salesforce documentation**
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_create.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_create.htm)
@@ -113,6 +140,32 @@ Given below is a sample request that can be handled by the update operation.
     <allowFieldTruncate>0</allowFieldTruncate>
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.update>
+```
+**Sample response**
+
+Given below is a sample response for the update operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>53</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <updateResponse>
+            <result>
+                <id>0016F00002S4Wj0QAF</id>
+                <success>true</success>
+            </result>
+        </updateResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
 ```
 **Related Salesforce documentation**
 
@@ -193,6 +246,39 @@ Given below is a sample request that can be handled by the upsert operation.
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.upsert>
 ```
+
+**Sample response**
+
+Given below is a sample response for the upsert operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>54</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <upsertResponse>
+            <result>
+                <created>false</created>
+                <id>0016F00002S4Wj0QAF</id>
+                <success>true</success>
+            </result>
+            <result>
+                <created>true</created>
+                <id>0016F00002pUVTMQA4</id>
+                <success>true</success>
+            </result>
+        </upsertResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
 **Related Salesforce documentation**
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_upsert.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_upsert.htm)
@@ -209,6 +295,39 @@ To search for records, use salesforce.search and specify the search string. If y
 ```
 **Properties**
 * searchString: The SQL query to use to search for records.
+
+**Sample response**
+
+Given below is a sample response for the search operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>56</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <searchResponse>
+            <result>
+                <searchRecords>
+                    <record xsi:type="sf:sObject">
+                        <sf:type>Account</sf:type>
+                        <sf:Id>0016F00002SN7qiQAD</sf:Id>
+                        <sf:Id>0016F00002SN7qiQAD</sf:Id>
+                        <sf:Name>GenePoint</sf:Name>
+                    </record>
+                </searchRecords>
+            </result>
+        </searchResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
 
 **Related Salesforce documentation**
 
@@ -255,6 +374,42 @@ Following is a sample configuration to query records. It also illustrates the us
     </target>
 </iterate>
 ```
+
+**Sample response**
+
+Given below is a sample response for the query operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>58</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <queryResponse>
+            <result xsi:type="QueryResult">
+                <done>true</done>
+                <queryLocator xsi:nil="true"/>
+                <records xsi:type="sf:sObject">
+                    <sf:type>Account</sf:type>
+                    <sf:Id>0016F00002SasNYQAZ</sf:Id>
+                    <sf:Id>0016F00002SasNYQAZ</sf:Id>
+                    <sf:Name>wso2New</sf:Name>
+                </records>
+                .
+                .
+                <size>129</size>
+            </result>
+        </queryResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
 **Related Salesforce documentation**
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_query.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_query.htm)
@@ -298,6 +453,36 @@ Given below is a sample request that can be handled by the retrieve operation.
     <objectIDS xmlns:sfdc="sfdc">{//sfdc:sObjects}</objectIDS>
 </salesforce.retrieve>
 ```
+
+**Sample response**
+
+Given below is a sample response for the retrieve operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>60</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <retrieveResponse>
+            <result xsi:type="sf:sObject">
+                <sf:type>Account</sf:type>
+                <sf:Id>0016F00002S4Wj0QAF</sf:Id>
+                <sf:Id>0016F00002S4Wj0QAF</sf:Id>
+                <sf:Name>newname01</sf:Name>
+            </result>
+        </retrieveResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+
 **Related Salesforce documentation**
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_retrieve.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_retrieve.htm)
@@ -338,6 +523,33 @@ Given below is a sample request that can be handled by the delete operation.
    <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.delete>
 ```
+**Sample response**
+
+Given below is a sample response for the delete operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>63</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <deleteResponse>
+            <result>
+                <id>0016F00002S4Wj0QAF</id>
+                <success>true</success>
+            </result>
+        </deleteResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+
 **Related Salesforce documentation**
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_delete.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_delete.htm)
@@ -378,6 +590,143 @@ Given below is a sample request that can be handled by the undelete operation.
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.undelete>
 ```
+**Sample response**
+
+Given below is a sample response for the undelete operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>64</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <undeleteResponse>
+            <result>
+                <id>0016F00002S4Wj0QAF</id>
+                <success>true</success>
+            </result>
+        </undeleteResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
 **Related Salesforce documentation**
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm)
+
+**Sample Configuration**
+
+Following example illustrates how to connect to Salesforce with the init operation and query operation.
+
+1. Create a sample proxy as below :
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="salesforce_query"
+       startOnLoad="true"
+       statistics="disable"
+       trace="disable"
+       transports="http,https">
+   <target>
+      <inSequence>
+         <property xmlns:ns="wso2.connector.salesforce"
+                   expression="//ns:loginUrl/text()"
+                   name="loginUrl"/>
+         <property xmlns:ns="wso2.connector.salesforce"
+                   expression="//ns:username/text()"
+                   name="username"/>
+         <property xmlns:ns="wso2.connector.salesforce"
+                   expression="//ns:password/text()"
+                   name="password"/>
+         <property xmlns:ns="wso2.connector.salesforce"
+                   expression="//ns:blocking/text()"
+                   name="blocking"/>
+         <property xmlns:ns="wso2.connector.salesforce"
+                   expression="//ns:batchSize/text()"
+                   name="batchSize"/>
+         <property xmlns:ns="wso2.connector.salesforce"
+                   expression="//ns:queryString/text()"
+                   name="queryString"/>
+         <salesforce.init>
+            <loginUrl>{$ctx:loginUrl}</loginUrl>
+            <username>{$ctx:username}</username>
+            <password>{$ctx:password}</password>
+            <blocking>{$ctx:blocking}</blocking>
+         </salesforce.init>
+         <salesforce.query>
+            <batchSize>{$ctx:batchSize}</batchSize>
+            <queryString>{$ctx:queryString}</queryString>
+         </salesforce.query>
+         <respond/>
+      </inSequence>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <description/>
+</proxy>
+                                                             
+```
+2. Create a xml file called query.xml containing the following xml:
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/30.0</urn:loginUrl>
+        <urn:username>john@gmail.com</urn:username>
+        <urn:password>john@123CtGoiPE3mCdjgUHlto8HJ3</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:queryString>select id,name from Account</urn:queryString>
+        <urn:batchSize>2000</urn:batchSize>
+    </soapenv:Body>
+</soapenv:Envelope>                           
+```
+3. Replace the credentials with your values.
+
+4. Execute the following cURL command:
+
+```bash
+curl http://localhost:8280/services/salesforce_query -H "Content-Type: text/xml" -d @query.xml
+```
+5. Salesforce returns a xml response as below.
+ 
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:sf="urn:sobject.partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>58</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <queryResponse>
+            <result xsi:type="QueryResult">
+                <done>true</done>
+                <queryLocator xsi:nil="true"/>
+                <records xsi:type="sf:sObject">
+                    <sf:type>Account</sf:type>
+                    <sf:Id>0016F00002SasNYQAZ</sf:Id>
+                    <sf:Id>0016F00002SasNYQAZ</sf:Id>
+                    <sf:Name>wso2New</sf:Name>
+                </records>
+                .
+                .
+                <size>129</size>
+            </result>
+        </queryResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
