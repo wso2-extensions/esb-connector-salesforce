@@ -1,6 +1,6 @@
 # Working with Emails in Salesforce
 
-[[ Overview ]](#overview)  [[ Operation details ]](#operation-details)
+[[ Overview ]](#overview)  [[ Operation details ]](#operation-details) [ [Sample configuration](#sample-configuration) ]
 
 ### Overview 
 
@@ -19,16 +19,16 @@ This section provides further details on the operations related to Emails.
 
 To create and send an email, use salesforce.sendEmail and specify the following properties. 
 
-**sendEmail**
+###### sendEmail
 ```xml
 <salesforce.sendEmail>
     <sendEmail xmlns:sfdc="sfdc">{//sfdc:emailWrapper}</sendEmail>
 </salesforce.sendEmail>
 ```
-**Properties**
+###### Properties
 * sendEmail: XML representation of the email.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the sendEmail operation.
 
@@ -56,7 +56,7 @@ Given below is a sample request that can be handled by the sendEmail operation.
     <sendEmail xmlns:sfdc="sfdc">{//sfdc:emailWrapper}</sendEmail>
 </salesforce.sendEmail>
 ```
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the sendEmail operation.
 
@@ -82,7 +82,7 @@ Given below is a sample response for the sendEmail operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_sendemail.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_sendemail.htm)
 
@@ -90,17 +90,17 @@ Given below is a sample response for the sendEmail operation.
 
 To send emails that have already been drafted, use salesforce.sendEmailMessage and specify the IDs of the emails you want to send. 
 
-**sendEmailMessage**
+###### sendEmailMessage
 ```xml
 <salesforce.sendEmailMessage config-ref="connectorConfig">
     <sendEmailMessage xmlns:sfdc="sfdc">{//sfdc:emails}</sendEmailMessage>
 </salesforce.sendEmailMessage>
 ```
 
-**Properties**
+###### Properties
 * sendEmailMessage: XML representation of the email IDs to send.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the sendEmailMessage operation.
 
@@ -119,37 +119,12 @@ Given below is a sample request that can be handled by the sendEmailMessage oper
     <sendEmailMessage xmlns:sfdc="sfdc">{//sfdc:emails}</sendEmailMessage>
 </salesforce.sendEmailMessage>
 ```
-**Sample response**
 
-Given below is a sample response for the sendEmail operation.
-
-```xml
-<?xml version='1.0' encoding='utf-8'?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
-    <soapenv:Header>
-        <LimitInfoHeader>
-            <limitInfo>
-                <current>67</current>
-                <limit>15000</limit>
-                <type>API REQUESTS</type>
-            </limitInfo>
-        </LimitInfoHeader>
-    </soapenv:Header>
-    <soapenv:Body>
-        <sendEmailResponse>
-            <result>
-                <success>true</success>
-            </result>
-        </sendEmailResponse>
-    </soapenv:Body>
-</soapenv:Envelope>
-```
-
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_send_email_message.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_send_email_message.htm)
 
-**Sample Configuration**
+### Sample configuration
 
 Following example illustrates how to connect to Salesforce with the init operation and sendEmail operation.
 

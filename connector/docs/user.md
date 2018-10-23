@@ -1,6 +1,6 @@
-# Working with User in Salesforce
+# Working with Logged in User in Salesforce
 
-[[ Overview ]](#overview)  [[ Operation details ]](#operation-details)
+[[ Overview ]](#overview)  [[ Operation details ]](#operation-details) [ [Sample configuration](#sample-configuration) ]
 
 ### Overview 
 
@@ -21,12 +21,12 @@ To retrieve information about the user who is currently logged in, use salesforc
 
 If you want to get additional information about the user that is not returned by this operation, use retrieve operation on the User object providing the ID returned from getUserInfo.
 
-**getUserInfo**
+###### getUserInfo
 ```xml
 <salesforce.getUserInfo configKey="MySFConfig"/>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the getUserInfo operation.
 
@@ -73,7 +73,7 @@ Given below is a sample response for the getUserInfo operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo.htm)
 
@@ -81,18 +81,18 @@ Given below is a sample response for the getUserInfo operation.
 
 To change the user password by specifying the password, use salesforce.setPassword as follows:
 
-**setPassword**
+###### setPassword
 ```xml
 <salesforce.setPassword configKey="MySFConfig">
     <userId>0056F000009wCJgQAM</userId>
     <password>abc123</password>
 </salesforce.setPassword>
 ```
-**Properties**
+###### Properties
 * userId: The user's Salesforce ID.
 * password: If using setPassword, the new password to assign to the user.
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the setPassword operation.
 
@@ -118,16 +118,16 @@ Given below is a sample response for the setPassword operation.
 
 To change the user password using a system generated password, use salesforce.resetPassword as follows:
 
-**resetPassword**
+###### resetPassword
 ```xml
 <salesforce.resetPassword configKey="MySFConfig">
     <userId>0056F000009wCJgQAM</userId>
 </salesforce.resetPassword>
 ```
-**Properties**
+###### Properties
 * userId: The user's Salesforce ID.
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the resetPassword operation.
 
@@ -153,11 +153,11 @@ Given below is a sample response for the resetPassword operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_setpassword.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_setpassword.htm)
 
-**Sample Configuration**
+### Sample configuration
 
 Following example illustrates how to connect to Salesforce with the init operation and getUserInfo operation.
 

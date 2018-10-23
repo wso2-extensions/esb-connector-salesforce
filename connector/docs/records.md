@@ -1,6 +1,6 @@
 # Working with Records in Salesforce
 
-[[  Overview ]](#overview)  [[ Operation details ]](#operation-details)
+[[  Overview ]](#overview)  [[ Operation details ]](#operation-details) [ [Sample configuration](#sample-configuration) ]
 
 ### Overview 
 
@@ -26,7 +26,7 @@ This section provides further details on the operations related to records.
 
 To create one or more record, use salesforce.create and specify the following properties. 
 
-**create**
+###### create
 ```xml
 <salesforce.create configKey="MySFConfig">
     <allOrNone>0</allOrNone>
@@ -34,12 +34,12 @@ To create one or more record, use salesforce.create and specify the following pr
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.create>
 ```
-**Properties**
+###### Properties
 * allOrNone: Whether to rollback changes if an object fails (see Common Parameters).
 * allowFieldTruncate: Whether to truncate strings that exceed the field length (see Common Parameters).
 * sobjects: XML representation of the records to add.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the create operation.
 
@@ -65,7 +65,7 @@ Given below is a sample request that can be handled by the create operation.
 </salesforce.create>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the create operation.
 
@@ -92,7 +92,7 @@ Given below is a sample response for the create operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_create.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_create.htm)
 
@@ -100,7 +100,7 @@ Given below is a sample response for the create operation.
 
 To update one or more existing records, use salesforce.update and specify the following properties. 
 
-**update**
+###### update
 ```xml
 <salesforce.update configKey="MySFConfig">
     <allOrNone>0</allOrNone>
@@ -109,12 +109,12 @@ To update one or more existing records, use salesforce.update and specify the fo
 </salesforce.update>
 ```
 
-**Properties**
+###### Properties
 * allOrNone: Whether to rollback changes if an object fails (see Common Parameters).
 * allowFieldTruncate: Whether to truncate strings that exceed the field length (see Common Parameters).
 * sobjects: XML representation of the records to add.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the update operation.
 
@@ -141,7 +141,7 @@ Given below is a sample request that can be handled by the update operation.
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.update>
 ```
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the update operation.
 
@@ -167,7 +167,7 @@ Given below is a sample response for the update operation.
     </soapenv:Body>
 </soapenv:Envelope>
 ```
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_update.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_update.htm)
 
@@ -175,7 +175,7 @@ Given below is a sample response for the update operation.
 
 To update existing records and insert new records in a single operation, use salesforce.upsert and specify the following properties. 
 
-**upsert**
+###### upsert
 ```xml
 <salesforce.upsert configKey="MySFConfig">
     <allOrNone>0</allOrNone>
@@ -185,7 +185,7 @@ To update existing records and insert new records in a single operation, use sal
 </salesforce.upsert>
 ```
 
-**Properties**
+###### Properties
 * allOrNone: Whether to rollback changes if an object fails (see Common Parameters).
 * allowFieldTruncate: Whether to truncate strings that exceed the field length (see Common Parameters).
 * externalId: The field containing the record ID, that is used by Salesforce to determine whether to update an existing record or create a new one. This is done by matching the ID to the record IDs in Salesforce. By default, the field is assumed to be named "Id".
@@ -195,7 +195,7 @@ To update existing records and insert new records in a single operation, use sal
 **Set the externalId field :**
 If you need to give any existing externalId field of sObject to externalId then the payload should be with that externalId field and value as follows in sample
 ---
-**Sample to set ExternalId field and value**
+###### Sample to set ExternalId field and value
 
 
 ```xml
@@ -219,7 +219,7 @@ If you need to give any existing externalId field of sObject to externalId then 
 </salesforce.upsert>
 ```
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the upsert operation.
 
@@ -247,7 +247,7 @@ Given below is a sample request that can be handled by the upsert operation.
 </salesforce.upsert>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the upsert operation.
 
@@ -279,7 +279,7 @@ Given below is a sample response for the upsert operation.
     </soapenv:Body>
 </soapenv:Envelope>
 ```
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_upsert.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_upsert.htm)
 
@@ -287,16 +287,16 @@ Given below is a sample response for the upsert operation.
 
 To search for records, use salesforce.search and specify the search string. If you already know the record IDs, use retrieve instead. 
 
-**search**
+###### search
 ```xml
 <salesforce.search configKey="MySFConfig">
     <searchString>FIND {map*} IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead</searchString>
 </salesforce.search>
 ```
-**Properties**
+###### Properties
 * searchString: The SQL query to use to search for records.
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the search operation.
 
@@ -329,7 +329,7 @@ Given below is a sample response for the search operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_search.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_search.htm)
 
@@ -342,7 +342,7 @@ To retrieve data from an object, use salesforce.query and specify the following 
 If you want your search results to include deleted records that are available in the Recycle Bin, use salesforce.queryAll in place of salesforce.query.
 ---
 
-**query**
+###### query
 ```xml
 <salesforce.query configKey="MySFConfig">
     <batchSize>200</batchSize>
@@ -350,11 +350,11 @@ If you want your search results to include deleted records that are available in
 </salesforce.query>
 ```
 
-**Properties**
+###### Properties
 * batchSize: The number of records to return. If more records are available than the batch size, you can use the queryMore operation to get additional results.
 * queryString: The SQL query to use to search for records.
 
-**Sample request**
+###### Sample request
 
 Following is a sample configuration to query records. It also illustrates the use of queryMore operation to get additional results:
 
@@ -375,7 +375,7 @@ Following is a sample configuration to query records. It also illustrates the us
 </iterate>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the query operation.
 
@@ -410,7 +410,7 @@ Given below is a sample response for the query operation.
     </soapenv:Body>
 </soapenv:Envelope>
 ```
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_query.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_query.htm)
 
@@ -418,7 +418,7 @@ Given below is a sample response for the query operation.
 
 If you know the IDs of the records you want to retrieve, use salesforce.retrieve and specify the following properties. If you do not know the record IDs, use query instead.
 
-**retrieve**
+###### retrieve
 ```xml
 <salesforce.retrieve configKey="MySFConfig">
     <fieldList>id,name</fieldList>
@@ -427,12 +427,12 @@ If you know the IDs of the records you want to retrieve, use salesforce.retrieve
 </salesforce.retrieve>
 ```
 
-**Properties**
+###### Properties
 * fieldList: A comma-separated list of the fields you want to retrieve from the records.
 * objectType: The object type of the records.
 * sobjects: XML representation of the records to retrieve.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the retrieve operation.
 
@@ -454,7 +454,7 @@ Given below is a sample request that can be handled by the retrieve operation.
 </salesforce.retrieve>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the retrieve operation.
 
@@ -483,7 +483,7 @@ Given below is a sample response for the retrieve operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_retrieve.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_retrieve.htm)
 
@@ -491,7 +491,7 @@ Given below is a sample response for the retrieve operation.
 
 To delete one or more records, use salesforce.delete and specify the following properties. 
 
-**delete**
+###### delete
 ```xml
 <salesforce.delete configKey="MySFConfig">
    <allOrNone>0</allOrNone>
@@ -499,11 +499,11 @@ To delete one or more records, use salesforce.delete and specify the following p
 </salesforce.delete>
 ```
 
-**Properties**
+###### Properties
 * allOrNone: Whether to rollback changes if an object fails (see Common Parameters).
 * sobjects: XML representation of the records to delete, as shown in the following example.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the delete operation.
 
@@ -523,7 +523,7 @@ Given below is a sample request that can be handled by the delete operation.
    <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.delete>
 ```
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the delete operation.
 
@@ -550,7 +550,7 @@ Given below is a sample response for the delete operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_delete.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_delete.htm)
 
@@ -558,7 +558,7 @@ Given below is a sample response for the delete operation.
 
 To restore records that were previously deleted, use salesforce.undelete and specify the following properties. 
 
-**undelete**
+###### undelete
 ```xml
 <salesforce.undelete configKey="MySFConfig">
     <allOrNone>0</allOrNone>
@@ -566,11 +566,11 @@ To restore records that were previously deleted, use salesforce.undelete and spe
 </salesforce.undelete>
 ```
 
-**Properties**
+###### Properties
 * allOrNone: Whether to rollback changes if an object fails (see Common Parameters).
 * sobjects: XML representation of the records to restore, as shown in the following example.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the undelete operation.
 
@@ -590,7 +590,7 @@ Given below is a sample request that can be handled by the undelete operation.
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.undelete>
 ```
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the undelete operation.
 
@@ -616,11 +616,11 @@ Given below is a sample response for the undelete operation.
     </soapenv:Body>
 </soapenv:Envelope>
 ```
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm)
 
-**Sample Configuration**
+### Sample configuration
 
 Following example illustrates how to connect to Salesforce with the init operation and query operation.
 

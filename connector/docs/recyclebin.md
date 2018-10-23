@@ -1,23 +1,23 @@
 # Working with Recycle Bin in Salesforce
 
-[[  Overview ]](#overview)  [[ Operation details ]](#operation-details)
+[[  Overview ]](#overview)  [[ Operation details ]](#operation-details) [ [Sample configuration](#sample-configuration) ]
 
 ### Overview 
 
 The Recycle Bin allows you to view and restore recently deleted records for a maximum of 15 days before they are permanently deleted. To purge records from the Recycle Bin so that they cannot be restored, use salesforce.emptyRecycleBin and specify the following properties. 
 
-**emptyRecycleBin**
+###### emptyRecycleBin
 ```xml
 <salesforce.emptyRecycleBin config-ref="connectorConfig">
     <allOrNone>0</allOrNone>
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.emptyRecycleBin>
 ```
-**Properties**
+###### Properties
 * allOrNone: Whether to rollback changes if an object fails (see Common Parameters).
 * sobjects: XML representation of the records to purge from the Recycle Bin.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the emptyRecycleBin operation.
 
@@ -38,7 +38,7 @@ Given below is a sample request that can be handled by the emptyRecycleBin opera
 </salesforce.emptyRecycleBin>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the emptyRecycleBin operation.
 
@@ -65,11 +65,11 @@ Given below is a sample response for the emptyRecycleBin operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_emptyrecyclebin.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_emptyrecyclebin.htm)
 
-**Sample Configuration**
+### Sample configuration
 
 Following example illustrates how to connect to Salesforce with the init operation and emptyRecycleBin operation.
 

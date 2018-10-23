@@ -1,6 +1,6 @@
 # Working with sObjects in Salesforce
 
-[[  Overview ]](#overview)  [[ Operation details ]](#operation-details)
+[[  Overview ]](#overview)  [[ Operation details ]](#operation-details) [ [Sample configuration](#sample-configuration) ]
 
 ### Overview 
 
@@ -38,12 +38,12 @@ This section provides more information on each of the operations.
 
 To retrieve a list of objects that are available in the system, use salesforce.describeGlobal. 
 
-**describeGlobal**
+###### describeGlobal
 ```xml
 <salesforce.describeGlobal configKey="MySFConfig"/>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the describeGlobal operation.
 
@@ -93,7 +93,7 @@ Given below is a sample response for the describeGlobal operation.
     </soapenv:Body>
 </soapenv:Envelope>
 ```
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describeglobal.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describeglobal.htm)
 
@@ -101,17 +101,17 @@ Given below is a sample response for the describeGlobal operation.
 
 To retrieve metadata (such as name, label, and fields, including the field properties) for a specific object type, use salesforce.describeSobject and specify the following properties. 
 
-**describeSobject**
+###### describeSobject
 ```xml
 <salesforce.describeSObject configKey="MySFConfig">
     <sobject>Account</sobject>
 </salesforce.describeSObject>
 ```
 
-**Properties**
+###### Properties
 * sobject: The object type of where you want to retrieve the metadata.
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the describeSObject operation.
 
@@ -146,7 +146,7 @@ Given below is a sample response for the describeSObject operation.
 </soapenv:Envelope>
 ```
 
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describesobject.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describesobject.htm)
 
@@ -154,17 +154,17 @@ Given below is a sample response for the describeSObject operation.
 
 To retrieve metadata (such as name, label, and fields, including the field properties) for multiple object types returned as an array, use salesforce.describeSobjects and specify the following properties. 
 
-**describeSobjects**
+###### describeSobjects
 ```xml
 <salesforce.describeSobjects configKey="MySFConfig">
     <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
 </salesforce.describeSobjects>
 ```
 
-**Properties**
+###### Properties
 * sobjects: An XML representation of the object types of where you want to retrieve the metadata.
 
-**Sample request**
+###### Sample request
 
 Given below is a sample request that can be handled by the describeSobjects operation.
 
@@ -184,7 +184,7 @@ Given below is a sample request that can be handled by the describeSobjects oper
 </salesforce.describeSobjects>
 ```
 
-**Sample response**
+###### Sample response
 
 Given below is a sample response for the describeSobjects operation.
 
@@ -230,11 +230,11 @@ Given below is a sample response for the describeSobjects operation.
     </soapenv:Body>
 </soapenv:Envelope>
 ```
-**Related Salesforce documentation**
+###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describesobjects.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_describesobjects.htm)
 
-**Sample Configuration**
+### Sample configuration
 
 Following example illustrates how to connect to Salesforce with the init operation and describeGlobal operation.
 
