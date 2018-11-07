@@ -278,7 +278,7 @@ Following example illustrates how to connect to Salesforce with the init operati
    <description/>
 </proxy>                              
 ```
-2. Create a xml file called describeGlobal.xml containing the following xml:
+2. Create an XML file named describeGlobal.xml and copy the XML configurations given below:
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -294,12 +294,12 @@ Following example illustrates how to connect to Salesforce with the init operati
 ```
 3. Replace the credentials with your values.
 
-4. Execute the following cURL command:
+4. Execute the following curl command:
 
 ```bash
 curl http://localhost:8280/services/salesforce_describeGlobal -H "Content-Type: text/xml" -d @describeGlobal.xml
 ```
-5. Salesforce returns a xml response as below.
+5. Salesforce returns an XML response similar to the response given below:
  
 ```xml
 <?xml version='1.0' encoding='utf-8'?>

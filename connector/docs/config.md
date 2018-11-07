@@ -8,7 +8,7 @@
 
 To use the Salesforce connector, add the <salesforce.init>  element to your configuration before carrying out any other Salesforce operations.
 
-Before you start configuring the connector, import the Salesforce certificate to your EI client keystore.
+Before you start configuring the connector, import the Salesforce certificate to your WSO2 Enterprise Integrator (EI) client keystore.
 
 * Follow the steps below to import the Salesforce certificate into the EI client keystore:
 

@@ -1,6 +1,6 @@
 # Salesforce EI Connector
 
-The Salesforce [Connector](https://docs.wso2.com/display/EI640/Working+with+Connectors) allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm) through WSO2 EI. Salesforce is  a web-based service
+The Salesforce [Connector](https://docs.wso2.com/display/EI640/Working+with+Connectors) allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm) through WSO2 Enterprise Integrator (WSO2 EI). Salesforce is  a web-based service
 that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query,
 retrieve, update, and delete records in your organization's Salesforce data. The connector uses the Salesforce SOAP API to interact with Salesforce.
 
