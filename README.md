@@ -1,6 +1,6 @@
 # Salesforce EI Connector
 
-The Salesforce [Connector](https://docs.wso2.com/display/EI640/Working+with+Connectors) allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm) through WSO2 Enterprise Integrator (WSO2 EI). Salesforce is  a web-based service
+The Salesforce [Connector](https://docs.wso2.com/display/EI650/Working+with+Connectors) allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm) through WSO2 Enterprise Integrator (WSO2 EI). Salesforce is  a web-based service
 that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query,
 retrieve, update, and delete records in your organization's Salesforce data. The connector uses the Salesforce SOAP API to interact with Salesforce.
 
@@ -9,6 +9,7 @@ retrieve, update, and delete records in your organization's Salesforce data. The
 
 | Connector version | Supported Salesforce SOAP API version | Supported WSO2 ESB/EI version |
 | ------------- | ------------- | ------------- |
+| [2.0.3](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.3) | 42.0 | EI 6.5.0  |
 | [2.0.2](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.2) | 42.0 | ESB 4.8.1, ESB 4.9.0, ESB 5.0.0, EI 6.1.1, EI 6.2.0, EI 6.3.0, EI 6.4.0  |
 | [2.0.1](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.1) | 42.0 | ESB 4.8.1, ESB 4.9.0, ESB 5.0.0, EI 6.1.1  |
 
@@ -17,9 +18,9 @@ retrieve, update, and delete records in your organization's Salesforce data. The
 #### Download and install the connector
 
 1. Download the connector from [WSO2 Store](https://store.wso2.com/store/assets/esbconnector/details/fbb433b5-4d74-4064-84c2-e4b23c531aa2) by clicking the Download Connector button.
-2. Then you can follow this [Documentation](https://docs.wso2.com/display/EI640/Working+with+Connectors+via+the+Management+Console) to add and enable the connector via the Management Console in your EI instance.
-3. For more information on using connectors and their operations in your EI configurations, see [Using a Connector](https://docs.wso2.com/display/EI640/Using+a+Connector).
-4. If you want to work with connectors via EI tooling, see [Working with Connectors via Tooling](https://docs.wso2.com/display/EI640/Working+with+Connectors+via+Tooling).
+2. Then you can follow this [Documentation](https://docs.wso2.com/display/EI650/Working+with+Connectors+via+the+Management+Console) to add and enable the connector via the Management Console in your EI instance.
+3. For more information on using connectors and their operations in your EI configurations, see [Using a Connector](https://docs.wso2.com/display/EI650/Using+a+Connector).
+4. If you want to work with connectors via EI tooling, see [Working with Connectors via Tooling](https://docs.wso2.com/display/EI650/Working+with+Connectors+via+Tooling).
 
 #### Configuring the connector operations
 

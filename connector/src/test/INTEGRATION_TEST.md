@@ -1,4 +1,4 @@
-##  Integration tests for WSO2 ESB Salesforce SOAP connector
+##  Integration tests for WSO2 EI Salesforce SOAP connector
 
 ### Pre-requisites:
 
@@ -9,11 +9,11 @@
 
 ### Tested Platform:
  - UBUNTU 16.04
- - WSO2 EI 6.4.0
+ - WSO2 EI 6.5.0
 
 Steps to follow in setting integration test.
 
- 1. Download WSO2 EI 6.4.0 from official website and place it to {EI_Connector_Home}/repositiry/.
+ 1. Download WSO2 EI 6.5.0 from official website and place it to {EI_Connector_Home}/repositiry/.
 
  2. Create a Salesforce account.
 
@@ -42,9 +42,9 @@ Steps to follow in setting integration test.
  6. Following are the Salesforce properties used in esb-connector-salesforce.properties and salesforce.properties file at location "{Connector_Home}/src/test/resources/artifacts/ESB/connector/config" to run the integration tests.
 	
 	    i)      loginUrl           -   The API URL .
-	    ii) 	username           -   The username of the Salesforce account.
-	    iii)	password           -   The password of the Salesforce account.
-	    iv)     blocking           -
+	    ii)     username           -   The username of the Salesforce account.
+	    iii     password           -   The password of the Salesforce account.
+	    iv)     blocking           -   Set true to invoke blocking call. 
 	    v)      sobject            -   The sobject type(Eg: Account).
 	    vi)     allOrNone          -   Whether to rollback changes if an object fails(Default value is 0).
 	    vii)    allowFieldTruncate -   Whether to truncates strings that exceed the field length(Default value is 0).
