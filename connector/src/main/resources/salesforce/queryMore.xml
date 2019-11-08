@@ -45,7 +45,7 @@
             <args>
                 <arg expression="$func:batchSize"/>
                 <arg expression="get-property('operation','salesforce.sessionId')"/>
-                <arg expression="get-property('salesforce.query.queryLocator')"/>
+                <arg expression="get-property('operation','salesforce.query.queryLocator')"/>
             </args>
         </payloadFactory>
 
@@ -110,7 +110,7 @@
                   name="salesforce.query.done" scope="default" type="STRING"
                   xmlns:ns="urn:partner.soap.sforce.com"/>
         <property expression="//ns:result/ns:queryLocator/text()"
-                  name="salesforce.query.queryLocator" scope="default"
+                  name="salesforce.query.queryLocator" scope="operation"
                   type="STRING" xmlns:ns="urn:partner.soap.sforce.com"/>
     </sequence>
 </template>
