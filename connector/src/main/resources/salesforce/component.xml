@@ -124,5 +124,9 @@
             <file>getUpdated.xml</file>
             <description>Get Updated Records synapse library</description>
         </component>
+        <component name="getServerTimestamp">
+            <file>getServerTimestamp.xml</file>
+            <description>Get Server Timestamp synapse library</description>
+        </component>
     </subComponents>
 </component>
