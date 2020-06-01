@@ -116,5 +116,9 @@
             <file>getUserInfo.xml</file>
             <description>Get User Information synapse library</description>
         </component>
+        <component name="getDeleted">
+            <file>getDeleted.xml</file>
+            <description>Get Deleted Records synapse library</description>
+        </component>
     </subComponents>
 </component>
