@@ -120,5 +120,9 @@
             <file>getDeleted.xml</file>
             <description>Get Deleted Records synapse library</description>
         </component>
+        <component name="getUpdated">
+            <file>getUpdated.xml</file>
+            <description>Get Updated Records synapse library</description>
+        </component>
     </subComponents>
 </component>
