@@ -128,5 +128,9 @@
             <file>getServerTimestamp.xml</file>
             <description>Get Server Timestamp synapse library</description>
         </component>
+        <component name="findDuplicates">
+            <file>findDuplicates.xml</file>
+            <description>Find duplicates for a set of sObjects synapse library</description>
+        </component>
     </subComponents>
 </component>
