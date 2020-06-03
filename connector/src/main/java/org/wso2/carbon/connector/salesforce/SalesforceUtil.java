@@ -42,6 +42,7 @@ public final class SalesforceUtil {
     public static final String SALESFORCE_EMAIL_SENDEMAILMESSAGE = "sendEmailMessage";
     public static final String SALESFORCE_EMAIL_SENDEMAIL = "sendEmail";
     public static final String SALESFORCE_RETRIVE_OBJECTIDS = "objectIDS";
+    public static final String SALESFORCE_RECORDIDS = "ids";
     public static final String SALESFORCE_CREATE_SOBJECTTYPE = "type";
     public static final String SALESFORCE_LOGIN_FORCE = "forceLogin";
     public static final String SALESFORCE_LOGIN_DONE = "salesforce.login.done";

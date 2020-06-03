@@ -132,5 +132,9 @@
             <file>findDuplicates.xml</file>
             <description>Find duplicates for a set of sObjects synapse library</description>
         </component>
+        <component name="findDuplicatesByIds">
+            <file>findDuplicatesByIds.xml</file>
+            <description>Find duplicates for a set of sObjects using record ids synapse library</description>
+        </component>
     </subComponents>
 </component>
