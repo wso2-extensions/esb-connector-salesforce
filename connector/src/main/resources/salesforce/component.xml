@@ -136,5 +136,9 @@
             <file>findDuplicatesByIds.xml</file>
             <description>Find duplicates for a set of sObjects using record ids synapse library</description>
         </component>
+        <component name="merge">
+            <file>merge.xml</file>
+            <description>Merge and update a set of sObjects based on object id synapse library</description>
+        </component>
     </subComponents>
 </component>
