@@ -140,5 +140,9 @@
             <file>merge.xml</file>
             <description>Merge and update a set of sObjects based on object id synapse library</description>
         </component>
+        <component name="convertLead">
+            <file>convertLead.xml</file>
+            <description>Convert a set of leads synapse library</description>
+        </component>
     </subComponents>
 </component>

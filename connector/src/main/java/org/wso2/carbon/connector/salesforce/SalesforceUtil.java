@@ -40,6 +40,7 @@ public final class SalesforceUtil {
     public static final String SALESFORCE_EXTERNALID = "externalId";
     public static final String SALESFORCE_SOBJECTS = "sobjects";
     public static final String SALESFORCE_REQUEST = "mergerequests";
+    public static final String SALESFORCE_LEAD_CONVERT = "leadconvertrequests";
     public static final String SALESFORCE_EMAIL_SENDEMAILMESSAGE = "sendEmailMessage";
     public static final String SALESFORCE_EMAIL_SENDEMAIL = "sendEmail";
     public static final String SALESFORCE_RETRIVE_OBJECTIDS = "objectIDS";
