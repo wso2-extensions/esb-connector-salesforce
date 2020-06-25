@@ -1,0 +1,99 @@
+{
+  "connectorName": "salesforce",
+  "connectionName": "init",
+  "title": "Init Salesforcerest Connection",
+  "help": "<h1>Salesforcerest Connector</h1> <b>The Salesforce SOAP connector initializes connection through init operation</b>",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "connectionName",
+        "displayName": "Connection Name",
+        "inputType": "string",
+        "defaultValue": "SALESFORCESOAP_CONNECTION_1",
+        "required": "true",
+        "helpTip": "The name for the salesforcesoap connection",
+        "validation": "nameWithoutSpecialCharactors"
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "username",
+                    "displayName": "Username",
+                    "inputType": "stringOrExpresion",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The username for the salesforce."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "password",
+                    "displayName": "Password",
+                    "inputType": "stringOrExpresion",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The password for the salesforce which means the password with security key."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "loginUrl",
+                    "displayName": "Login URL",
+                    "inputType": "stringOrExpresion",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The login URL to get the user access"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "forceLogin",
+                    "displayName": "Force Login",
+                    "inputType": "stringOrExpresion",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "The forceLogin parameter"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "blocking",
+                    "displayName": "Blocking",
+                    "inputType": "stringOrExpresion",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "he blocking parameter is helping connector performs the blocking invocations to Salesforce"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Advanced",
+        "elements": [
+        ]
+      }
+    }
+  ]
+}

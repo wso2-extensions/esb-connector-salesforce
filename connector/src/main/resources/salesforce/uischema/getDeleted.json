@@ -1,0 +1,71 @@
+{
+  "connectorName": "salesforce",
+  "operationName": "getDeleted",
+  "title": "Get Delete Records",
+  "help": "<h1>Get Delete Records</h1> <b>Retrieves the list of individual records that have been deleted within the given timespan for the specified object.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/salesforce-connector/sf-connector-config/\"> More Help </a></li></ul>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "init"
+              ],
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "sObjectType",
+                    "displayName": "sObject Type",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The sobject type"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "startDate",
+                    "displayName": "Start Date",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The start date for deleted records lookup"
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "endDate",
+                    "displayName": "End Date",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The end date for deleted records lookup"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

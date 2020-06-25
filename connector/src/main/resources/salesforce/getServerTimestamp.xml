@@ -17,35 +17,10 @@
  ~  under the License.
 -->
 <template name="getServerTimestamp" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="sObjectType" description="The sobject type"/>
-    <parameter name="startDate" description="The start date for deleted records lookup"/>
-    <parameter name="endDate" description="The end date for deleted records lookup"/>
     <sequence>
         <property
                 expression="get-property('operation','salesforce.serviceUrl')"
                 name="uri.var.salesforce.url"/>
-        <payloadFactory>
-            <format>
-                <soapenv:Envelope
-                        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                        xmlns:urn="urn:partner.soap.sforce.com">
-                    <soapenv:Header>
-                        <urn:SessionHeader>
-                            <urn:sessionId>$1</urn:sessionId>
-                        </urn:SessionHeader>
-                    </soapenv:Header>
-                    <soapenv:Body>
-                        <urn:getServerTimestamp/>
-                    </soapenv:Body>
-                </soapenv:Envelope>
-            </format>
-            <args>
-                <arg expression="get-property('operation','salesforce.sessionId')"/>
-                <arg expression="$func:sObjectType"/>
-                <arg expression="$func:startDate"/>
-                <arg expression="$func:endDate"/>
-            </args>
-        </payloadFactory>
         <property name="messageType" scope="axis2" value="text/xml"/>
         <header name="Action" value="urn:partner.soap.sforce.com/Soap/getServerTimestampRequest"/>
         <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
