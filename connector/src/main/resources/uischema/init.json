@@ -1,8 +1,8 @@
 {
   "connectorName": "salesforce",
   "connectionName": "init",
-  "title": "Init Salesforcerest Connection",
-  "help": "<h1>Salesforcerest Connector</h1> <b>The Salesforce SOAP connector initializes connection through init operation</b>",
+  "title": "Init Salesforce Connection",
+  "help": "<h1>Salesforce Connector</h1> <b>The Salesforce SOAP connector initializes connection through init operation</b>",
   "elements": [
     {
       "type": "attribute",

@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *  Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  *  WSO2 Inc. licenses this file to you under the Apache License,
  *  Version 2.0 (the "License"); you may not use this file except
@@ -22,6 +22,9 @@ import org.apache.synapse.MessageContext;
 import org.apache.synapse.SynapseLog;
 import org.wso2.carbon.connector.core.AbstractConnector;
 
+/**
+ * This class adds data to message context for find duplicates operation
+ */
 public class SetupFindDuplicates extends AbstractConnector {
 
     public void connect(MessageContext synCtx) {
