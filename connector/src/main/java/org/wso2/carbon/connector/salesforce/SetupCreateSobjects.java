@@ -35,8 +35,7 @@ public class SetupCreateSobjects extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addSobjects("create", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog,
+        SalesforceUtil.addSobjects("create", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog,
                 null);
 
         if (synLog.isTraceOrDebugEnabled()) {

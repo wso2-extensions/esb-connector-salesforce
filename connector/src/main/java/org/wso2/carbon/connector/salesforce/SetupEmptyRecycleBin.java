@@ -36,8 +36,7 @@ public class SetupEmptyRecycleBin extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil
+        SalesforceUtil
                 .addIds("emptyRecycleBin", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog);
 
         if (synLog.isTraceOrDebugEnabled()) {

@@ -39,19 +39,18 @@ public final class SalesforceUtil {
     public static final String SALESFORCE_CRUD_ALLOWFIELDTRUNCATE = "allowFieldTruncate";
     public static final String SALESFORCE_EXTERNALID = "externalId";
     public static final String SALESFORCE_SOBJECTS = "sobjects";
+    public static final String SALESFORCE_MERGE_REQUEST = "mergerequests";
+    public static final String SALESFORCE_LEAD_CONVERT = "leadconvertrequests";
     public static final String SALESFORCE_EMAIL_SENDEMAILMESSAGE = "sendEmailMessage";
     public static final String SALESFORCE_EMAIL_SENDEMAIL = "sendEmail";
     public static final String SALESFORCE_RETRIVE_OBJECTIDS = "objectIDS";
+    public static final String SALESFORCE_RECORDIDS = "ids";
     public static final String SALESFORCE_CREATE_SOBJECTTYPE = "type";
     public static final String SALESFORCE_LOGIN_FORCE = "forceLogin";
     public static final String SALESFORCE_LOGIN_DONE = "salesforce.login.done";
     public static final String SALESFORCE_CRUD_PREFIX = "salesforce.crud.";
 
-    public static synchronized SalesforceUtil getSalesforceUtil() {
-        return new SalesforceUtil();
-    }
-
-    public void addSobjects(String strOperation, String strParamName, MessageContext synCtx,
+    public static void addSobjects(String strOperation, String strParamName, MessageContext synCtx,
                             SynapseLog synLog, String strExternalId) {
         SOAPEnvelope envelope = synCtx.getEnvelope();
         OMFactory fac = OMAbstractFactory.getOMFactory();
@@ -116,7 +115,7 @@ public final class SalesforceUtil {
         }
     }
 
-    public void addIds(String strOperation, String strParamName, MessageContext synCtx,
+    public static void addIds(String strOperation, String strParamName, MessageContext synCtx,
                        SynapseLog synLog) {
         SOAPEnvelope envelope = synCtx.getEnvelope();
         OMFactory fac = OMAbstractFactory.getOMFactory();

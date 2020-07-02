@@ -36,8 +36,7 @@ public class SetupUndelete extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addIds("undelete", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog);
+        SalesforceUtil.addIds("undelete", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog);
 
         if (synLog.isTraceOrDebugEnabled()) {
             synLog.traceOrDebug("End : Salesforce Undelete mediator");

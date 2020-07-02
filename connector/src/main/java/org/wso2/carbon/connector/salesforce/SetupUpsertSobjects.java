@@ -36,8 +36,7 @@ public class SetupUpsertSobjects extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addSobjects("upsert",
+        SalesforceUtil.addSobjects("upsert",
                 SalesforceUtil.SALESFORCE_SOBJECTS,
                 synCtx,
                 synLog,

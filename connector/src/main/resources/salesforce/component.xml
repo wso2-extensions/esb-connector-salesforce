@@ -116,5 +116,33 @@
             <file>getUserInfo.xml</file>
             <description>Get User Information synapse library</description>
         </component>
+        <component name="getDeleted">
+            <file>getDeleted.xml</file>
+            <description>Get Deleted Records synapse library</description>
+        </component>
+        <component name="getUpdated">
+            <file>getUpdated.xml</file>
+            <description>Get Updated Records synapse library</description>
+        </component>
+        <component name="getServerTimestamp">
+            <file>getServerTimestamp.xml</file>
+            <description>Get Server Timestamp synapse library</description>
+        </component>
+        <component name="findDuplicates">
+            <file>findDuplicates.xml</file>
+            <description>Find duplicates for a set of sObjects synapse library</description>
+        </component>
+        <component name="findDuplicatesByIds">
+            <file>findDuplicatesByIds.xml</file>
+            <description>Find duplicates for a set of sObjects using record ids synapse library</description>
+        </component>
+        <component name="merge">
+            <file>merge.xml</file>
+            <description>Merge and update a set of sObjects based on object id synapse library</description>
+        </component>
+        <component name="convertLead">
+            <file>convertLead.xml</file>
+            <description>Convert a set of leads synapse library</description>
+        </component>
     </subComponents>
 </component>
