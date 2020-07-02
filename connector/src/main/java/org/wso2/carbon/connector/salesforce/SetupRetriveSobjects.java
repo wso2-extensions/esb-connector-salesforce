@@ -36,8 +36,7 @@ public class SetupRetriveSobjects extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addIds("retrieve", SalesforceUtil.SALESFORCE_RETRIVE_OBJECTIDS, synCtx,
+        SalesforceUtil.addIds("retrieve", SalesforceUtil.SALESFORCE_RETRIVE_OBJECTIDS, synCtx,
                 synLog);
 
         if (synLog.isTraceOrDebugEnabled()) {

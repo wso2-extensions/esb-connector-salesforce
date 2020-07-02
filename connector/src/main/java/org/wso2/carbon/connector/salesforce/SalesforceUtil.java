@@ -50,11 +50,7 @@ public final class SalesforceUtil {
     public static final String SALESFORCE_LOGIN_DONE = "salesforce.login.done";
     public static final String SALESFORCE_CRUD_PREFIX = "salesforce.crud.";
 
-    public static synchronized SalesforceUtil getSalesforceUtil() {
-        return new SalesforceUtil();
-    }
-
-    public void addSobjects(String strOperation, String strParamName, MessageContext synCtx,
+    public static void addSobjects(String strOperation, String strParamName, MessageContext synCtx,
                             SynapseLog synLog, String strExternalId) {
         SOAPEnvelope envelope = synCtx.getEnvelope();
         OMFactory fac = OMAbstractFactory.getOMFactory();
@@ -119,7 +115,7 @@ public final class SalesforceUtil {
         }
     }
 
-    public void addIds(String strOperation, String strParamName, MessageContext synCtx,
+    public static void addIds(String strOperation, String strParamName, MessageContext synCtx,
                        SynapseLog synLog) {
         SOAPEnvelope envelope = synCtx.getEnvelope();
         OMFactory fac = OMAbstractFactory.getOMFactory();

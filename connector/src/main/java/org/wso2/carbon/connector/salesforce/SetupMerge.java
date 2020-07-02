@@ -39,8 +39,7 @@ public class SetupMerge extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addSobjects("merge", SalesforceUtil.SALESFORCE_MERGE_REQUEST, synCtx, synLog,
+        SalesforceUtil.addSobjects("merge", SalesforceUtil.SALESFORCE_MERGE_REQUEST, synCtx, synLog,
                 null);
 
         if (synLog.isTraceOrDebugEnabled()) {

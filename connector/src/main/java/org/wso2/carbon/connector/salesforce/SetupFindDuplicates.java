@@ -39,8 +39,7 @@ public class SetupFindDuplicates extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addSobjects("findDuplicates", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog,
+        SalesforceUtil.addSobjects("findDuplicates", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog,
                 null);
 
         if (synLog.isTraceOrDebugEnabled()) {

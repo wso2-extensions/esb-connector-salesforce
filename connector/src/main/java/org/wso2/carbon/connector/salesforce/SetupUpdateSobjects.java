@@ -36,8 +36,7 @@ public class SetupUpdateSobjects extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addSobjects("update", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog,
+        SalesforceUtil.addSobjects("update", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog,
                 null);
 
         if (synLog.isTraceOrDebugEnabled()) {

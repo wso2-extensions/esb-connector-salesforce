@@ -39,8 +39,7 @@ public class SetupFindDuplicatesByIds extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addIds("findDuplicatesByIds", SalesforceUtil.SALESFORCE_RECORDIDS, synCtx,
+        SalesforceUtil.addIds("findDuplicatesByIds", SalesforceUtil.SALESFORCE_RECORDIDS, synCtx,
                 synLog);
 
         if (synLog.isTraceOrDebugEnabled()) {

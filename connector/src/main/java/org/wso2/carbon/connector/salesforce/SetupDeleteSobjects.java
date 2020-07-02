@@ -36,8 +36,7 @@ public class SetupDeleteSobjects extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addIds("delete", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog);
+        SalesforceUtil.addIds("delete", SalesforceUtil.SALESFORCE_SOBJECTS, synCtx, synLog);
 
         if (synLog.isTraceOrDebugEnabled()) {
             synLog.traceOrDebug("End : Salesforce delete SObjects mediator");

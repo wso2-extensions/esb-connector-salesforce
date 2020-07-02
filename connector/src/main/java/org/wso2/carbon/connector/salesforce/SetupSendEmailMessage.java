@@ -36,8 +36,7 @@ public class SetupSendEmailMessage extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addIds("sendEmailMessage", SalesforceUtil.SALESFORCE_EMAIL_SENDEMAILMESSAGE,
+        SalesforceUtil.addIds("sendEmailMessage", SalesforceUtil.SALESFORCE_EMAIL_SENDEMAILMESSAGE,
                 synCtx, synLog);
 
         if (synLog.isTraceOrDebugEnabled()) {

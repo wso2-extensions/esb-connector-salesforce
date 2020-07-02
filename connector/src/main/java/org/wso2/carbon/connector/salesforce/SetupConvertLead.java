@@ -39,8 +39,7 @@ public class SetupConvertLead extends AbstractConnector {
             }
         }
 
-        SalesforceUtil salesforceUtil = SalesforceUtil.getSalesforceUtil();
-        salesforceUtil.addSobjects("convertLead", SalesforceUtil.SALESFORCE_LEAD_CONVERT, synCtx, synLog,
+        SalesforceUtil.addSobjects("convertLead", SalesforceUtil.SALESFORCE_LEAD_CONVERT, synCtx, synLog,
                 null);
 
         if (synLog.isTraceOrDebugEnabled()) {
