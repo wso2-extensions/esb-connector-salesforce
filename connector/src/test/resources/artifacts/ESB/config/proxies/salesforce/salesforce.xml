@@ -185,6 +185,9 @@
                         <endDate>{$ctx:endDate}</endDate>
                     </salesforce.getDeleted>
                 </case>
+                <case regex="getServerTimestamp">
+                    <salesforce.getServerTimestamp/>
+                </case>
                 <case regex="update">
                     <payloadFactory>
                         <format>
