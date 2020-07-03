@@ -17,6 +17,7 @@ The following operations allow you to work with Records. A Record is an instance
 | [delete](#deleting-records)    | Deletes a record in Salesforce. |
 | [undelete](#restoring-records)      | Restores a record that was previously deleted in Salesforce. |
 | [getDeleted](#retrieving-deleted-records)      | Retrieves the list of deleted records within a specified time interval. |
+| [getUpdated](#retrieving-updated-records)      | Retrieves the list of updated records within a specified time interval. |
 
 ### Operation details
 
@@ -621,6 +622,10 @@ Given below is a sample response for the undelete operation.
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm)
 
+#### Retrieving Deleted records
+
+To retrieve the list of records that were previously deleted, use salesforce.getDeleted and specify the following properties. 
+
 ###### getDeleted
 ```xml
 <salesforce.getDeleted configKey="MySFConfig">
@@ -687,6 +692,77 @@ Given below is a sample response for the getDeleted operation.
 ###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getdeleted.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getdeleted.htm)
+
+#### Retrieving Updated records
+
+To retrieve the list of records that were previously updated, use salesforce.getUpdated and specify the following properties. 
+
+###### getUpdated
+```xml
+<salesforce.getUpdated configKey="MySFConfig">
+    <sObjectType>{$ctx:sObjectType}</sObjectType>
+    <startDate>{$ctx:startDate}</startDate>
+    <endDate>{$ctx:endDate}</endDate>
+</salesforce.getUpdated>
+```
+
+###### Properties
+* sObjectType: sObjectType from which we need to retrieve deleted records
+* startDate: start date and time for deleted records lookup
+* endDate: end date and time for deleted records lookup
+
+###### Sample request
+
+Given below is a sample request that can be handled by the undelete operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/30.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:sObjectType>Account</urn:sObjectType>
+        <urn:startDate>2020-06-15T05:05:53+0000</urn:startDate>
+        <urn:endDate>2020-06-30T05:05:53+0000</urn:endDate>
+    </soapenv:Body>
+</soapenv:Envelope> 
+```
+###### Sample response
+
+Given below is a sample response for the getUpdated operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>66</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <getUpdatedResponse>
+            <result>
+                <ids>0012x000007RVCcAAO</ids>
+                <ids>0012x000007RVD1AAO</ids>
+                <ids>0012x000007RVG8AAO</ids>
+                <ids>0012x000007RVw7AAG</ids>
+                <ids>0012x000007RW3uAAG</ids>
+                <latestDateCovered>2020-06-30T05:05:00.000Z</latestDateCovered>
+            </result>
+        </getUpdatedResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm)
 
 
 ### Sample configuration
