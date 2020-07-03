@@ -261,6 +261,20 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
 
     /**
      *
+     * Positive test case for getDeleted method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testUpdateWithMandatoryParameters"}, description = "Salesforce {getDeleted} integration test with mandatory parameters.")
+    public void testGetDeletedWithMandatoryParameters() throws Exception {
+        connectorProperties.put("startDate", "2020-06-15T05:05:53+0000"); //Change startDate and endDate to a value within the last 30 days
+        connectorProperties.put("endDate", "2020-06-30T05:05:53+0000");
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbGetDeletedMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("getDeletedResponse"));
+    }
+
+    /**
+     *
      * Positive test case for UnDelete method with mandatory parameters.
      */
     @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testDeleteWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")

@@ -114,6 +114,12 @@
             <property xmlns:ns="wso2.connector.salesforce"
                       name="method"
                       expression="//ns:method/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="startDate"
+                      expression="//ns:startDate/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="endDate"
+                      expression="//ns:endDate/text()"/>
             <salesforce.init>
                 <loginUrl>{$ctx:loginUrl}</loginUrl>
                 <username>{$ctx:username}</username>
@@ -171,6 +177,13 @@
                         <allOrNone>{$ctx:allOrNone}</allOrNone>
                         <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
                     </salesforce.delete>
+                </case>
+                <case regex="getDeleted">
+                    <salesforce.getDeleted>
+                        <sObjectType>{$ctx:type1}</sObjectType>
+                        <startDate>{$ctx:startDate}</startDate>
+                        <endDate>{$ctx:endDate}</endDate>
+                    </salesforce.getDeleted>
                 </case>
                 <case regex="update">
                     <payloadFactory>
