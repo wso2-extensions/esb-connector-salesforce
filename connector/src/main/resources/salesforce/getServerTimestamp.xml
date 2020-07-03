@@ -21,6 +21,25 @@
         <property
                 expression="get-property('operation','salesforce.serviceUrl')"
                 name="uri.var.salesforce.url"/>
+        <payloadFactory>
+            <format>
+                <soapenv:Envelope
+                        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                        xmlns:urn="urn:partner.soap.sforce.com">
+                    <soapenv:Header>
+                        <urn:SessionHeader>
+                            <urn:sessionId>$1</urn:sessionId>
+                        </urn:SessionHeader>
+                    </soapenv:Header>
+                    <soapenv:Body>
+                        <urn:getServerTimestamp/>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg expression="get-property('operation','salesforce.sessionId')"/>
+            </args>
+        </payloadFactory>
         <property name="messageType" scope="axis2" value="text/xml"/>
         <header name="Action" value="urn:partner.soap.sforce.com/Soap/getServerTimestampRequest"/>
         <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
