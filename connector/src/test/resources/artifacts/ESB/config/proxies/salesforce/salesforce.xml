@@ -185,6 +185,13 @@
                         <endDate>{$ctx:endDate}</endDate>
                     </salesforce.getDeleted>
                 </case>
+                <case regex="getUpdated">
+                    <salesforce.getUpdated>
+                        <sObjectType>{$ctx:type1}</sObjectType>
+                        <startDate>{$ctx:startDate}</startDate>
+                        <endDate>{$ctx:endDate}</endDate>
+                    </salesforce.getUpdated>
+                </case>
                 <case regex="getServerTimestamp">
                     <salesforce.getServerTimestamp/>
                 </case>
