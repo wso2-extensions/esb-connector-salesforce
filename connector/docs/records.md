@@ -21,7 +21,7 @@ The following operations allow you to work with Records. A Record is an instance
 | [findDuplicates](#retrieving-duplicate-records)      | Retrieves the list of duplicate records in one or more sObjects. |
 | [findDuplicatesByIds](#retrieving-duplicate-records-by-ids)      | Retrieves the list of duplicate records of given ids. |
 | [merge](#merge-records)      | Merges records into one master record. |
-| [ConvertLead](#convert-lead)      | . |
+| [ConvertLead](#convert-lead)      | Convert a lead into an account. |
 
 ### Operation details
 
@@ -989,6 +989,77 @@ Given below is a sample response for the findDuplicates operation.
                 <success>true</success>
             </result>
         </mergeResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm)
+
+
+#### Convert Lead
+
+To convert a lead into an account, use salesforce.convertLead and specify the following properties. 
+
+###### convertLead
+```xml
+<salesforce.convertLead configKey="MySFConfig">
+     <leadconvertrequests xmlns:ns="wso2.connector.salesforce">{//ns:leadconvertrequests}</leadconvertrequests>
+</salesforce.convertLead>
+```
+
+###### Properties
+* leadconvertrequests: The lead convert requests according to the format defined in to Salesforce docs (See Related Salesforce documentation section)
+
+###### Sample request
+
+Given below is a sample request that can be handled by the convertLead operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:leadconvertrequests>
+        	<urn:leadConverts>
+        		<urn:accountId>0012x000005mqKuAAI</urn:accountId>
+        		<urn:leadId>00Q2x00000AH981EAD</urn:leadId>
+        		<urn:convertedStatus>Closed - Converted</urn:convertedStatus>
+        	</urn:leadConverts>
+        </urn:leadconvertrequests>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the convertLead operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>128</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <convertLeadResponse>
+            <result>
+                <accountId>0012x000005mqKuAAI</accountId>
+                <contactId>0032x000006I2xYAAS</contactId>
+                <leadId>00Q2x00000AH981EAD</leadId>
+                <opportunityId>0062x0000053r8FAAQ</opportunityId>
+                <success>true</success>
+            </result>
+        </convertLeadResponse>
     </soapenv:Body>
 </soapenv:Envelope>
 ```
