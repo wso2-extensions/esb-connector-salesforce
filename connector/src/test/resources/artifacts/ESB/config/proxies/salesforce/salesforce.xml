@@ -120,9 +120,12 @@
             <property xmlns:ns="wso2.connector.salesforce"
                       name="endDate"
                       expression="//ns:endDate/text()"/>
-            <!--<property xmlns:ns="wso2.connector.salesforce"-->
-                      <!--name="sObjects"-->
-                      <!--expression="//ns:sObjects/text()"/>-->
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="idForMerge1"
+                      expression="//ns:idForMerge1/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="idForMerge2"
+                      expression="//ns:idForMerge2/text()"/>
             <salesforce.init>
                 <loginUrl>{$ctx:loginUrl}</loginUrl>
                 <username>{$ctx:username}</username>
@@ -225,6 +228,28 @@
                     <salesforce.findDuplicatesByIds>
                         <ids xmlns:sfdc="sfdc">{//sfdc:ids}</ids>
                     </salesforce.findDuplicatesByIds>
+                </case>
+                <case regex="merge">
+                    <payloadFactory>
+                        <format>
+                            <sfdc:requests xmlns:sfdc="sfdc">
+                                <sfdc:request>
+                                    <sfdc:masterRecord>
+                                        <sfdc:type>Account</sfdc:type>
+                                        <sfdc:Id>$1</sfdc:Id>
+                                    </sfdc:masterRecord>
+                                    <sfdc:recordToMergeIds>$2</sfdc:recordToMergeIds>
+                                </sfdc:request>
+                            </sfdc:requests>
+                        </format>
+                        <args>
+                            <arg expression="get-property('idForMerge1')"/>
+                            <arg expression="get-property('idForMerge2')"/>
+                        </args>
+                    </payloadFactory>
+                    <salesforce.merge>
+                        <mergerequests xmlns:sfdc="sfdc">{//sfdc:requests}</mergerequests>
+                    </salesforce.merge>
                 </case>
                 <case regex="update">
                     <payloadFactory>
