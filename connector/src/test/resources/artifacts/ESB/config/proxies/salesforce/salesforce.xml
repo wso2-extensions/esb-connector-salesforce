@@ -209,10 +209,22 @@
                         </format>
                         <args/>
                     </payloadFactory>
-
                     <salesforce.findDuplicates>
                         <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
                     </salesforce.findDuplicates>
+                </case>
+                <case regex="findDuplicatesByIds">
+                    <payloadFactory>
+                        <format>
+                            <sfdc:ids xmlns:sfdc="sfdc">
+                                <sfdc:id>0012x000005mqKuAAI</sfdc:id>
+                            </sfdc:ids>
+                        </format>
+                        <args/>
+                    </payloadFactory>
+                    <salesforce.findDuplicatesByIds>
+                        <ids xmlns:sfdc="sfdc">{//sfdc:ids}</ids>
+                    </salesforce.findDuplicatesByIds>
                 </case>
                 <case regex="update">
                     <payloadFactory>

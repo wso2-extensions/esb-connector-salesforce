@@ -313,9 +313,21 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
 
     /**
      *
+     * Positive test case for findDuplicatesByIds method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testFindDuplicatesWithMandatoryParameters"}, description = "Salesforce {findDuplicatesByIds} integration test with mandatory parameters.")
+    public void testFindDuplicatesByIdsWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbFindDuplicatesByIdsMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("findDuplicatesByIdsResponse"));
+    }
+
+    /**
+     *
      * Positive test case for UnDelete method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testFindDuplicatesWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testFindDuplicatesByIdsWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")
     public void testUnDeleteWithMandatoryParameters() throws Exception {
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbUnDeleteMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
