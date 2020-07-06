@@ -18,6 +18,7 @@ The following operations allow you to work with Records. A Record is an instance
 | [undelete](#restoring-records)      | Restores a record that was previously deleted in Salesforce. |
 | [getDeleted](#retrieving-deleted-records)      | Retrieves the list of deleted records within a specified time interval. |
 | [getUpdated](#retrieving-updated-records)      | Retrieves the list of updated records within a specified time interval. |
+| [findDuplicates](#retrieving-duplicate-records)      | Retrieves the list of duplicate records in one or more sObjects. |
 
 ### Operation details
 
@@ -642,7 +643,7 @@ To retrieve the list of records that were previously deleted, use salesforce.get
 
 ###### Sample request
 
-Given below is a sample request that can be handled by the undelete operation.
+Given below is a sample request that can be handled by the getDeleted operation.
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -713,7 +714,7 @@ To retrieve the list of records that were previously updated, use salesforce.get
 
 ###### Sample request
 
-Given below is a sample request that can be handled by the undelete operation.
+Given below is a sample request that can be handled by the getUpdated operation.
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -763,6 +764,86 @@ Given below is a sample response for the getUpdated operation.
 ###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm)
+
+
+#### Retrieving Duplicate records
+
+To retrieve the list of records that are duplicate entries, use salesforce.findDuplicates and specify the following properties. 
+
+###### findDuplicates
+```xml
+<salesforce.findDuplicates configKey="MySFConfig">
+    <sobjects xmlns:ns="wso2.connector.salesforce">{//ns:sObjects}</sobjects>
+</salesforce.findDuplicates>
+```
+
+###### Properties
+* sobjects: sObjectType from which we need to retrieve duplicate records
+
+###### Sample request
+
+Given below is a sample request that can be handled by the findDuplicates operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:sObjects>
+        	<urn:sObject>
+        		<urn:type>Account</urn:type>
+        		<urn:fieldsToNull>name</urn:fieldsToNull>
+        		<urn:fieldsToNull>id</urn:fieldsToNull>
+        	</urn:sObject>
+        </urn:sObjects>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the findDuplicates operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>11</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <findDuplicatesResponse>
+            <result>
+                <duplicateResults>
+                    <allowSave>false</allowSave>
+                    <duplicateRule>Standard_Account_Duplicate_Rule</duplicateRule>
+                    <duplicateRuleEntityType>Account</duplicateRuleEntityType>
+                    <errorMessage xsi:nil="true"/>
+                    <matchResults>
+                        <entityType>Account</entityType>
+                        <matchEngine>FuzzyMatchEngine</matchEngine>
+                        <rule>Standard_Account_Match_Rule_v1_0</rule>
+                        <size>0</size>
+                        <success>true</success>
+                    </matchResults>
+                </duplicateResults>
+                <success>true</success>
+            </result>
+        </findDuplicatesResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm)
 
 
 ### Sample configuration
