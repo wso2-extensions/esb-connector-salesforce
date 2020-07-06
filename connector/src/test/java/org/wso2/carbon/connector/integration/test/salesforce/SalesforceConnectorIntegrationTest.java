@@ -353,9 +353,37 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
 
     /**
      *
+     * Positive test case for convertLead method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testMergeWithMandatoryParameters"}, description = "Salesforce {convertLead} integration test with mandatory parameters.")
+    public void testConvertLeadWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponseCreate = sendSOAPRequest(proxyUrl, "esbCreateMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElementCreate = AXIOMUtil.stringToOM(esbSoapResponseCreate.getBody().toString());
+        String xPathExp = "string(//ns:id)";
+        String id = (String) xPathEvaluate(esbResponseElementCreate, xPathExp, nameSpaceMap);
+        connectorProperties.put("idForConvert1", id);
+
+        SOAPEnvelope esbSoapResponseCreate2 = sendSOAPRequest(proxyUrl, "esbCreateLeadMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElementCreate2 = AXIOMUtil.stringToOM(esbSoapResponseCreate2.getBody().toString());
+        String id2 = (String) xPathEvaluate(esbResponseElementCreate2, xPathExp, nameSpaceMap);
+        connectorProperties.put("idForConvert2", id2);
+
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbConvertLeadMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("convertLeadResponse"));
+        String xPathExpSuccess = "string(//ns:success)";
+        String status = (String) xPathEvaluate(esbResponseElement, xPathExpSuccess, nameSpaceMap);
+        Assert.assertEquals(status, "true");
+    }
+
+    /**
+     *
      * Positive test case for UnDelete method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testMergeWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")
+    @Test(priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testConvertLeadWithMandatoryParameters"}, description = "Salesforce {UnDelete} integration test with mandatory parameters.")
     public void testUnDeleteWithMandatoryParameters() throws Exception {
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbUnDeleteMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);

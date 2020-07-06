@@ -126,6 +126,12 @@
             <property xmlns:ns="wso2.connector.salesforce"
                       name="idForMerge2"
                       expression="//ns:idForMerge2/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="idForConvert1"
+                      expression="//ns:idForConvert1/text()"/>
+            <property xmlns:ns="wso2.connector.salesforce"
+                      name="idForConvert2"
+                      expression="//ns:idForConvert2/text()"/>
             <salesforce.init>
                 <loginUrl>{$ctx:loginUrl}</loginUrl>
                 <username>{$ctx:username}</username>
@@ -250,6 +256,45 @@
                     <salesforce.merge>
                         <mergerequests xmlns:sfdc="sfdc">{//sfdc:requests}</mergerequests>
                     </salesforce.merge>
+                </case>
+                <case regex="createLead">
+                    <payloadFactory media-type="xml">
+                        <format>
+                            <sfdc:sObjects type="Lead" xmlns:sfdc="sfdc">
+                                <sfdc:sObject>
+                                    <sfdc:LastName>Parker</sfdc:LastName>
+                                    <sfdc:Company>wso2</sfdc:Company>
+                                    <sfdc:Status>Open</sfdc:Status>
+                                </sfdc:sObject>
+                            </sfdc:sObjects>
+                        </format>
+                        <args/>
+                    </payloadFactory>
+                    <salesforce.create>
+                        <allOrNone>{$ctx:allOrNone}</allOrNone>
+                        <allowFieldTruncate>{$ctx:allowFieldTruncate}</allowFieldTruncate>
+                        <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
+                    </salesforce.create>
+                </case>
+                <case regex="convertLead">
+                    <payloadFactory>
+                        <format>
+                            <sfdc:leadconvertrequests xmlns:sfdc="sfdc">
+                                <sfdc:leadConverts>
+                                    <sfdc:accountId>$1</sfdc:accountId>
+                                    <sfdc:leadId>$2</sfdc:leadId>
+                                    <sfdc:convertedStatus>Closed - Converted</sfdc:convertedStatus>
+                                </sfdc:leadConverts>
+                            </sfdc:leadconvertrequests>
+                        </format>
+                        <args>
+                            <arg expression="get-property('idForConvert1')"/>
+                            <arg expression="get-property('idForConvert2')"/>
+                        </args>
+                    </payloadFactory>
+                    <salesforce.convertLead>
+                        <leadconvertrequests xmlns:sfdc="sfdc">{//sfdc:leadconvertrequests}</leadconvertrequests>
+                    </salesforce.convertLead>
                 </case>
                 <case regex="update">
                     <payloadFactory>

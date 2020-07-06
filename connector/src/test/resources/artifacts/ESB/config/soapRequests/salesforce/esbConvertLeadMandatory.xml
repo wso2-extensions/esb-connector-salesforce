@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>%s(loginUrl)</urn:loginUrl>
+        <urn:username>%s(username)</urn:username>
+        <urn:password>%s(password)</urn:password>
+        <urn:blocking>%s(blocking)</urn:blocking>
+        <urn:method>convertLead</urn:method>
+        <urn:idForConvert1>%s(idForConvert1)</urn:idForConvert1>
+        <urn:idForConvert2>%s(idForConvert2)</urn:idForConvert2>
+    </soapenv:Body>
+</soapenv:Envelope>
