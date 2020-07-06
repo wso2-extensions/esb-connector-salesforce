@@ -120,6 +120,9 @@
             <property xmlns:ns="wso2.connector.salesforce"
                       name="endDate"
                       expression="//ns:endDate/text()"/>
+            <!--<property xmlns:ns="wso2.connector.salesforce"-->
+                      <!--name="sObjects"-->
+                      <!--expression="//ns:sObjects/text()"/>-->
             <salesforce.init>
                 <loginUrl>{$ctx:loginUrl}</loginUrl>
                 <username>{$ctx:username}</username>
@@ -194,6 +197,22 @@
                 </case>
                 <case regex="getServerTimestamp">
                     <salesforce.getServerTimestamp/>
+                </case>
+                <case regex="findDuplicates">
+                    <payloadFactory>
+                        <format>
+                            <sfdc:sObjects xmlns:sfdc="sfdc">
+                                <sfdc:sObject>
+                                    <sfdc:type>Account</sfdc:type>
+                                </sfdc:sObject>
+                            </sfdc:sObjects>
+                        </format>
+                        <args/>
+                    </payloadFactory>
+
+                    <salesforce.findDuplicates>
+                        <sobjects xmlns:sfdc="sfdc">{//sfdc:sObjects}</sobjects>
+                    </salesforce.findDuplicates>
                 </case>
                 <case regex="update">
                     <payloadFactory>
