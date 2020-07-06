@@ -19,6 +19,9 @@ The following operations allow you to work with Records. A Record is an instance
 | [getDeleted](#retrieving-deleted-records)      | Retrieves the list of deleted records within a specified time interval. |
 | [getUpdated](#retrieving-updated-records)      | Retrieves the list of updated records within a specified time interval. |
 | [findDuplicates](#retrieving-duplicate-records)      | Retrieves the list of duplicate records in one or more sObjects. |
+| [findDuplicatesByIds](#retrieving-duplicate-records-by-ids)      | Retrieves the list of duplicate records of given ids. |
+| [merge](#merge-records)      | Merges records into one master record. |
+| [ConvertLead](#convert-lead)      | . |
 
 ### Operation details
 
@@ -921,6 +924,77 @@ Given below is a sample response for the findDuplicates operation.
 ###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm)
+
+
+#### Merge Records
+
+To merge records into one master record, use salesforce.merge and specify the following properties. 
+
+###### merge
+```xml
+<salesforce.merge configKey="MySFConfig">
+    <mergerequests xmlns:ns="wso2.connector.salesforce">{//ns:requests}</mergerequests>
+</salesforce.merge>
+```
+
+###### Properties
+* mergerequests: The merge requests according to the format defined in to Salesforce docs (See Related Salesforce documentation section)
+
+###### Sample request
+
+Given below is a sample request that can be handled by the merge operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:requests>
+            <urn:request>
+                <urn:masterRecord>
+                    <urn:type>Account</urn:type>
+                    <urn:Id>0012x000008un5bAAA</urn:Id>
+                </urn:masterRecord>
+                <urn:recordToMergeIds>0012x000008un5lAAA</urn:recordToMergeIds>
+            </urn:request>
+        </urn:requests>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the findDuplicates operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>70</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <mergeResponse>
+            <result>
+                <id>0012x000008un5bAAA</id>
+                <mergedRecordIds>0012x000008un5lAAA</mergedRecordIds>
+                <success>true</success>
+            </result>
+        </mergeResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm)
 
 
 ### Sample configuration
