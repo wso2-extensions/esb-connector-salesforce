@@ -846,6 +846,83 @@ Given below is a sample response for the findDuplicates operation.
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm)
 
 
+#### Retrieving Duplicate records by IDs
+
+To retrieve the list of records that are duplicate entries by using ids, use salesforce.findDuplicatesByIds and specify the following properties. 
+
+###### findDuplicatesByIds
+```xml
+<salesforce.findDuplicatesByIds configKey="MySFConfig">
+    <ids xmlns:ns="wso2.connector.salesforce">{//ns:ids}</ids>
+</salesforce.findDuplicatesByIds>
+```
+
+###### Properties
+* ids: ids for which duplicate records need to be found
+
+###### Sample request
+
+Given below is a sample request that can be handled by the findDuplicatesByIds operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:ids>
+        	<urn:id>0012x000005mqKuAAI</urn:id>
+        	<urn:id>0012x000005orjlAAA</urn:id>
+        </urn:ids>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the findDuplicates operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>53</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <findDuplicatesByIdsResponse>
+            <result>
+                <duplicateResults>
+                    <allowSave>false</allowSave>
+                    <duplicateRule>Standard_Account_Duplicate_Rule</duplicateRule>
+                    <duplicateRuleEntityType>Account</duplicateRuleEntityType>
+                    <errorMessage xsi:nil="true"/>
+                    <matchResults>
+                        <entityType>Account</entityType>
+                        <matchEngine>FuzzyMatchEngine</matchEngine>
+                        <rule>Standard_Account_Match_Rule_v1_0</rule>
+                        <size>0</size>
+                        <success>true</success>
+                    </matchResults>
+                </duplicateResults>
+                <success>true</success>
+            </result>
+        </findDuplicatesByIdsResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm)
+
+
 ### Sample configuration
 
 Following example illustrates how to connect to Salesforce with the init operation and query operation.
