@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.extension.salesforce</groupId>
     <artifactId>wso2-esb-connector-salesforce-dynamic-schema</artifactId>
-    <version>2.0.5-SNAPSHOT</version>
+    <version>2.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WSO2 ESB Connector and Dynamic Schema Generation for ESB-Tooling Parent</name>
     <modules>
