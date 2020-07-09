@@ -68,3 +68,5 @@ feature.common.properties
 
 ## no eclipse packs
 *.tar.gz
+
+connector/repository/*.zip

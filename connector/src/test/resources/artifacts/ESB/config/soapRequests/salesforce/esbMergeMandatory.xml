@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>%s(username)</urn:username>
+        <urn:password>%s(password)</urn:password>
+        <urn:blocking>%s(blocking)</urn:blocking>
+        <urn:method>merge</urn:method>
+        <urn:idForMerge1>%s(idForMerge1)</urn:idForMerge1>
+        <urn:idForMerge2>%s(idForMerge2)</urn:idForMerge2>
+    </soapenv:Body>
+</soapenv:Envelope>

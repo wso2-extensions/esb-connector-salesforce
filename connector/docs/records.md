@@ -16,6 +16,12 @@ The following operations allow you to work with Records. A Record is an instance
 | [retrieve](#retrieving-specific-records)    | Retrieves data from a record in Salesforce when the record ID is provided. |
 | [delete](#deleting-records)    | Deletes a record in Salesforce. |
 | [undelete](#restoring-records)      | Restores a record that was previously deleted in Salesforce. |
+| [getDeleted](#retrieving-deleted-records)      | Retrieves the list of deleted records within a specified time interval. |
+| [getUpdated](#retrieving-updated-records)      | Retrieves the list of updated records within a specified time interval. |
+| [findDuplicates](#retrieving-duplicate-records)      | Retrieves the list of duplicate records in one or more sObjects. |
+| [findDuplicatesByIds](#retrieving-duplicate-records-by-ids)      | Retrieves the list of duplicate records of given ids. |
+| [merge](#merge-records)      | Merges records into one master record. |
+| [ConvertLead](#convert-lead)      | Convert a lead into an account. |
 
 ### Operation details
 
@@ -619,6 +625,448 @@ Given below is a sample response for the undelete operation.
 ###### Related Salesforce documentation
 
 [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_undelete.htm)
+
+#### Retrieving Deleted records
+
+To retrieve the list of records that were previously deleted, use salesforce.getDeleted and specify the following properties. 
+
+###### getDeleted
+```xml
+<salesforce.getDeleted configKey="MySFConfig">
+    <sObjectType>{$ctx:sObjectType}</sObjectType>
+    <startDate>{$ctx:startDate}</startDate>
+    <endDate>{$ctx:endDate}</endDate>
+</salesforce.getDeleted>
+```
+
+###### Properties
+* sObjectType: sObjectType from which we need to retrieve deleted records
+* startDate: start date and time for deleted records lookup
+* endDate: end date and time for deleted records lookup
+
+###### Sample request
+
+Given below is a sample request that can be handled by the getDeleted operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/30.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:sObjectType>Account</urn:sObjectType>
+        <urn:startDate>2020-06-15T05:05:53+0000</urn:startDate>
+        <urn:endDate>2020-06-30T05:05:53+0000</urn:endDate>
+    </soapenv:Body>
+</soapenv:Envelope> 
+```
+###### Sample response
+
+Given below is a sample response for the getDeleted operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>55</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <getDeletedResponse>
+            <result>
+                <deletedRecords>
+                    <deletedDate>2020-06-18T04:10:20.000Z</deletedDate>
+                    <id>0012x000007RqnHAAS</id>
+                </deletedRecords>
+                <earliestDateAvailable>2020-04-27T13:43:00.000Z</earliestDateAvailable>
+                <latestDateCovered>2020-06-30T05:05:00.000Z</latestDateCovered>
+            </result>
+        </getDeletedResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getdeleted.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getdeleted.htm)
+
+#### Retrieving Updated records
+
+To retrieve the list of records that were previously updated, use salesforce.getUpdated and specify the following properties. 
+
+###### getUpdated
+```xml
+<salesforce.getUpdated configKey="MySFConfig">
+    <sObjectType>{$ctx:sObjectType}</sObjectType>
+    <startDate>{$ctx:startDate}</startDate>
+    <endDate>{$ctx:endDate}</endDate>
+</salesforce.getUpdated>
+```
+
+###### Properties
+* sObjectType: sObjectType from which we need to retrieve deleted records
+* startDate: start date and time for deleted records lookup
+* endDate: end date and time for deleted records lookup
+
+###### Sample request
+
+Given below is a sample request that can be handled by the getUpdated operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/30.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:sObjectType>Account</urn:sObjectType>
+        <urn:startDate>2020-06-15T05:05:53+0000</urn:startDate>
+        <urn:endDate>2020-06-30T05:05:53+0000</urn:endDate>
+    </soapenv:Body>
+</soapenv:Envelope> 
+```
+###### Sample response
+
+Given below is a sample response for the getUpdated operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>66</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <getUpdatedResponse>
+            <result>
+                <ids>0012x000007RVCcAAO</ids>
+                <ids>0012x000007RVD1AAO</ids>
+                <ids>0012x000007RVG8AAO</ids>
+                <ids>0012x000007RVw7AAG</ids>
+                <ids>0012x000007RW3uAAG</ids>
+                <latestDateCovered>2020-06-30T05:05:00.000Z</latestDateCovered>
+            </result>
+        </getUpdatedResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getupdated.htm)
+
+
+#### Retrieving Duplicate records
+
+To retrieve the list of records that are duplicate entries, use salesforce.findDuplicates and specify the following properties. 
+
+###### findDuplicates
+```xml
+<salesforce.findDuplicates configKey="MySFConfig">
+    <sobjects xmlns:ns="wso2.connector.salesforce">{//ns:sObjects}</sobjects>
+</salesforce.findDuplicates>
+```
+
+###### Properties
+* sobjects: sObjectType from which we need to retrieve duplicate records
+
+###### Sample request
+
+Given below is a sample request that can be handled by the findDuplicates operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:sObjects>
+        	<urn:sObject>
+        		<urn:type>Account</urn:type>
+        		<urn:fieldsToNull>name</urn:fieldsToNull>
+        		<urn:fieldsToNull>id</urn:fieldsToNull>
+        	</urn:sObject>
+        </urn:sObjects>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the findDuplicates operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>11</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <findDuplicatesResponse>
+            <result>
+                <duplicateResults>
+                    <allowSave>false</allowSave>
+                    <duplicateRule>Standard_Account_Duplicate_Rule</duplicateRule>
+                    <duplicateRuleEntityType>Account</duplicateRuleEntityType>
+                    <errorMessage xsi:nil="true"/>
+                    <matchResults>
+                        <entityType>Account</entityType>
+                        <matchEngine>FuzzyMatchEngine</matchEngine>
+                        <rule>Standard_Account_Match_Rule_v1_0</rule>
+                        <size>0</size>
+                        <success>true</success>
+                    </matchResults>
+                </duplicateResults>
+                <success>true</success>
+            </result>
+        </findDuplicatesResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicates.htm)
+
+
+#### Retrieving Duplicate records by IDs
+
+To retrieve the list of records that are duplicate entries by using ids, use salesforce.findDuplicatesByIds and specify the following properties. 
+
+###### findDuplicatesByIds
+```xml
+<salesforce.findDuplicatesByIds configKey="MySFConfig">
+    <ids xmlns:ns="wso2.connector.salesforce">{//ns:ids}</ids>
+</salesforce.findDuplicatesByIds>
+```
+
+###### Properties
+* ids: ids for which duplicate records need to be found
+
+###### Sample request
+
+Given below is a sample request that can be handled by the findDuplicatesByIds operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:ids>
+        	<urn:id>0012x000005mqKuAAI</urn:id>
+        	<urn:id>0012x000005orjlAAA</urn:id>
+        </urn:ids>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the findDuplicates operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>53</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <findDuplicatesByIdsResponse>
+            <result>
+                <duplicateResults>
+                    <allowSave>false</allowSave>
+                    <duplicateRule>Standard_Account_Duplicate_Rule</duplicateRule>
+                    <duplicateRuleEntityType>Account</duplicateRuleEntityType>
+                    <errorMessage xsi:nil="true"/>
+                    <matchResults>
+                        <entityType>Account</entityType>
+                        <matchEngine>FuzzyMatchEngine</matchEngine>
+                        <rule>Standard_Account_Match_Rule_v1_0</rule>
+                        <size>0</size>
+                        <success>true</success>
+                    </matchResults>
+                </duplicateResults>
+                <success>true</success>
+            </result>
+        </findDuplicatesByIdsResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_findduplicatesbyids.htm)
+
+
+#### Merge Records
+
+To merge records into one master record, use salesforce.merge and specify the following properties. 
+
+###### merge
+```xml
+<salesforce.merge configKey="MySFConfig">
+    <mergerequests xmlns:ns="wso2.connector.salesforce">{//ns:requests}</mergerequests>
+</salesforce.merge>
+```
+
+###### Properties
+* mergerequests: The merge requests according to the format defined in to Salesforce docs (See Related Salesforce documentation section)
+
+###### Sample request
+
+Given below is a sample request that can be handled by the merge operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:requests>
+            <urn:request>
+                <urn:masterRecord>
+                    <urn:type>Account</urn:type>
+                    <urn:Id>0012x000008un5bAAA</urn:Id>
+                </urn:masterRecord>
+                <urn:recordToMergeIds>0012x000008un5lAAA</urn:recordToMergeIds>
+            </urn:request>
+        </urn:requests>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the findDuplicates operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>70</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <mergeResponse>
+            <result>
+                <id>0012x000008un5bAAA</id>
+                <mergedRecordIds>0012x000008un5lAAA</mergedRecordIds>
+                <success>true</success>
+            </result>
+        </mergeResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm)
+
+
+#### Convert Lead
+
+To convert a lead into an account, use salesforce.convertLead and specify the following properties. 
+
+###### convertLead
+```xml
+<salesforce.convertLead configKey="MySFConfig">
+     <leadconvertrequests xmlns:ns="wso2.connector.salesforce">{//ns:leadconvertrequests}</leadconvertrequests>
+</salesforce.convertLead>
+```
+
+###### Properties
+* leadconvertrequests: The lead convert requests according to the format defined in to Salesforce docs (See Related Salesforce documentation section)
+
+###### Sample request
+
+Given below is a sample request that can be handled by the convertLead operation.
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>https://login.salesforce.com/services/Soap/u/48.0</urn:loginUrl>
+        <urn:username>XXXXXXXXXX</urn:username>
+        <urn:password>XXXXXXXXXX</urn:password>
+        <urn:blocking>false</urn:blocking>
+        <urn:leadconvertrequests>
+        	<urn:leadConverts>
+        		<urn:accountId>0012x000005mqKuAAI</urn:accountId>
+        		<urn:leadId>00Q2x00000AH981EAD</urn:leadId>
+        		<urn:convertedStatus>Closed - Converted</urn:convertedStatus>
+        	</urn:leadConverts>
+        </urn:leadconvertrequests>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Sample response
+
+Given below is a sample response for the convertLead operation.
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com">
+    <soapenv:Header>
+        <LimitInfoHeader>
+            <limitInfo>
+                <current>128</current>
+                <limit>15000</limit>
+                <type>API REQUESTS</type>
+            </limitInfo>
+        </LimitInfoHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <convertLeadResponse>
+            <result>
+                <accountId>0012x000005mqKuAAI</accountId>
+                <contactId>0032x000006I2xYAAS</contactId>
+                <leadId>00Q2x00000AH981EAD</leadId>
+                <opportunityId>0062x0000053r8FAAQ</opportunityId>
+                <success>true</success>
+            </result>
+        </convertLeadResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
+```
+###### Related Salesforce documentation
+
+[https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_merge.htm)
+
 
 ### Sample configuration
 

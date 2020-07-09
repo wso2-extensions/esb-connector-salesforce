@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:urn="wso2.connector.salesforce">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <urn:loginUrl>%s(loginUrl)</urn:loginUrl>
+        <urn:username>%s(username)</urn:username>
+        <urn:password>%s(password)</urn:password>
+        <urn:blocking>%s(blocking)</urn:blocking>
+        <urn:method>getUpdated</urn:method>
+        <urn:sObjectType>%s(type1)</urn:sObjectType>
+        <urn:startDate>%s(startDate)</urn:startDate>
+        <urn:endDate>%s(endDate)</urn:endDate>
+    </soapenv:Body>
+</soapenv:Envelope>

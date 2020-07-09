@@ -306,12 +306,132 @@ public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTest
      *
      * Positive test case for logout method with mandatory parameters.
      */
-    @Test(priority = 1, groups = {"wso2.esb"}, description = "Salesforce {logout} integration test with mandatory parameters.")
+    @Test(enabled = false, priority = 1, groups = {"wso2.esb"}, description = "Salesforce {logout} integration test with mandatory parameters.")
     public void testLogoutWithMandatoryParameters() throws Exception {
         SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbLogoutMandatory.xml", null, "mediate",
                 SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
         OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
 
         Assert.assertTrue(esbResponseElement.toString().contains("logoutResponse"));
+    }
+
+    /**
+     *
+     * Positive test case for getDeleted method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {getDeleted} integration test with mandatory parameters.")
+    public void testGetDeletedWithMandatoryParameters() throws Exception {
+        connectorProperties.put("startDate", "2020-06-15T05:05:53+0000"); //Change startDate and endDate to a value within the last 30 days
+        connectorProperties.put("endDate", "2020-06-30T05:05:53+0000");
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbGetDeletedMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("getDeletedResponse"));
+    }
+
+    /**
+     *
+     * Positive test case for getUpdated method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {getDeleted} integration test with mandatory parameters.")
+    public void testGetUpdatedWithMandatoryParameters() throws Exception {
+        connectorProperties.put("startDate", "2020-06-15T05:05:53+0000"); //Change startDate and endDate to a value within the last 30 days
+        connectorProperties.put("endDate", "2020-06-30T05:05:53+0000");
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbGetUpdatedMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("getUpdatedResponse"));
+    }
+
+    /**
+     *
+     * Positive test case for getServerTimestamp method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {getServerTimestamp} integration test with mandatory parameters.")
+    public void testGetServerTimestampWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbGetServerTimestampMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("getServerTimestampResponse"));
+    }
+
+    /**
+     *
+     * Positive test case for findDuplicates method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {findDuplicates} integration test with mandatory parameters.")
+    public void testFindDuplicatesWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbFindDuplicatesMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("findDuplicatesResponse"));
+    }
+
+    /**
+     *
+     * Positive test case for findDuplicatesByIds method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {findDuplicatesByIds} integration test with mandatory parameters.")
+    public void testFindDuplicatesByIdsWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbFindDuplicatesByIdsMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("findDuplicatesByIdsResponse"));
+    }
+
+    /**
+     *
+     * Positive test case for merge method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {merge} integration test with mandatory parameters.")
+    public void testMergeWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponseCreate = sendSOAPRequest(proxyUrl, "esbCreateMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElementCreate = AXIOMUtil.stringToOM(esbSoapResponseCreate.getBody().toString());
+        String xPathExp = "string(//ns:id)";
+        String id = (String) xPathEvaluate(esbResponseElementCreate, xPathExp, nameSpaceMap);
+        connectorProperties.put("idForMerge1", id);
+
+        SOAPEnvelope esbSoapResponseCreate2 = sendSOAPRequest(proxyUrl, "esbCreateMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElementCreate2 = AXIOMUtil.stringToOM(esbSoapResponseCreate2.getBody().toString());
+        String id2 = (String) xPathEvaluate(esbResponseElementCreate2, xPathExp, nameSpaceMap);
+        connectorProperties.put("idForMerge2", id2);
+
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbMergeMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("mergeResponse"));
+        String xPathExpSuccess = "string(//ns:success)";
+        String status = (String) xPathEvaluate(esbResponseElement, xPathExpSuccess, nameSpaceMap);
+        Assert.assertEquals(status, "true");
+    }
+
+    /**
+     *
+     * Positive test case for convertLead method with mandatory parameters.
+     */
+    @Test(enabled = true, priority = 1, groups = {"wso2.esb"}, dependsOnMethods = {"testGetUserInfoWithMandatoryParameters"}, description = "Salesforce {convertLead} integration test with mandatory parameters.")
+    public void testConvertLeadWithMandatoryParameters() throws Exception {
+        SOAPEnvelope esbSoapResponseCreate = sendSOAPRequest(proxyUrl, "esbCreateMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElementCreate = AXIOMUtil.stringToOM(esbSoapResponseCreate.getBody().toString());
+        String xPathExp = "string(//ns:id)";
+        String id = (String) xPathEvaluate(esbResponseElementCreate, xPathExp, nameSpaceMap);
+        connectorProperties.put("idForConvert1", id);
+
+        SOAPEnvelope esbSoapResponseCreate2 = sendSOAPRequest(proxyUrl, "esbCreateLeadMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElementCreate2 = AXIOMUtil.stringToOM(esbSoapResponseCreate2.getBody().toString());
+        String id2 = (String) xPathEvaluate(esbResponseElementCreate2, xPathExp, nameSpaceMap);
+        connectorProperties.put("idForConvert2", id2);
+
+        SOAPEnvelope esbSoapResponse = sendSOAPRequest(proxyUrl, "esbConvertLeadMandatory.xml", null, "mediate",
+                SOAP_HEADER_XPATH_EXP, SOAP_BODY_XPATH_EXP);
+        OMElement esbResponseElement = AXIOMUtil.stringToOM(esbSoapResponse.getBody().toString());
+        Assert.assertTrue(esbResponseElement.toString().contains("convertLeadResponse"));
+        String xPathExpSuccess = "string(//ns:success)";
+        String status = (String) xPathEvaluate(esbResponseElement, xPathExpSuccess, nameSpaceMap);
+        Assert.assertEquals(status, "true");
     }
 }

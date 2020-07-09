@@ -69,6 +69,8 @@ Now that you have connected to Salesforce, use the information in the following 
 
 [Working with Emails](emails.md)
 
+[Working with Utility Calls](utility.md)
+
 
 ### Common parameters
 
