@@ -9,7 +9,8 @@ retrieve, update, and delete records in your organization's Salesforce data. The
 
 | Connector version | Supported Salesforce SOAP API version | Supported WSO2 ESB/EI version |
 | ------------- | ------------- | ------------- |
-  [2.0.4](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.4) | 42.0 | EI 6.5.0  |
+| [2.1.0](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.1.0) | 42.0 | EI 6.5.0, EI 6.6.0, EI 7.0.X, EI 7.1.0  |
+| [2.0.4](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.4) | 42.0 | EI 6.5.0  |
 | [2.0.3](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.3) | 42.0 | EI 6.5.0  |
 | [2.0.2](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.2) | 42.0 | ESB 4.8.1, ESB 4.9.0, ESB 5.0.0, EI 6.1.1, EI 6.2.0, EI 6.3.0, EI 6.4.0  |
 | [2.0.1](https://github.com/wso2-extensions/esb-connector-salesforce/tree/wso2-esb-connector-salesforce-dynamic-schema-2.0.1) | 42.0 | ESB 4.8.1, ESB 4.9.0, ESB 5.0.0, EI 6.1.1  |
