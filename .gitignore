@@ -70,3 +70,5 @@ feature.common.properties
 *.tar.gz
 
 connector/repository/*.zip
+connector/repository/esb-connector-salesforce.properties
+*.zip

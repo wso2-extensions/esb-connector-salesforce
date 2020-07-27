@@ -33,13 +33,23 @@
     <url>http://wso2.org</url>
     <properties>
         <connector.name>salesforce</connector.name>
-        <!--<product.ei.version>6.5.0</product.ei.version>-->
-        <product.name>wso2mi</product.name>
-        <product.version>1.2.0-beta</product.version>
-        <carbon.kernel.version>4.4.17</carbon.kernel.version>
+
+        <!--EI Versions-->
+        <!--<product.name>wso2ei</product.name>-->
+        <!--<product.version>6.5.0</product.version>-->
         <!--<automation.framework.utils.version>4.4.2</automation.framework.utils.version>-->
         <!--<automation.framework.version>4.4.3</automation.framework.version>-->
+        <!--<integration.base.version>1.0.3</integration.base.version>-->
+        <!--/EI Versions-->
+
+        <!--MI Versions-->
+        <product.name>wso2mi</product.name>
+        <product.version>1.2.0-beta</product.version>
         <automation.framework.version>4.5.0</automation.framework.version>
+        <integration.base.version>1.0.5-SNAPSHOT</integration.base.version>
+        <!--/MI Versions-->
+
+        <carbon.kernel.version>4.4.17</carbon.kernel.version>
         <emma.version>2.1.5320</emma.version>
         <synapse.version>2.1.7-wso2v95</synapse.version>
         <carbon.mediation.version>4.6.123</carbon.mediation.version>
@@ -49,7 +59,6 @@
         <bouncycastle.version>1.55</bouncycastle.version>
         <rampart.apache.version>1.6.1-wso2v18</rampart.apache.version>
         <rampart.wso2.version>1.6.1.wso2v18</rampart.wso2.version>
-        <integration.base.version>1.0.5-SNAPSHOT</integration.base.version>
         <skip-tests>false</skip-tests>
     </properties>
     <dependencies>
@@ -68,59 +77,91 @@
             <artifactId>json</artifactId>
             <version>${json.version}</version>
         </dependency>
+
+        <!--EI dependency-->
+
         <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automation</groupId>-->
-            <!--<artifactId>org.wso2.carbon.automation.engine</artifactId>-->
-            <!--<version>${automation.framework.version}</version>-->
-            <!--<scope>test</scope>-->
+        <!--<groupId>org.wso2.carbon.automation</groupId>-->
+        <!--<artifactId>org.wso2.carbon.automation.engine</artifactId>-->
+        <!--<version>${automation.framework.version}</version>-->
+        <!--<scope>test</scope>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automation</groupId>-->
-            <!--<artifactId>org.wso2.carbon.automation.extensions</artifactId>-->
-            <!--<version>${automation.framework.version}</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.apache.jmeter</groupId>-->
-                    <!--<artifactId>ApacheJMeter</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.apache.jmeter</groupId>-->
-                    <!--<artifactId>ApacheJMeter_core</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-            <!--<scope>test</scope>-->
+        <!--<groupId>org.wso2.carbon.automation</groupId>-->
+        <!--<artifactId>org.wso2.carbon.automation.extensions</artifactId>-->
+        <!--<version>${automation.framework.version}</version>-->
+        <!--<exclusions>-->
+        <!--<exclusion>-->
+        <!--<groupId>org.apache.jmeter</groupId>-->
+        <!--<artifactId>ApacheJMeter</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+        <!--<groupId>org.apache.jmeter</groupId>-->
+        <!--<artifactId>ApacheJMeter_core</artifactId>-->
+        <!--</exclusion>-->
+        <!--</exclusions>-->
+        <!--<scope>test</scope>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
-            <!--<artifactId>org.wso2.carbon.integration.common.admin.client</artifactId>-->
-            <!--<version>${automation.framework.utils.version}</version>-->
-            <!--<scope>compile</scope>-->
+        <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
+        <!--<artifactId>org.wso2.carbon.integration.common.admin.client</artifactId>-->
+        <!--<version>${automation.framework.utils.version}</version>-->
+        <!--<scope>compile</scope>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
-            <!--<artifactId>org.wso2.carbon.integration.common.extensions</artifactId>-->
-            <!--<version>${automation.framework.utils.version}</version>-->
-            <!--<scope>compile</scope>-->
+        <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
+        <!--<artifactId>org.wso2.carbon.integration.common.extensions</artifactId>-->
+        <!--<version>${automation.framework.utils.version}</version>-->
+        <!--<scope>compile</scope>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
-            <!--<artifactId>org.wso2.carbon.integration.common.utils</artifactId>-->
-            <!--<version>${automation.framework.utils.version}</version>-->
+        <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
+        <!--<artifactId>org.wso2.carbon.integration.common.utils</artifactId>-->
+        <!--<version>${automation.framework.utils.version}</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
-            <!--<artifactId>org.wso2.carbon.integration.common.tests</artifactId>-->
-            <!--<version>${automation.framework.utils.version}</version>-->
-            <!--&lt;!&ndash;<scope>compile</scope>&ndash;&gt;-->
+        <!--<groupId>org.wso2.carbon.automationutils</groupId>-->
+        <!--<artifactId>org.wso2.carbon.integration.common.tests</artifactId>-->
+        <!--<version>${automation.framework.utils.version}</version>-->
+        <!--&lt;!&ndash;<scope>compile</scope>&ndash;&gt;-->
         <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.wso2.carbon.automation</groupId>-->
+        <!--<artifactId>org.wso2.carbon.automation.test.utils</artifactId>-->
+        <!--<version>${automation.framework.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.wso2.ei</groupId>-->
+        <!--<artifactId>org.wso2.ei.samples</artifactId>-->
+        <!--<version>${product.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.wso2.ei</groupId>-->
+        <!--<artifactId>integration-test-utils</artifactId>-->
+        <!--<version>${product.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.wso2.ei</groupId>-->
+        <!--<artifactId>automation-extensions</artifactId>-->
+        <!--<version>${product.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.wso2.esb.integration</groupId>-->
+        <!--<artifactId>integration-base</artifactId>-->
+        <!--<version>${integration.base.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!--/EI dependency-->
 
         <!--MI dependencies-->
 
         <dependency>
             <groupId>org.wso2.ei</groupId>
             <artifactId>automation-extensions</artifactId>
-            <version>${product.version}</version>
+            <version>1.2.0-beta</version>
         </dependency>
 
         <dependency>
@@ -138,94 +179,6 @@
             <artifactId>org.wso2.carbon.integration.common.utils</artifactId>
             <version>${automation.framework.version}</version>
         </dependency>
-
-        <!--/MI dependencies-->
-
-        <dependency>
-            <groupId>org.wso2.carbon.mediation</groupId>
-            <artifactId>org.wso2.carbon.connector.core</artifactId>
-            <version>${carbon.mediation.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.mediation</groupId>
-            <artifactId>org.wso2.carbon.mediation.library.stub</artifactId>
-            <version>${carbon.mediation.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>emma</groupId>
-            <artifactId>emma</artifactId>
-            <version>${emma.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${org.testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>SecVerifier</artifactId>
-            <version>${carbon.kernel.version}</version>
-            <type>aar</type>
-            <scope>test</scope>
-        </dependency>
-        <!--Dependency for Integration Tests-->
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.automation</groupId>-->
-            <!--<artifactId>org.wso2.carbon.automation.test.utils</artifactId>-->
-            <!--<version>${automation.framework.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.logging</artifactId>
-            <version>${carbon.kernel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
-            <version>4.3.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20080701</version>
-        </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.ei</groupId>-->
-            <!--<artifactId>org.wso2.ei.samples</artifactId>-->
-            <!--<version>${product.ei.version}</version>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>org.wso2.carbon.mediation</groupId>
-            <artifactId>org.wso2.carbon.integrator.core</artifactId>
-            <version>${carbon.mediation.version}</version>
-        </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.ei</groupId>-->
-            <!--<artifactId>integration-test-utils</artifactId>-->
-            <!--<version>${product.ei.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.ei</groupId>-->
-            <!--<artifactId>automation-extensions</artifactId>-->
-            <!--<version>${product.ei.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.esb.integration</groupId>-->
-            <!--<artifactId>integration-base</artifactId>-->
-            <!--<version>1.0.3</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>org.wso2.esb.integration</groupId>
             <artifactId>integration-base</artifactId>
@@ -271,6 +224,65 @@
             </exclusions>
         </dependency>
 
+        <!--/MI dependencies-->
+
+        <dependency>
+            <groupId>org.wso2.carbon.mediation</groupId>
+            <artifactId>org.wso2.carbon.connector.core</artifactId>
+            <version>${carbon.mediation.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.mediation</groupId>
+            <artifactId>org.wso2.carbon.mediation.library.stub</artifactId>
+            <version>${carbon.mediation.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>emma</groupId>
+            <artifactId>emma</artifactId>
+            <version>${emma.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${org.testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>SecVerifier</artifactId>
+            <version>${carbon.kernel.version}</version>
+            <type>aar</type>
+            <scope>test</scope>
+        </dependency>
+        <!--Dependency for Integration Tests-->
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.logging</artifactId>
+            <version>${carbon.kernel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20080701</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.mediation</groupId>
+            <artifactId>org.wso2.carbon.integrator.core</artifactId>
+            <version>${carbon.mediation.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

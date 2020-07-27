@@ -121,40 +121,40 @@
     <!--
                System wide users who to be registered at the test initiation
     -->
-    <userManagement>
-        <superTenant>
-            <tenant domain="carbon.super" key="superTenant">
-                <admin>
-                    <user key="superAdmin">
-                        <userName>admin</userName>
-                        <password>admin</password>
-                    </user>
-                </admin>
-                <users>
-                    <user key="user1">
-                        <userName>testuser11</userName>
-                        <password>testuser11</password>
-                    </user>
-                    <user key="user2">
-                        <userName>testuser21</userName>
-                        <password>testuser21</password>
-                    </user>
-                </users>
-            </tenant>
-        </superTenant>
-        <tenants>
-            <tenant domain="wso2.com" key="wso2">
-                <admin>
-                    <user key="admin">
-                        <userName>admin</userName>
-                        <password>admin</password>
-                    </user>
-                </admin>
+    <!--<userManagement>-->
+        <!--<superTenant>-->
+            <!--<tenant domain="carbon.super" key="superTenant">-->
+                <!--<admin>-->
+                    <!--<user key="superAdmin">-->
+                        <!--<userName>admin</userName>-->
+                        <!--<password>admin</password>-->
+                    <!--</user>-->
+                <!--</admin>-->
+                <!--<users>-->
+                    <!--<user key="user1">-->
+                        <!--<userName>testuser11</userName>-->
+                        <!--<password>testuser11</password>-->
+                    <!--</user>-->
+                    <!--<user key="user2">-->
+                        <!--<userName>testuser21</userName>-->
+                        <!--<password>testuser21</password>-->
+                    <!--</user>-->
+                <!--</users>-->
+            <!--</tenant>-->
+        <!--</superTenant>-->
+        <!--<tenants>-->
+            <!--<tenant domain="wso2.com" key="wso2">-->
+                <!--<admin>-->
+                    <!--<user key="admin">-->
+                        <!--<userName>admin</userName>-->
+                        <!--<password>admin</password>-->
+                    <!--</user>-->
+                <!--</admin>-->
 
-            </tenant>
+            <!--</tenant>-->
 
-        </tenants>
-    </userManagement>
+        <!--</tenants>-->
+    <!--</userManagement>-->
     <!--
    This section will initiate the initial deployment of the platform required by
    the test suites.
