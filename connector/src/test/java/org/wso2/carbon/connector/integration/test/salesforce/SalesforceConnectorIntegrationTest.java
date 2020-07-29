@@ -20,7 +20,6 @@ package org.wso2.carbon.connector.integration.test.salesforce;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.apache.axiom.soap.SOAPEnvelope;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -30,8 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SalesforceConnectorIntegrationTest extends ConnectorIntegrationTestBase {
-    private final String SOAP_HEADER_XPATH_EXP = "/soapenv:Envelope/soapenv:Header/*";
-    private final String SOAP_BODY_XPATH_EXP = "/soapenv:Envelope/soapenv:Body/*";
     Map<String, String> nameSpaceMap = new HashMap<String, String>();
     private String apiEndPoint;
 

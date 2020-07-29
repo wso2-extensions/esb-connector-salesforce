@@ -233,8 +233,15 @@
                 <class>
                     <name>org.wso2.esb.integration.common.extensions.carbonserver.CarbonServerExtension</name>
                     <parameter name="-DportOffset" value="200" />
-                    <parameter name="managementPort" value="9763" />
-                    <parameter name="startupScript" value="integrator" />
+                    <!--For EI-->
+                    <!--<parameter name="managementPort" value="9763" />-->
+                    <!--<parameter name="startupScript" value="integrator" />-->
+                    <!--/For EI-->
+
+                    <!--For MI-->
+                    <parameter name="startupScript" value="micro-integrator" />
+                    <!--/For MI-->
+
                     <!--<parameter name="cmdArg" value="debug 5005" />-->
                 </class>
                 <!--<class>-->
