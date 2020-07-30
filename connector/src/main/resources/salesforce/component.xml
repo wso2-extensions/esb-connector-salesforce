@@ -21,6 +21,7 @@
         <component name="init">
             <file>init.xml</file>
             <description>Login synapse library</description>
+            <hidden>true</hidden>
         </component>
         <component name="logout">
             <file>logout.xml</file>
