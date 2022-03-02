@@ -16,7 +16,7 @@
  ~  specific language governing permissions and limitations
  ~  under the License.
 -->
-<template name="init" onError="fault"
+<template name="init"
           xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="username" description="The username for the salesforce account"/>
     <parameter name="password"
