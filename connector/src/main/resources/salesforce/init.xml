@@ -25,9 +25,6 @@
     <parameter name="forceLogin" description="The forceLogin parameter"/>
     <parameter name="blocking"
                description="The blocking parameter is helping connector performs the blocking invocations to Salesforce"/>
-    <log level="custom">
-        <property name="URL ====" expression="$ctx:loginUrl"/>
-    </log>
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
         <filter xpath="get-property('operation','salesforce.login.done') = 'true'">
