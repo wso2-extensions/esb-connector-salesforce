@@ -25,11 +25,16 @@
     <parameter name="forceLogin" description="The forceLogin parameter"/>
     <parameter name="blocking"
                description="The blocking parameter is helping connector performs the blocking invocations to Salesforce"/>
+    <log level="custom">
+        <property name="URL ====" expression="$ctx:loginUrl"/>
+    </log>
     <sequence>
         <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
         <filter xpath="get-property('operation','salesforce.login.done') = 'true'">
             <then>
-                <property name="Connection" value="Already login to Salesforce ....."/>
+                <log level="custom">
+                    <property name="Connection" value="Already login to Salesforce ....."/>
+                </log>
             </then>
             <else>
                 <enrich>
@@ -114,8 +119,14 @@
                 <property expression="//ns:loginResponse/ns:result/ns:serverUrl/text()"
                           name="salesforce.serviceUrl" scope="operation" type="STRING"
                           xmlns:ns="urn:partner.soap.sforce.com"/>
+                <property expression="//ns:loginResponse/ns:result/ns:userInfo/ns:sessionSecondsValid/text()"
+                          name="salesforce.sessionvalidity" scope="operation" type="STRING"
+                          xmlns:ns="urn:partner.soap.sforce.com"/>
                 <property name="salesforce.login.done" scope="operation"
                           type="STRING" value="true"/>
+                <property name="salesforce.login.addToCache" scope="operation"
+                          type="STRING" value="true"/>
+                <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
                 <enrich>
                     <source clone="true" type="body"/>
                     <target property="SALESFORCE_LOGIN_RESPONSE" type="property"/>

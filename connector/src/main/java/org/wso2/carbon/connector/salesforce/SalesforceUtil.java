@@ -49,6 +49,13 @@ public final class SalesforceUtil {
     public static final String SALESFORCE_LOGIN_FORCE = "forceLogin";
     public static final String SALESFORCE_LOGIN_DONE = "salesforce.login.done";
     public static final String SALESFORCE_CRUD_PREFIX = "salesforce.crud.";
+    public static final String SALESFORCE_USER_NAME = "username";
+    public static final String SALESFORCE_USER_PASSWORD = "password";
+    public static final String SALESFORCE_LOGIN_URL = "loginUrl";
+    public static final String SALESFORCE_SERVICE_URL = "salesforce.serviceUrl";
+    public static final String SALESFORCE_LOGIN_SESSION_ID = "salesforce.sessionId";
+    public static final String SALESFORCE_LOGIN_ADD_TO_CACHE = "salesforce.login.addToCache";
+    public static final String SALESFORCE_LOGIN_SESSION_VALIDITY = "salesforce.sessionvalidity";
 
     public static void addSobjects(String strOperation, String strParamName, MessageContext synCtx,
                             SynapseLog synLog, String strExternalId) {
