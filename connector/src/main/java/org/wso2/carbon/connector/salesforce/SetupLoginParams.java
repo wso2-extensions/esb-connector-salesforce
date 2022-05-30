@@ -79,7 +79,6 @@ public class SetupLoginParams extends AbstractConnector {
                         axis2smc.getAxis2MessageContext().getOperationContext()
                                 .setProperty(SalesforceUtil.SALESFORCE_LOGIN_DONE, "true");
                     } else {
-                        System.out.println("Initializing the Session");
                         axis2smc.getAxis2MessageContext().getOperationContext()
                                 .setProperty(SalesforceUtil.SALESFORCE_LOGIN_DONE, "false");
                     }

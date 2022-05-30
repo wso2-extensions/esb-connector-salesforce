@@ -30,7 +30,7 @@
         <filter xpath="get-property('operation','salesforce.login.done') = 'true'">
             <then>
                 <log level="custom">
-                    <property name="Connection" value="Already login to Salesforce ....."/>
+                    <property name="Connection" value="Already logged into Salesforce ....."/>
                 </log>
             </then>
             <else>
@@ -124,6 +124,7 @@
                 <property name="salesforce.login.addToCache" scope="operation"
                           type="STRING" value="true"/>
                 <class name="org.wso2.carbon.connector.salesforce.SetupLoginParams"/>
+                <property name="salesforce.login.addToCache" scope="operation" action="remove"/>
                 <enrich>
                     <source clone="true" type="body"/>
                     <target property="SALESFORCE_LOGIN_RESPONSE" type="property"/>
