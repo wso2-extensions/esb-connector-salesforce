@@ -72,7 +72,6 @@ public class SetupLoginParams extends AbstractConnector {
             // If force login is set we don't do anything
             if (strValue != null || "true".equals(strValue)) {
                 // Setting Transport Headers
-                System.out.println("Initializing the Session");
                 axis2smc.getAxis2MessageContext().getOperationContext()
                         .setProperty(SalesforceUtil.SALESFORCE_LOGIN_DONE, "false");
             } else {
