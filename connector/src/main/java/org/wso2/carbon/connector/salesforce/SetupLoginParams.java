@@ -46,18 +46,24 @@ public class SetupLoginParams extends AbstractConnector {
             if ("true".equals(axis2smc.getAxis2MessageContext().getOperationContext().getProperty(SalesforceUtil.SALESFORCE_LOGIN_ADD_TO_CACHE))) {
 
                 String sessionId = (String) axis2smc.getAxis2MessageContext().getOperationContext().getProperty(SalesforceUtil.SALESFORCE_LOGIN_SESSION_ID);
-                int sessionValidityInSeconds = Integer.parseInt((String) axis2smc.getAxis2MessageContext().getOperationContext()
-                        .getProperty(SalesforceUtil.SALESFORCE_LOGIN_SESSION_VALIDITY));
-                String serviceUrl = (String) axis2smc.getAxis2MessageContext().getOperationContext().getProperty(SalesforceUtil.SALESFORCE_SERVICE_URL);
+                String sessionValidity = (String) axis2smc.getAxis2MessageContext().getOperationContext()
+                        .getProperty(SalesforceUtil.SALESFORCE_LOGIN_SESSION_VALIDITY);
 
-                SessionInfo sessionInfo = new SessionInfo();
-                sessionInfo.setSessionId(sessionId);
-                sessionInfo.setServiceUrl(serviceUrl);
-                sessionInfo.setSessionValidityInSeconds(sessionValidityInSeconds);
-                sessionInfo.setSessionCreatedTimeInSeconds((int) (System.currentTimeMillis() / 1000));
+                // If we can't figure out the session validity no point in adding to the session store.
+                if (sessionValidity != null && !sessionValidity.isEmpty()){
+                    int sessionValidityInSeconds = Integer.parseInt((String) axis2smc.getAxis2MessageContext().getOperationContext()
+                            .getProperty(SalesforceUtil.SALESFORCE_LOGIN_SESSION_VALIDITY));
+                    String serviceUrl = (String) axis2smc.getAxis2MessageContext().getOperationContext().getProperty(SalesforceUtil.SALESFORCE_SERVICE_URL);
 
-                cacheMap.put(getSfLoginHash(messageContext), sessionInfo);
-                return;
+                    SessionInfo sessionInfo = new SessionInfo();
+                    sessionInfo.setSessionId(sessionId);
+                    sessionInfo.setServiceUrl(serviceUrl);
+                    sessionInfo.setSessionValidityInSeconds(sessionValidityInSeconds);
+                    sessionInfo.setSessionCreatedTimeInSeconds((int) (System.currentTimeMillis() / 1000));
+
+                    cacheMap.put(getSfLoginHash(messageContext), sessionInfo);
+                    return;
+                }
             }
 
             // Set the force login
