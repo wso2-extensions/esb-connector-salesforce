@@ -3,7 +3,7 @@
     "owner": "WSO2",
     "category": "Customer Relationship Management",
     "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/salesforce-connectors/sf-overview/",
-    "description": "The Salesforce connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. The connector uses the Salesforce SOAP API to interact with Salesforce.\n\n\nThe Salesforce streaming Inbound Endpoint allows you to perform various operations such as push topics and platform events on Salesforce streaming data via WSO2 EI.",
+    "description": "The Salesforce connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. The connector uses the Salesforce SOAP API to interact with Salesforce.",
     "status": "Active",
     "labels": [
         "CRM",
