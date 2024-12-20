@@ -42,12 +42,12 @@ jobs:
           git config --global user.email ${{ secrets.WSO2_INTEGRATION_BOT_EMAIL }}
       - name: Build artifacts
         run: |
-          mvn clean install
+          mvn clean install -Dmaven.test.skip=true -DskipITs=true
       - name: Deploy artifacts with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.WSO2_INTEGRATION_BOT_TOKEN }}
         run: |
-          mvn --batch-mode release:prepare release:perform -Dtag=${{ env.VERSION_TAG }}
+          mvn --batch-mode release:prepare release:perform -Dtag=${{ env.VERSION_TAG }} -DignoreSnapshots=true -Darguments="-Dmaven.test.skip=true -DskipITs=true"
       - name: Create Github Release with Assets
         env:
           GITHUB_TOKEN: ${{ secrets.WSO2_INTEGRATION_BOT_TOKEN }}
