@@ -48,6 +48,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WSO2_INTEGRATION_BOT_TOKEN }}
         run: |
           mvn --batch-mode release:prepare release:perform -Dtag=${{ env.VERSION_TAG }} -DignoreSnapshots=true -Darguments="-Dmaven.test.skip=true -DskipITs=true"
+      - name: Check
+        run: |
+          ls -R target/
       - name: Create Github Release with Assets
         env:
           GITHUB_TOKEN: ${{ secrets.WSO2_INTEGRATION_BOT_TOKEN }}
