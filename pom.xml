@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.integration.connector</groupId>
     <artifactId>mi-connector-salesforce</artifactId>
-    <version>2.1.5-SNAPSHOT</version>
+    <version>2.1.5</version>
     <packaging>jar</packaging>
     <name>WSO2 Carbon - Mediation Library Connector For Salesforce</name>
     <url>http://wso2.org</url>
@@ -220,7 +220,7 @@
         <connection>scm:git:https://github.com/wso2-extensions/esb-connector-salesforce.git</connection>
         <url>https://github.com/wso2-extensions/esb-connector-salesforce.git</url>
         <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-salesforce</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v2.1.5</tag>
     </scm>
     <build>
         <plugins>
