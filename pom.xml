@@ -247,9 +247,9 @@
                 <executions>
                     <execution>
                         <id>email-library</id>
-                        <phase>single</phase>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>attached</goal>
+                            <goal>single</goal>
                         </goals>
                         <configuration>
                             <finalName>${connector.name}-connector-${version}</finalName>
