@@ -18,6 +18,7 @@
         {
             "tagName": "v2.1.2",
             "products": [
+                "MI 4.4.0",
                 "MI 1.2.0",
                 "MI 4.3.0",
                 "MI 4.2.0",
@@ -26,144 +27,144 @@
             ],
             "operations": [
                 {
-                    "name":"init",
-                    "description":"Login synapse library",
-                    "isHidden":true
+                    "name": "init",
+                    "description": "Login synapse library",
+                    "isHidden": true
                 },
                 {
-                    "name":"logout",
-                    "description":"Logout synapse library",
-                    "isHidden":false
+                    "name": "logout",
+                    "description": "Logout synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"query",
-                    "description":"Query (SQL) synapse library",
-                    "isHidden":false
+                    "name": "query",
+                    "description": "Query (SQL) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"queryAll",
-                    "description":"Query all (SQL) synapse library",
-                    "isHidden":false
+                    "name": "queryAll",
+                    "description": "Query all (SQL) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"queryMore",
-                    "description":"Query more synapse library",
-                    "isHidden":false
+                    "name": "queryMore",
+                    "description": "Query more synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"create",
-                    "description":"Insert sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "create",
+                    "description": "Insert sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"update",
-                    "description":"Update or update sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "update",
+                    "description": "Update or update sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"upsert",
-                    "description":"Insert or update sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "upsert",
+                    "description": "Insert or update sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"delete",
-                    "description":"Delete sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "delete",
+                    "description": "Delete sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"search",
-                    "description":"Search using SOSL synapse library",
-                    "isHidden":false
+                    "name": "search",
+                    "description": "Search using SOSL synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"emptyRecycleBin",
-                    "description":"Empty RecycleBin synapse library",
-                    "isHidden":false
+                    "name": "emptyRecycleBin",
+                    "description": "Empty RecycleBin synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"undelete",
-                    "description":"Restore sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "undelete",
+                    "description": "Restore sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"describeSObject",
-                    "description":"Describe SObject synapse library",
-                    "isHidden":false
+                    "name": "describeSObject",
+                    "description": "Describe SObject synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"describeSObjects",
-                    "description":"Describe SObjects synapse library",
-                    "isHidden":false
+                    "name": "describeSObjects",
+                    "description": "Describe SObjects synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"describeGlobal",
-                    "description":"Describe global synapse library",
-                    "isHidden":false
+                    "name": "describeGlobal",
+                    "description": "Describe global synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"setPassword",
-                    "description":"Set password synapse library",
-                    "isHidden":false
+                    "name": "setPassword",
+                    "description": "Set password synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"sendEmailMessage",
-                    "description":"Send email message synapse library",
-                    "isHidden":false
+                    "name": "sendEmailMessage",
+                    "description": "Send email message synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"sendEmail",
-                    "description":"Send email synapse library",
-                    "isHidden":false
+                    "name": "sendEmail",
+                    "description": "Send email synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"retrieve",
-                    "description":"Retrieve synapse library",
-                    "isHidden":false
+                    "name": "retrieve",
+                    "description": "Retrieve synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"resetPassword",
-                    "description":"Reset Password synapse library",
-                    "isHidden":false
+                    "name": "resetPassword",
+                    "description": "Reset Password synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getUserInfo",
-                    "description":"Get User Information synapse library",
-                    "isHidden":false
+                    "name": "getUserInfo",
+                    "description": "Get User Information synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getDeleted",
-                    "description":"Get Deleted Records synapse library",
-                    "isHidden":false
+                    "name": "getDeleted",
+                    "description": "Get Deleted Records synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getUpdated",
-                    "description":"Get Updated Records synapse library",
-                    "isHidden":false
+                    "name": "getUpdated",
+                    "description": "Get Updated Records synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getServerTimestamp",
-                    "description":"Get Server Timestamp synapse library",
-                    "isHidden":false
+                    "name": "getServerTimestamp",
+                    "description": "Get Server Timestamp synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"findDuplicates",
-                    "description":"Find duplicates for a set of sObjects synapse library",
-                    "isHidden":false
+                    "name": "findDuplicates",
+                    "description": "Find duplicates for a set of sObjects synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"findDuplicatesByIds",
-                    "description":"Find duplicates for a set of sObjects using record ids synapse library",
-                    "isHidden":false
+                    "name": "findDuplicatesByIds",
+                    "description": "Find duplicates for a set of sObjects using record ids synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"merge",
-                    "description":"Merge and update a set of sObjects based on object id synapse library",
-                    "isHidden":false
+                    "name": "merge",
+                    "description": "Merge and update a set of sObjects based on object id synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"convertLead",
-                    "description":"Convert a set of leads synapse library",
-                    "isHidden":false
+                    "name": "convertLead",
+                    "description": "Convert a set of leads synapse library",
+                    "isHidden": false
                 }
             ],
             "connections": [
@@ -185,144 +186,144 @@
             ],
             "operations": [
                 {
-                    "name":"init",
-                    "description":"Login synapse library",
-                    "isHidden":true
+                    "name": "init",
+                    "description": "Login synapse library",
+                    "isHidden": true
                 },
                 {
-                    "name":"logout",
-                    "description":"Logout synapse library",
-                    "isHidden":false
+                    "name": "logout",
+                    "description": "Logout synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"query",
-                    "description":"Query (SQL) synapse library",
-                    "isHidden":false
+                    "name": "query",
+                    "description": "Query (SQL) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"queryAll",
-                    "description":"Query all (SQL) synapse library",
-                    "isHidden":false
+                    "name": "queryAll",
+                    "description": "Query all (SQL) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"queryMore",
-                    "description":"Query more synapse library",
-                    "isHidden":false
+                    "name": "queryMore",
+                    "description": "Query more synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"create",
-                    "description":"Insert sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "create",
+                    "description": "Insert sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"update",
-                    "description":"Update or update sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "update",
+                    "description": "Update or update sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"upsert",
-                    "description":"Insert or update sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "upsert",
+                    "description": "Insert or update sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"delete",
-                    "description":"Delete sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "delete",
+                    "description": "Delete sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"search",
-                    "description":"Search using SOSL synapse library",
-                    "isHidden":false
+                    "name": "search",
+                    "description": "Search using SOSL synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"emptyRecycleBin",
-                    "description":"Empty RecycleBin synapse library",
-                    "isHidden":false
+                    "name": "emptyRecycleBin",
+                    "description": "Empty RecycleBin synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"undelete",
-                    "description":"Restore sObject(s) synapse library",
-                    "isHidden":false
+                    "name": "undelete",
+                    "description": "Restore sObject(s) synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"describeSObject",
-                    "description":"Describe SObject synapse library",
-                    "isHidden":false
+                    "name": "describeSObject",
+                    "description": "Describe SObject synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"describeSObjects",
-                    "description":"Describe SObjects synapse library",
-                    "isHidden":false
+                    "name": "describeSObjects",
+                    "description": "Describe SObjects synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"describeGlobal",
-                    "description":"Describe global synapse library",
-                    "isHidden":false
+                    "name": "describeGlobal",
+                    "description": "Describe global synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"setPassword",
-                    "description":"Set password synapse library",
-                    "isHidden":false
+                    "name": "setPassword",
+                    "description": "Set password synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"sendEmailMessage",
-                    "description":"Send email message synapse library",
-                    "isHidden":false
+                    "name": "sendEmailMessage",
+                    "description": "Send email message synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"sendEmail",
-                    "description":"Send email synapse library",
-                    "isHidden":false
+                    "name": "sendEmail",
+                    "description": "Send email synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"retrieve",
-                    "description":"Retrieve synapse library",
-                    "isHidden":false
+                    "name": "retrieve",
+                    "description": "Retrieve synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"resetPassword",
-                    "description":"Reset Password synapse library",
-                    "isHidden":false
+                    "name": "resetPassword",
+                    "description": "Reset Password synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getUserInfo",
-                    "description":"Get User Information synapse library",
-                    "isHidden":false
+                    "name": "getUserInfo",
+                    "description": "Get User Information synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getDeleted",
-                    "description":"Get Deleted Records synapse library",
-                    "isHidden":false
+                    "name": "getDeleted",
+                    "description": "Get Deleted Records synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getUpdated",
-                    "description":"Get Updated Records synapse library",
-                    "isHidden":false
+                    "name": "getUpdated",
+                    "description": "Get Updated Records synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"getServerTimestamp",
-                    "description":"Get Server Timestamp synapse library",
-                    "isHidden":false
+                    "name": "getServerTimestamp",
+                    "description": "Get Server Timestamp synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"findDuplicates",
-                    "description":"Find duplicates for a set of sObjects synapse library",
-                    "isHidden":false
+                    "name": "findDuplicates",
+                    "description": "Find duplicates for a set of sObjects synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"findDuplicatesByIds",
-                    "description":"Find duplicates for a set of sObjects using record ids synapse library",
-                    "isHidden":false
+                    "name": "findDuplicatesByIds",
+                    "description": "Find duplicates for a set of sObjects using record ids synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"merge",
-                    "description":"Merge and update a set of sObjects based on object id synapse library",
-                    "isHidden":false
+                    "name": "merge",
+                    "description": "Merge and update a set of sObjects based on object id synapse library",
+                    "isHidden": false
                 },
                 {
-                    "name":"convertLead",
-                    "description":"Convert a set of leads synapse library",
-                    "isHidden":false
+                    "name": "convertLead",
+                    "description": "Convert a set of leads synapse library",
+                    "isHidden": false
                 }
             ],
             "connections": [
