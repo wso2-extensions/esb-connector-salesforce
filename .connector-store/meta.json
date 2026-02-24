@@ -1,12 +1,12 @@
 {
-    "name": "Salesforce",
+    "name": "Salesforce SOAP",
     "owner": "WSO2",
     "product": "MI",
     "category": "Customer Relationship Management",
     "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/salesforce-connectors/sf-overview/",
     "mavenGroupId": "org.wso2.integration.connector",
     "mavenArtifactId": "mi-connector-salesforce",
-    "description": "The Salesforce connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. The connector uses the Salesforce SOAP API to interact with Salesforce.",
+    "description": "The Salesforce connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage contact relationship management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data. The connector uses the Salesforce SOAP API to interact with Salesforce.\n\nFrom MI 4.4.0 onwards, Salesforce REST, SOAP, and Bulk API related operations are included in a single Salesforce connector and maintained in the https://github.com/wso2-extensions/esb-connector-salesforcerest repository.",
     "status": "Active",
     "rank": 15,
     "type": "Connector",
@@ -23,8 +23,7 @@
                 "MI 4.3.0",
                 "MI 4.2.0",
                 "MI 4.1.0",
-                "MI 4.0.0",
-                "MI 4.5.0"
+                "MI 4.0.0"
             ],
             "operations": [
                 {
